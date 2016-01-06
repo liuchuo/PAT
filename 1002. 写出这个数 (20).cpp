@@ -1,4 +1,3 @@
-/*
 1002. 写出这个数 (20)
 
 时间限制
@@ -21,7 +20,9 @@ CHEN, Yue
 1234567890987654321123456789
 输出样例：
 yi san wu
-*/
+
+
+
 #include <iostream>
 #include <string>
 using namespace std;
