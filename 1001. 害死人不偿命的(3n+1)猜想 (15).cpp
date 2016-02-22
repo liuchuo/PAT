@@ -32,21 +32,13 @@ int main() {
     int n;
     cin >> n;
     int count = 0;
-    if (n == 1)
-        cout << "2";
-    else {
-        while (n != 1) {
-            if (n % 2 == 0) {
-                n = n / 2;
-                count++;
-            }
-            else {
-                n = 3 * n + 1;
-                n = n / 2;
-                count++;
-            }
+    while (n != 1) {
+        if (n % 2 != 0) {
+            n = 3 * n + 1;
         }
-        cout << count;
+        n = n / 2;
+        count++;
     }
+    cout << count;
     return 0;
 }
