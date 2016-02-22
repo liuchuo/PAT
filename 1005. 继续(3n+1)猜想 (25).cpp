@@ -40,24 +40,25 @@ int main() {
         cin >> a[i];
     }
     int t;
+    sort(a, a + n, cmp);
     for (int i = 0; i < n; i++) {
         t = a[i];
-        while (t != 1 && t != 101) {
+        while (t != 1 && t != 999) {
             if (t % 2 == 0) {
                 t = t / 2;
             } else {
                 t = (t * 3 + 1) / 2;
             }
             for (int j = 0; j < n; j++) {
-                if(t == a[j] && j != i && t != 1)
-                    a[j] = 101;
+                if(t == a[j] && j != i)
+                    a[j] = 999;
             }
         }
     }
     sort(a, a + n, cmp);
     int temp = 0;
     for (int k = n - 1; k >= 0; k--) {
-        if (a[k] != 101)
+        if (a[k] != 999)
             temp = k;
     }
     for (int m = temp; m < n - 1; m++) {
