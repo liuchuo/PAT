@@ -25,21 +25,18 @@ using namespace std;
 int main() {
     int a, b;
     int flag = 0;
-    if (cin >> a >> b) {
-        flag = 1;
-        if (b == 0) {
-            cout << "0 0";
-            return 0;
-        }
-        cout << a * b << " " << b - 1;
-    }
     while (cin >> a >> b) {
         if (b == 0) {
+            if (flag == 0) 
+                cout << "0 0";//要是第一次输出就是b = 0的情况，那直接0 0
             return 0;
         }
-        cout << " " << a * b << " " << b - 1;
+        if (flag == 1)
+            cout << " ";//不是第一次输出了 那前面就加一个空格
+        cout << a * b << " " << b - 1;
+        flag = 1;
     }
-    if (flag == 0)
+    if (flag == 0) //如果没有输入，就要输出0 0
         cout << "0 0";
     return 0;
 }
