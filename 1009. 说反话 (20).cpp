@@ -21,6 +21,49 @@ Hello World Here I Come
 输出样例：
 Come I Here World Hello
 
+update: v3.0
+#include <iostream>
+#include <stack>
+using namespace std;
+int main() {
+    stack<string> s;
+    string a;
+    while(cin >> a) {
+        s.push(a);
+    }
+    cout << s.top();
+    s.pop();
+    while(!s.empty()) {
+        cout << " " << s.top();
+        s.pop();
+    }
+    return 0;
+}
+
+
+
+update: v2.0
+#include <iostream>
+using namespace std;
+int main() {
+    string s;
+    getline(cin, s);
+    int len = s.length();
+    int p = len;
+    for (int i = len - 1; i >= 0; i--) {
+        if (s[i] == ' ') {
+            for (int j = i + 1; j <= p - 1; j++) {
+                cout << s[j];
+            }
+            cout << " ";
+            p = i;
+        }
+    }
+    for (int i = 0; i <= p - 1; i++) {
+        cout << s[i];
+    }
+    return 0;
+}
 
 
 
@@ -30,7 +73,7 @@ using namespace std;
 
 int main() {
     string s;
-    getline(cin, s);
+    getline(cin, s);//读取一行有空格的字符串 用getline(cin, s);
     int len = s.length();
     int count = 1;
     for (int i = 0; i < len; i++) {
