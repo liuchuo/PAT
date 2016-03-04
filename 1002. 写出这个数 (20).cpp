@@ -22,6 +22,7 @@ CHEN, Yue
 yi san wu
 
 update-v2.0:
+string是类,printf()只能打印基本类型。
 
 #include <iostream>
 using namespace std;
