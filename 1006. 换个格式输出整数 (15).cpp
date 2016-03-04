@@ -33,6 +33,7 @@ int main() {
     cin >> a;
     int i = 0;
     int b[3] = {0};
+    //计算每一位数
     while (a != 0) {
         b[i++] = a % 10;
         a = a / 10;
