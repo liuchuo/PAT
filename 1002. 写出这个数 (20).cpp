@@ -21,8 +21,40 @@ CHEN, Yue
 输出样例：
 yi san wu
 
+update-v2.0:
+
+#include <iostream>
+using namespace std;
+int main() {
+    string chinese[10] = {"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"};
+    string s;
+    cin >> s;
+    int len = s.length();
+    int sum = 0;
+    for (int i = 0; i < len; i++) {
+        sum = s[i] - '0' + sum;
+    }
+    int *a = new int [len];
+    int t = 0;
+    if (sum == 0) {
+        cout << chinese[0];
+        return 0;
+    }
+    while (sum != 0) {
+        a[t++] = sum % 10;
+        sum = sum / 10;
+    }
+    for (int i = t - 1; i >= 0; i--) {
+        cout << chinese[a[i]];
+        if(i != 0)
+            printf(" ");
+    }
+    delete [] a;
+    return 0;
+}
 
 
+//以前写的方法。现在想来太傻了。。
 #include <iostream>
 #include <string>
 using namespace std;
