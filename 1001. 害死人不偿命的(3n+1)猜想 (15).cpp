@@ -25,6 +25,7 @@ CHEN, Yue
 输出样例：
 5
 
+当n = 1时，count = 0;
 
 #include <iostream>
 using namespace std;
