@@ -36,10 +36,10 @@ int func(string str);
 int main() {
     int n;
     cin >> n;
-    getchar();
+    getchar(); //读入n后要用getchar读走空格
     string *s = new string [n];
     for (int i = 0; i < n; i++) {
-        getline(cin,s[i]);
+        getline(cin, s[i]); //读入一整行的字符串，用getline(cin, string x);
     }
     int *t = new int [n];
     for (int i = 0; i < n; i++) {
@@ -71,19 +71,25 @@ int func(string str) {
             return 0;
         }
         if (str[i] == 'P') {
+            // 找到P之后，P前面的所有字母只能是A，如果不是A，就return 0;
             for (int j = 0; j < i; j++) {
                 if (str[j] != 'A')
                     return 0;
             }
+            // P之后的一个字母也必然是A，如果不是，直接return 0;
             if (str [i + 1] != 'A')
                 return 0;
+
             for (int k = i + 2; k < len; k++) {
                 if (str[k] != 'A') {
+                    // P后面若干个A，如果A结束后的第一个字母不是T，不符合直接return 0;
                     if (str[k] != 'T') {
                         return 0;
                     }
+                    // k是当前T的位置 如果T后面的字符长度不是P前面字符长度的 k - 1 - i倍，错误直接return 0;
                     if ((len - 1 - k) != ((k - 1 - i) * i))
                         return 0;
+                    // 如果T后面的字母有不是A的。直接return 0;
                     for (int m = k + 1; m < len; m++) {
                         if (str[m] != 'A')
                             return 0;
@@ -92,5 +98,6 @@ int func(string str) {
             }
         }
     }
+    // 如果有幸到了这一步，那就是正确的啦。return 1;
     return 1;
 }
