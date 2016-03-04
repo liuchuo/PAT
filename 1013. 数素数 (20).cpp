@@ -52,8 +52,6 @@ int main() {
     for (int i = row * 10 + 1; i < j; i++) {
         cout << a[i] << " ";
     }
-    cout << a[j];
-    
-    
+    cout << a[j]; 
     return 0;
 }
