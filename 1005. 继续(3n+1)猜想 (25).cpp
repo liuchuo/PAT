@@ -51,14 +51,14 @@ int main() {
             }
             for (int j = 0; j < n; j++) {
                 if(t == a[j] && j != i)
-                    a[j] = 999;
+                    a[j] = 999;//相同的数字变为999
             }
         }
     }
-    sort(a, a + n, cmp);
+    sort(a, a + n, cmp);//999排序后到了最前面
     int temp = 0;
     for (int k = n - 1; k >= 0; k--) {
-        if (a[k] != 999)
+        if (a[k] != 999)//第一个不等于999的下标为temp
             temp = k;
     }
     for (int m = temp; m < n - 1; m++) {
