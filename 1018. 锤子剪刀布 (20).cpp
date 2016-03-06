@@ -43,7 +43,6 @@ J J
 B B
 
 
-
 #include <iostream>
 using namespace std;
 
@@ -92,34 +91,17 @@ int main() {
     }
     cout << jiawin << " " << n - jiawin - yiwin << " " << yiwin << endl;
     cout << yiwin << " " << n - jiawin - yiwin << " " << jiawin << endl;
-    int maxjia = 0;
-    if (jia[0] < jia[1]) {
-        maxjia = 1;
-        if (jia[1] < jia[2])
-            maxjia = 2;
-    }
-    else {
-        if (jia[0] < jia[2]) {
-            maxjia = 2;
-        }
-    }
-    int maxyi = 0;
-    if (yi[0] < yi[1]) {
-        maxyi = 1;
-        if (yi[1] < yi[2])
-            maxyi = 2;
-    }
-    else {
-        if (yi[0] < yi[2]) {
-            maxyi = 2;
-        }
-    }
-    if (maxjia == 0) cout << "B";
-    if (maxjia == 1) cout << "C";
-    if (maxjia == 2) cout << "J";
-    cout << " ";
-    if (maxyi == 0) cout << "B";
-    if (maxyi == 1) cout << "C";
-    if (maxyi == 2) cout << "J";
+
+    int temp = jia[0] >= jia[1] ? jia[0] : jia[1];
+    int maxjia = jia[0] >= jia[1] ? 0 : 1;
+    maxjia = temp >= jia[2] ? maxjia : 2;
+    
+    temp = yi[0] >= yi[1] ? yi[0] : yi[1];
+    int maxyi = yi[0] >= yi[1] ? 0 : 1;
+    maxyi = temp >= yi[2] ? maxyi : 2;
+    
+    char c[3] = {'B', 'C', 'J'};
+    cout << c[maxjia] << " " << c[maxyi];
+
     return 0;
 }
