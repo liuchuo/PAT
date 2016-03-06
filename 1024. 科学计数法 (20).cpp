@@ -39,21 +39,23 @@ int main() {
     string s;
     cin >> s;
     int len = s.length();
+    // 输出第1位符号
     if (s[0] == '-')
         cout << "-";
-    
+    // 找到E的位置，标记为pose = i;
     int pose = 0;
     for (int i = 1; i < len; i++) {
         if (s[i] == 'E')
             pose = i;
     }
-    
+    // 把E后面的字符串数转化为after的数值
     int after = 0;
     for (int i = pose + 2; i < len; i++) {
         after = (s[i] - '0') + 10 * after;
     }
-    
+    // 如果E后面的那个符号是负号‘-’
     if (s[pose + 1] == '-') {
+
         if (0 < after) {
             cout << "0.";
             for (int i = 1; i < after; i++) {
@@ -64,18 +66,16 @@ int main() {
                     cout << s[i];
                 }
             }
+        // if (after == 0)
         } else {
-            for (int i = 1; i < pose; i++) {
-                if (i == 2 - after) {
-                    cout << ".";
-                }
-                if (s[i] >= '0' && s[i] <= '9') {
-                    cout << s[i];
-                }
+            for (int i = 0; i < pose; i++) {
+                cout << s[i];
             }
         }
     }
+    // 如果E后面的那个符号是‘+’
     else {
+        // 如果要在后面添加0
         if (pose - 3 < after) {
             if (s[1] != '0')
                 cout << s[1];
@@ -88,6 +88,7 @@ int main() {
                 cout << 0;
             }
         }
+        // 如果不用再后面添加0
         else {
             if (s[1] != '0')
                 cout << s[1];
