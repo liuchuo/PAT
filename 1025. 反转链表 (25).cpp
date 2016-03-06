@@ -60,6 +60,7 @@ using namespace std;
 int main() {
     int first, k, n;
     cin >> first >> n >> k;
+    // 把地址为temp的数的数值存入data[temp]中，把temp的下一个结点的地址存入next[temp]中。
     int temp;
     int data[100005];
     int next[100005];
