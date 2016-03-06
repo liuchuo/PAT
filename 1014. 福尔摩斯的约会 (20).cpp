@@ -36,6 +36,7 @@ int main() {
     int lenc = c.length();
     int lend = d.length();
     int min2 = lenc < lend ? lenc : lend;
+    string weekday[7] = {"MON ", "TUE ", "WED ", "THU ", "FRI ", "SAT ", "SUN "};
     char t[2];
     int pos;
     int j;
@@ -60,23 +61,14 @@ int main() {
             break;
         }
     }
-    string e;
-    switch(t[0]) {
-        case 'A' : e = "MON "; break;
-        case 'B' : e = "TUE "; break;
-        case 'C' : e = "WED "; break;
-        case 'D' : e = "THU "; break;
-        case 'E' : e = "FRI "; break;
-        case 'F' : e = "SAT "; break;
-        case 'G' : e = "SUN "; break;
-    }
+
     int m;
     if (t[1] >= '0' && t[1] <= '9') {
         m = t[1] - '0';
     } else {
         m = t[1] - 'A' + 10;
     }
-    cout << e;
+    cout << weekday[t[0] - 'A'];
     if (m >= 0 && m <= 9) {
         cout << 0 << m << ":";
     } else {
