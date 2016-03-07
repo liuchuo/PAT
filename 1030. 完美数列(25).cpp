@@ -30,9 +30,6 @@ CAO, Peng
 #include <iostream>
 #include <algorithm>
 using namespace std;
-int cmp(int a, int b) {
-    return a < b;
-}
 
 int main() {
     int n;
@@ -45,14 +42,14 @@ int main() {
     long long int *a = new long long int [n];
     for (int i = 0; i < n; i++)
         cin >> a[i];
-    sort(a, a+n, cmp);
+    sort(a, a+n);
     int result = 1;
     int temp = 1;
     for (int i = 0; i <= n - 2; i++) {
-        for (int j = i + result; j <= n - 1; j++) {
+        for (int j = i + result; j <= n - 1; j++) {//因为是为了找最大的result，所以下一次j只要从i的result个后面开始找就行了
             if (a[j] <= a[i] * p) {
-                temp = j - i + 1;
-                if (temp > result) {
+                temp = j - i + 1;//计算有多少个数满足
+                if (temp > result) { //如果比result中存储的大，就更新result的值
                     result = temp;
                 }
             } else {
