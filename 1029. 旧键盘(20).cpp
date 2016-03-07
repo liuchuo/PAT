@@ -24,10 +24,8 @@ _hs_s_a_es
 #include <string>
 using namespace std;
 int main() {
-    string a;
-    string b;
-    cin >> a;
-    cin >> b;
+    string a, b;
+    cin >> a >> b;
     int lena = a.length();
     int lenb = b.length();
     char c[80];
@@ -35,12 +33,14 @@ int main() {
     int t = 0;
     for (int i = 0; i < lena; i++) {
         flag = 0;
+        // 找b字符串中有没有i对应的这个字母。，如果有，flag == 1
         for (int j = 0; j < lenb; j++) {
             if (a[i] == b[j]) {
                 flag = 1;
                 break;
             }
         }
+        // 并没有找到满足条件的字母，就把它存储在c数组里面
         if (flag == 0) {
             if (a[i] >= 'a' && a[i] <= 'z') {
                 c[t++] = a[i] - 32;
@@ -50,7 +50,7 @@ int main() {
             }
         }
     }
-    
+    // 去重，搜索i之前的所有字符有没有和i相同的，如果有，那么把i（后面一个字符）标为‘#’，这样才能保证字符的顺序是和给出的字符串顺序一致
     for (int i = 1; i < t; i++) {
         for (int j = 0; j < i; j++) {
             if (c[i] == c[j]) {
@@ -59,6 +59,7 @@ int main() {
             }
         }
     }
+    // 输出所有不是‘#’的字符。
     for (int i = 0; i < t; i++) {
         if (c[i] != '#')
             cout << c[i];
