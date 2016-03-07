@@ -36,7 +36,7 @@ CHEN, Yue
 
 
 #include <iostream>
-
+#include <cstdio>
 using namespace std;
 
 int main() {
@@ -48,20 +48,14 @@ int main() {
     } else {
         n = n / 10;
     }
+
     int hour = 0, minute = 0, second = 0;
     hour = n / 3600;
     n = n % 3600;
     minute = n / 60;
     n = n % 60;
     second = n;
-    if (hour <= 9)
-        cout << 0;
-    cout << hour << ":";
-    if (minute <= 9)
-        cout << 0;
-    cout << minute << ":";
-    if (second <= 9)
-        cout << 0;
-    cout << second;
+
+    printf("%02d:%02d:%02d", hour, minute, second);
     return 0;
 }
