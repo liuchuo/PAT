@@ -49,7 +49,17 @@ struct person {
     int flag = 0;
 };
 
-int cmp(person a, person b);
+// 按照年龄从大到小来排列
+int cmp(person a, person b) {
+    if (a.year != b.year)
+        return a.year < b.year;
+    else {
+        if (a.month != b.month)
+            return a.month < b.month;
+        else
+            return a.day < b.day;
+    }
+}
 
 int main() {
     int n;
@@ -59,7 +69,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> a[i].name;
         scanf("%d/%d/%d",&a[i].year, &a[i].month, &a[i].day);
-        if (a[i].year > 2014 || (a[i].year == 2014 && a[i].month > 9) ||(a[i].year == 2014 && a[i].month ==9 && a[i].day > 6) || a[i].year < 1814 || (a[i].year == 1814 && a[i].month < 9) || (a[i].year == 1814 && a[i].month == 9 && a[i].day < 6)) {
+        // 把不满足的人的结构体内的flag值设为1，满足的进行计数
+        if (a[i].year > 2014 || (a[i].year == 2014 && a[i].month > 9) ||(a[i].year == 2014 && a[i].month ==9 && a[i].day > 6) 
+            || a[i].year < 1814 || (a[i].year == 1814 && a[i].month < 9) || (a[i].year == 1814 && a[i].month == 9 && a[i].day < 6)) {
             a[i].flag = 1;
         } else {
             count++;
@@ -70,14 +82,14 @@ int main() {
         cout << " ";
   
     sort(a, a + n, cmp);
-    
+    // 输出最年长的人的名字，从i = 0开始搜索flag == 0的，找到了就直接break退出
     for (int i = 0; i < n; i++) {
         if (a[i].flag == 0) {
             cout << a[i].name << " ";
             break;
         }
     }
-    
+    // 输出最年轻的人的名字，从i = n - 1开始搜索flag == 0的，找到了就直接break退出
     for (int i = n - 1; i >= 0; i--) {
         if (a[i].flag == 0) {
             cout << a[i].name;
@@ -86,15 +98,4 @@ int main() {
     }
     delete [] a;
     return 0;
-}
-
-int cmp(person a, person b) {
-    if (a.year != b.year)
-        return a.year < b.year;
-    else {
-        if (a.month != b.month)
-            return a.month < b.month;
-        else
-            return a.day < b.day;
-    }
 }
