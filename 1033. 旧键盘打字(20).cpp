@@ -27,6 +27,11 @@ CHEN, Yue
 输出样例：
 _hs_s_a_tst
 
+如果没有一个字符能被打出，则输出空行。
+如果没有一个字符能被打出，则输出空行。
+如果没有一个字符能被打出，则输出空行。
+重要的事情要说三遍！！
+
 #include <iostream>
 using namespace std;
 int main() {
