@@ -22,6 +22,40 @@ redlesPayBestPATTopTeePHPereatitAPPT
 输出样例：
 PATestPATestPTetPTePePee
 
+
+update: v2.0
+#include <iostream>
+#include <string>
+#include <map>
+using namespace std;
+
+int main() {
+    map<char, int> a {
+        {'P', 0}, {'A', 0}, {'T', 0}, {'e', 0}, {'s', 0}, {'t', 0}
+    };
+    string s;
+    cin >> s;
+    int len = s.length();
+    for (int i = 0; i < len; i++) {
+        if (s[i] == 'P' || s[i] == 'A' || s[i] == 'T'
+            || s[i] == 'e' || s[i] == 's' || s[i] == 't') {
+            a[s[i]]++;
+        }
+    }
+    
+    while(a['P'] != 0 || a['A'] != 0 || a['T'] != 0 || a['e'] != 0 || a['s'] != 0 || a['t'] != 0) {
+        if(a['P'] != 0) {cout << "P"; a['P']--;}
+        if(a['A'] != 0) {cout << "A"; a['A']--;}
+        if(a['T'] != 0) {cout << "T"; a['T']--;}
+        if(a['e'] != 0) {cout << "e"; a['e']--;}
+        if(a['s'] != 0) {cout << "s"; a['s']--;}
+        if(a['t'] != 0) {cout << "t"; a['t']--;}
+    }
+    return 0;
+}
+
+
+
 #include <iostream>
 #include <string>
 using namespace std;
