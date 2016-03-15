@@ -64,7 +64,7 @@ int cmp(struct node a, struct node b) {
 }
 
 int main() {
-    int n, k;
+    int n, k, m;
     cin >> n >> k;
     struct node *stu = new struct node [n];
     int i, j;
@@ -74,47 +74,30 @@ int main() {
     }
     sort(stu, stu + n, cmp);
     
-    // 最后一排的人数
-    int m = n - n / k * (k - 1);
-    //处理最后一排
-    string *sbehind = new string [m];
-    // 最后一排的左边排列
-    j = m / 2 - 1;
-    sbehind[m / 2] = stu[0].name;
-    for(i = 1; i < m; i = i + 2) {
-        sbehind[j--] = stu[i].name;
-    }
-    // 最后一排的右边排列
-    j = m / 2 + 1;
-    for(i = 2; i < m; i = i + 2) {
-        sbehind[j++] = stu[i].name;
-    }
-    // 输出最后一排
-    cout << sbehind[0];
-    for(i = 1; i < m; i++) {
-        cout << " " << sbehind[i];
-    }
-    cout << endl;
-    delete [] sbehind;
-    
-    //其他排
-    int t = m;
-    int row = k - 1;
+    int t = 0;
+    int row = k;
     while(row) {
-        row--;
-        m = n / k;
+        if(row == k) {
+            m = n - n / k * (k - 1);
+        } else {
+            m = n / k;
+        }
+        
         string *stemp = new string [m];
         stemp[m / 2] = stu[t].name;
+        
         // 左边一列
         j = m / 2 - 1;
         for(i = t + 1; i < t + m; i = i + 2) {
             stemp[j--] = stu[i].name;
         }
+        
         // 右边一列
         j = m / 2 + 1;
         for(i = t + 2; i < t + m; i = i + 2) {
             stemp[j++] = stu[i].name;
         }
+        
         // 输出当前排
         cout << stemp[0];
         for(i = 1; i < m; i++) {
@@ -122,6 +105,7 @@ int main() {
         }
         cout << endl;
         t = t + m;
+        row--;
         delete [] stemp;//这句话很重要。。。
     }
     delete [] stu;
