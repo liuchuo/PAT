@@ -1,3 +1,4 @@
+<a href="http://www.liuchuo.net/" target="_blank">我的博客</a>
 <div>
 [博客地址:](http://www.liuchuo.net)<br />
 1001	害死人不偿命的(3n+1)猜想 (15) <br />
