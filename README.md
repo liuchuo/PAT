@@ -1,5 +1,6 @@
+[我的博客:](http://www.liuchuo.net)
+
 <div>
-[博客地址:](http://www.liuchuo.net)<br />
 1001	害死人不偿命的(3n+1)猜想 (15) <br />
 1002	写出这个数 (20) <br />
 1003	我要通过！(20) <br />
