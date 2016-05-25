@@ -1,5 +1,4 @@
 1007. 素数对猜想 (20)
-
 时间限制
 400 ms
 内存限制
@@ -23,34 +22,25 @@ CHEN, Yue
 输出样例：
 4
 
-
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-int isprime(int a) {
-    for (int i = 2; i <= sqrt(a); i++) {
+bool isprime(int a) {
+    for (int i = 2; i * i <= a; i++) {
         if (a % i == 0)
-            return 0;
+            return false;
     }
-    return 1;
+    return true;
 }
 
 int main() {
     int N;
     cin >> N;
-    int *a = new int [N / 2];
-    int j = 0;
-    for (int i = 2; i <= N; i++) {
-        if (isprime(i) == 1)
-            a[j++] = i;
+    int cnt = 0;
+    for (int i = 5; i <= N; i++) {
+        if (isprime(i-2) && isprime(i))
+            cnt++;
     }
-    int count = 0;
-    for (int i = 0; i < j - 1; i++) {
-        if (a[i + 1] - a[i] == 2)
-            count++;
-    }
-    cout << count;
-    delete [] a;
+    cout << cnt;
     return 0;
 }
