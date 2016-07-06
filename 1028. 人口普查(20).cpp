@@ -37,65 +37,36 @@ Steve 2007/11/20
 3 Tom John
 
 #include <iostream>
-#include <algorithm>
-#include <string>
 using namespace std;
-
-struct person {
-    string name;
-    int year;
-    int month;
-    int day;
-    int flag = 0;
-};
-
-// 按照年龄从大到小来排列
-int cmp(person a, person b) {
-    if (a.year != b.year)
-        return a.year < b.year;
-    else {
-        if (a.month != b.month)
-            return a.month < b.month;
-        else
-            return a.day < b.day;
-    }
-}
-
 int main() {
     int n;
     cin >> n;
-    person *a = new person [n];
-    int count = 0;
+    string name;
+    int year, month, day, count = 0;
+    int maxyear = 0, maxmonth = 0, maxday = 0, minyear = 9999, minmonth = 9999, minday = 9999;
+    string maxname, minname;
     for (int i = 0; i < n; i++) {
-        cin >> a[i].name;
-        scanf("%d/%d/%d",&a[i].year, &a[i].month, &a[i].day);
-        // 把不满足的人的结构体内的flag值设为1，满足的进行计数
-        if (a[i].year > 2014 || (a[i].year == 2014 && a[i].month > 9) ||(a[i].year == 2014 && a[i].month ==9 && a[i].day > 6) 
-            || a[i].year < 1814 || (a[i].year == 1814 && a[i].month < 9) || (a[i].year == 1814 && a[i].month == 9 && a[i].day < 6)) {
-            a[i].flag = 1;
-        } else {
+        cin >> name;
+        scanf("%d/%d/%d",&year, &month, &day);
+        if((year < 2014 || (year == 2014 && month < 9) || (year == 2014 && month == 9 && day <= 6)) &&
+           (year > 1814 || (year == 1814 && month > 9) || (year == 1814 && month == 9 && day >= 6))) {
             count++;
+            if(year > maxyear || (year == maxyear && month > maxmonth) || (year == maxyear && month == maxmonth && day > maxday)) {
+                maxyear = year;
+                maxmonth = month;
+                maxday = day;
+                maxname = name;
+            }
+            if(year < minyear || (year == minyear && month < minmonth) || (year == minyear && month == minmonth && day < minday)) {
+                minyear = year;
+                minmonth = month;
+                minday = day;
+                minname = name;
+            }
         }
     }
     cout << count;
     if (count != 0)
-        cout << " ";
-  
-    sort(a, a + n, cmp);
-    // 输出最年长的人的名字，从i = 0开始搜索flag == 0的，找到了就直接break退出
-    for (int i = 0; i < n; i++) {
-        if (a[i].flag == 0) {
-            cout << a[i].name << " ";
-            break;
-        }
-    }
-    // 输出最年轻的人的名字，从i = n - 1开始搜索flag == 0的，找到了就直接break退出
-    for (int i = n - 1; i >= 0; i--) {
-        if (a[i].flag == 0) {
-            cout << a[i].name;
-            break;
-        }
-    }
-    delete [] a;
+        cout << " " << minname << " " << maxname;
     return 0;
 }
