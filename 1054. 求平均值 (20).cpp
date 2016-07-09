@@ -39,136 +39,42 @@ ERROR: aaa is not a legal number
 ERROR: -9999 is not a legal number
 The average of 0 numbers is Undefined
 */
+sscanf() - 从一个字符串中读进与指定格式相符的数据
+sprintf() - 字符串格式化命令，主要功能是把格式化的数据写入某个字符串中。
 
 #include <iostream>
-#include <string>
 #include <cstdio>
+#include <string.h>
 using namespace std;
-
 int main() {
-    int n;
+    int n, cnt = 0;
+    char a[50], b[50];
+    double temp, sum = 0.0;
     cin >> n;
-    string s;
-    double average = 0;
-    double aver = 0;
-    int num = 0, flag;
-    for (int i = 0; i < n; i++) {
-        cin >> s;
-        int len = s.length();
-        aver = 0;
-        flag = 0;
-        int j;
-        // 过滤掉所有含有除了数字和小数点外其他字符的非法输入
-        for(j = 1; j < len; j++) {
-            if(!((s[j] >= '0' && s[j] <= '9') || s[j] == '.')) {
-                cout << "ERROR: " << s << " is not a legal number\n";
-                flag = 1;
-                break;
-            }
-        }
-        if(flag == 1) continue;
-        
-        int flag1 = 0;
-        //过滤掉第一位不是数字or负号的
-        if (!((s[0] >= '0' && s[0] <= '9') || s[0] == '-')) {
-            cout << "ERROR: " << s << " is not a legal number\n";
-            continue;
-        }
-        
-        //看是正数还是负数
-        if (s[0] == '-') {
-            flag1 = 1;
-        }
-        
-        // 过滤掉只有一位但不是数字的
-        if (len == 1 && !(s[0] >= '0' && s[0] <= '9')) {
-            cout << "ERROR: " << s << " is not a legal number\n";
-            continue;
-        }
-        
-        // 过滤掉有多个小数点的or多余保留两位数的
-        for(j = 0; j < len; j++) {
-            if(s[j] == '.') {
-                for (int k = j + 1; k < len; k++) {
-                    if(s[k] == '.' || k > j + 2) {
-                        cout << "ERROR: " << s << " is not a legal number\n";
-                        flag = 1;
-                        break;
-                    }
-                }
-            }
-        }
-        if(flag == 1) continue;
-        
-        // 把字符串转化为数字
-        //判断这个字符串有没有小数点 有的话flag = 1
-        for (j = 1; j < len; j++) {
-            if(s[j] == '.') {
+    for(int i = 0; i < n; i++) {
+        scanf("%s", a);
+        sscanf(a, "%lf", &temp);
+        sprintf(b, "%.2lf",temp);
+        int flag = 0;
+        for(int j = 0; j < strlen(a); j++) {
+            if(a[j] != b[j]) {
                 flag = 1;
             }
         }
-        
-        int flag2 = 0;
-        // 有小数点的情况分析
-        if (flag == 1) {
-            if(flag1 == 1)
-                j = 1;
-            else
-                j = 0;
-            for (; j < len; j++) {
-                if (s[j] != '.') {
-                    aver = aver * 10 + (s[j] - '0');
-                }
-                if (s[j] == '.' && (j != len - 1)) {
-                    aver = aver + ((double)(s[j + 1] - '0')) / 10;
-                    if (j == len - 3) {
-                        aver = aver + ((double)(s[j + 2] - '0')) / 100;
-                    }
-                    break;
-                }
-            }
-        }
-        
-        // 没有小数点的情况分析
-        if (flag == 0) {
-            if(flag1 == 1)
-                j = 1;
-            else
-                j = 0;
-            for (; j < len; j++) {
-                aver = aver * 10 + (s[j] - '0');
-            }
-        }
-        
-        //处理负数
-        if(flag1 == 1) {
-            aver = 0 - aver;
-        }
-        
-        if(aver > 1000 || aver < -1000) {
-            cout << "ERROR: " << s << " is not a legal number\n";
+        if(flag || temp < -1000 || temp > 1000) {
+            printf("ERROR: %s is not a legal number\n", a);
             continue;
         } else {
-            average = average + aver;
+            sum += temp;
+            cnt++;
         }
-        // 统计个数
-        num++;
     }
-    
-    if (num >= 1) {
-        average = average / num;
-        if (num != 1) {
-            printf("The average of %d numbers is %.2f", num, average);
-        }
-        else {
-            printf("The average of 1 number is %.2f", average);
-        }
+    if(cnt == 1) {
+        printf("The average of 1 number is %.2lf", sum);
+    } else if(cnt > 1) {
+        printf("The average of %d numbers is %.2lf", cnt, sum / cnt);
     } else {
         printf("The average of 0 numbers is Undefined");
     }
-    
     return 0;
 }
-
-
-
