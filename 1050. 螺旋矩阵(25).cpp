@@ -13,87 +13,54 @@
 53 20 76
 58 60 76
 
-#include <iostream>
 #include <cmath>
+#include <vector>
+#include <cstdio>
 #include <algorithm>
 using namespace std;
 int func(int N) {
-	for (int i = sqrt((double)N); i >= 1; i--) {
-		if (N % i == 0) {
-			return i;
-		}
-	}
-	return 1;
+    int i = sqrt((double)N);
+    while(i >= 1) {
+        if(N % i == 0)
+            return i;
+        i--;
+    }
+    return 1;
 }
 
-int cmp(int a, int b) {
-	return a > b;
-}
+int cmp(int a, int b) {return a > b;}
 
 int main() {
-	int N, m, n;
-	cin >> N;
-	n = func(N);
-	m = N / n;
-	int *a = new int [N];
-	for (int i = 0; i < n; i++) 
-		cin >> a[i];
-	sort(a, a + n, cmp);
-	int **b = new int *[m];
-	for (int i = 0; i < m; i++) 
-		b[i] = new int [n];
-	int level = m / 2;
-	if (m % 2)
-		level++;
-	int t = 0;
-	for (int i = 0; i < level; i++) {
-		
-		for (int j = i; j <= n - 1 - i; j++) {
-			if (t <= N) {
-				b[i][j] = t++;
-			} else {
-				break;
-			}
-		}
-
-		for (int j = i + 1; j <= m - 2 - i; j++) {
-			if (t <= N) {
-				b[j][n - 1 - i] = t++;
-			} else {
-				break;
-			}
-		}
-
-		for (int j = n - i - 1; j >= i; j--) {
-			if (t <= N) {
-				b[m - 1 - i][j] = t++;
-			} else {
-				break;
-			}
-		}
-
-		for (int j = m - 2 - i; j >= i + 1; j--) {
-			if (t <= N) {
-				b[j][i] = t++;
-			} else {
-				break;
-			}
-		}
-
-		if (t > N) 
-			break;
-	}
-
-	for (int i = 0; i < m; i++) {
-		for (int j = 0 ; j < n; j++) {
-			cout << b[i][j] << " ";
-		}
-		cout << endl;
-	}
-
-	delete [] a;
-	for (int i = 0; i < m; i++)
-		delete [] b[i];
-	delete [] b;
-	return 0;
+    int N, m, n, t = 0;
+    scanf("%d", &N);
+    n = func(N);
+    m = N / n;
+    vector<int> a(N);
+    for (int i = 0; i < N; i++)
+        scanf("%d", &a[i]);
+    sort(a.begin(), a.end(), cmp);
+    vector<vector<int> > b(m, vector<int>(n));
+    int level = m / 2 + m % 2;
+    for (int i = 0; i < level; i++) {
+        for (int j = i; j <= n - 1 - i && t <= N - 1; j++) {
+            b[i][j] = a[t++];
+        }
+        for (int j = i + 1; j <= m - 2 - i && t <= N - 1; j++) {
+            b[j][n - 1 - i] = a[t++];
+        }
+        for (int j = n - i - 1; j >= i && t <= N - 1; j--) {
+            b[m - 1 - i][j] = a[t++];
+        }
+        for (int j = m - 2 - i; j >= i + 1 && t <= N - 1; j--) {
+            b[j][i] = a[t++];
+        }
+    }
+    for (int i = 0; i < m; i++) {
+        for (int j = 0 ; j < n; j++) {
+            printf("%d", b[i][j]);
+            if (j != n - 1) printf(" ");
+        }
+        printf("\n");
+    }
+    return 0;
 }
