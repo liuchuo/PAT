@@ -159,7 +159,7 @@
 | 1032 | 挖掘机技术哪家强(20)        | [查看题解](http://www.liuchuo.net/archives/563) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1032/Main.java) |
 | 1033 | 旧键盘打字(20)           | [查看题解](http://www.liuchuo.net/archives/490) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1033/Main.java) |
 | 1034 | 有理数四则运算(20)         | [查看题解](http://www.liuchuo.net/archives/492) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1034/Main.java) |
-| 1035 | 插入与归并(25)           | [查看题解](http://www.liuchuo.net/archives/503) | [查看题解]()                                 |
+| 1035 | 插入与归并(25)           | [查看题解](http://www.liuchuo.net/archives/503) |                                          |
 | 1036 | 跟奥巴马一起编程(15)        | [查看题解](http://www.liuchuo.net/archives/565) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1036/Main.java) |
 | 1037 | 在霍格沃茨找零钱（20)        | [查看题解](http://www.liuchuo.net/archives/567) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1037/Main.java) |
 | 1038 | 统计同成绩学生(20)         | [查看题解](http://www.liuchuo.net/archives/569) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1038/Main.java) |
