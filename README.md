@@ -123,68 +123,68 @@
 
 # 乙级题解
 
-| ID   | Title               | C/C++                                    | Java |
-| ---- | ------------------- | ---------------------------------------- | ---- |
-| 1001 | 害死人不偿命的(3n+1)猜想(15) | [查看题解](http://www.liuchuo.net/archives/510) |      |
-| 1002 | 写出这个数 (20)          | [查看题解](http://www.liuchuo.net/archives/513) |      |
-| 1003 | 我要通过！(20)           | [查看题解](http://www.liuchuo.net/archives/460) |      |
-| 1004 | 成绩排名 (20)           | [查看题解](http://www.liuchuo.net/archives/516) |      |
-| 1005 | 继续(3n+1)猜想 (25)     | [查看题解](http://www.liuchuo.net/archives/455) |      |
-| 1006 | 换个格式输出整数 (15)       | [查看题解](http://www.liuchuo.net/archives/518) |      |
-| 1007 | 素数对猜想 (20)          | [查看题解](http://www.liuchuo.net/archives/520) |      |
-| 1008 | 数组元素循环右移问题 (20)     | [查看题解](http://www.liuchuo.net/archives/522) |      |
-| 1009 | 说反话 (20)            | [查看题解](http://www.liuchuo.net/archives/524) |      |
-| 1010 | 一元多项式求导 (25)        | [查看题解](http://www.liuchuo.net/archives/526) |      |
-| 1011 | A+B和C (15)          | [查看题解](http://www.liuchuo.net/archives/822) |      |
-| 1012 | 数字分类 (20)           | [查看题解](http://www.liuchuo.net/archives/528) |      |
-| 1013 | 数素数 (20)            | [查看题解](http://www.liuchuo.net/archives/530) |      |
-| 1014 | 福尔摩斯的约会 (20)        | [查看题解](http://www.liuchuo.net/archives/532) |      |
-| 1015 | 德才论 (25)            | [查看题解](http://www.liuchuo.net/archives/498) |      |
-| 1016 | 部分A+B (15)          | [查看题解](http://www.liuchuo.net/archives/534) |      |
-| 1017 | A除以B (20)           | [查看题解](http://www.liuchuo.net/archives/537) |      |
-| 1018 | 锤子剪刀布 (20)          | [查看题解](http://www.liuchuo.net/archives/539) |      |
-| 1019 | 数字黑洞 (20)           | [查看题解](http://www.liuchuo.net/archives/541) |      |
-| 1020 | 月饼 (25)             | [查看题解](http://www.liuchuo.net/archives/543) |      |
-| 1021 | 个位数统计 (15)          | [查看题解](http://www.liuchuo.net/archives/545) |      |
-| 1022 | D进制的A+B (20)        | [查看题解](http://www.liuchuo.net/archives/547) |      |
-| 1023 | 组个最小数 (20)          | [查看题解](http://www.liuchuo.net/archives/549) |      |
-| 1024 | 科学计数法 (20)          | [查看题解](http://www.liuchuo.net/archives/551) |      |
-| 1025 | 反转链表 (25)           | [查看题解](http://www.liuchuo.net/archives/463) |      |
-| 1026 | 程序运行时间(15)          | [查看题解](http://www.liuchuo.net/archives/553) |      |
-| 1027 | 打印沙漏(20)            | [查看题解](http://www.liuchuo.net/archives/555) |      |
-| 1028 | 人口普查(20)            | [查看题解](http://www.liuchuo.net/archives/557) |      |
-| 1029 | 旧键盘(20)             | [查看题解](http://www.liuchuo.net/archives/559) |      |
-| 1030 | 完美数列(25)            | [查看题解](http://www.liuchuo.net/archives/500) |      |
-| 1031 | 查验身份证(15)           | [查看题解](http://www.liuchuo.net/archives/561) |      |
-| 1032 | 挖掘机技术哪家强(20)        | [查看题解](http://www.liuchuo.net/archives/563) |      |
-| 1033 | 旧键盘打字(20)           | [查看题解](http://www.liuchuo.net/archives/490) |      |
-| 1034 | 有理数四则运算(20)         | [查看题解](http://www.liuchuo.net/archives/492) |      |
-| 1035 | 插入与归并(25)           | [查看题解](http://www.liuchuo.net/archives/503) |      |
-| 1036 | 跟奥巴马一起编程(15)        | [查看题解](http://www.liuchuo.net/archives/565) |      |
-| 1037 | 在霍格沃茨找零钱（20)        | [查看题解](http://www.liuchuo.net/archives/567) |      |
-| 1038 | 统计同成绩学生(20)         | [查看题解](http://www.liuchuo.net/archives/569) |      |
-| 1039 | 到底买不买 (20)          | [查看题解](http://www.liuchuo.net/archives/571) |      |
-| 1040 | 有几个PAT（25)          | [查看题解](http://www.liuchuo.net/archives/573) |      |
-| 1041 | 考试座位号(15)           | [查看题解](http://www.liuchuo.net/archives/575) |      |
-| 1042 | 字符统计(20)            | [查看题解](http://www.liuchuo.net/archives/577) |      |
-| 1043 | 输出PATest(20)        | [查看题解](http://www.liuchuo.net/archives/579) |      |
-| 1044 | 火星数字(20)            | [查看题解](http://www.liuchuo.net/archives/581) |      |
-| 1045 | 快速排序(25)            | [查看题解](http://www.liuchuo.net/archives/505) |      |
-| 1046 | 划拳(15)              | [查看题解](http://www.liuchuo.net/archives/583) |      |
-| 1047 | 编程团体赛(20)           | [查看题解](http://www.liuchuo.net/archives/586) |      |
-| 1048 | 数字加密(20)            | [查看题解](http://www.liuchuo.net/archives/465) |      |
-| 1049 | 数列的片段和(20)          | [查看题解](http://www.liuchuo.net/archives/448) |      |
-| 1050 | 螺旋矩阵(25)            | [查看题解](http://www.liuchuo.net/archives/2070) |      |
-| 1051 | 复数乘法 (15)           | [查看题解](http://www.liuchuo.net/archives/606) |      |
-| 1052 | 卖个萌 (20)            | [查看题解](http://www.liuchuo.net/archives/613) |      |
-| 1053 | 住房空置率 (20)          | [查看题解](http://www.liuchuo.net/archives/615) |      |
-| 1054 | 求平均值 (20)           | [查看题解](http://www.liuchuo.net/archives/617) |      |
-| 1055 | 集体照 (25)            | [查看题解](http://www.liuchuo.net/archives/619) |      |
-| 1056 | 组合数的和(15)           | [查看题解](http://www.liuchuo.net/archives/2492) |      |
-| 1057 | 数零壹(20)             | [查看题解](http://www.liuchuo.net/archives/2494) |      |
-| 1058 | 选择题(20)             | [查看题解](http://www.liuchuo.net/archives/2494) |      |
-| 1059 | C语言竞赛(20)           | [查看题解](http://www.liuchuo.net/archives/2486) |      |
-| 1060 | 爱丁顿数(25)            | [查看题解](http://www.liuchuo.net/archives/2480) |      |
+| ID   | Title               | C/C++                                    | Java                                     |
+| ---- | ------------------- | ---------------------------------------- | ---------------------------------------- |
+| 1001 | 害死人不偿命的(3n+1)猜想(15) | [查看题解](http://www.liuchuo.net/archives/510) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/tree/master/Basic%20Level/basicLevel1001/Main.java) |
+| 1002 | 写出这个数 (20)          | [查看题解](http://www.liuchuo.net/archives/513) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1002/Main.java) |
+| 1003 | 我要通过！(20)           | [查看题解](http://www.liuchuo.net/archives/460) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1003/Main.java) |
+| 1004 | 成绩排名 (20)           | [查看题解](http://www.liuchuo.net/archives/516) |                                          |
+| 1005 | 继续(3n+1)猜想 (25)     | [查看题解](http://www.liuchuo.net/archives/455) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1005/Main.java) |
+| 1006 | 换个格式输出整数 (15)       | [查看题解](http://www.liuchuo.net/archives/518) |                                          |
+| 1007 | 素数对猜想 (20)          | [查看题解](http://www.liuchuo.net/archives/520) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1007/Main.java) |
+| 1008 | 数组元素循环右移问题 (20)     | [查看题解](http://www.liuchuo.net/archives/522) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1008/Main.java) |
+| 1009 | 说反话 (20)            | [查看题解](http://www.liuchuo.net/archives/524) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1009/Main.java) |
+| 1010 | 一元多项式求导 (25)        | [查看题解](http://www.liuchuo.net/archives/526) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1010/Main.java) |
+| 1011 | A+B和C (15)          | [查看题解](http://www.liuchuo.net/archives/822) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1011/Main.java) |
+| 1012 | 数字分类 (20)           | [查看题解](http://www.liuchuo.net/archives/528) |                                          |
+| 1013 | 数素数 (20)            | [查看题解](http://www.liuchuo.net/archives/530) |                                          |
+| 1014 | 福尔摩斯的约会 (20)        | [查看题解](http://www.liuchuo.net/archives/532) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1014/Main.java) |
+| 1015 | 德才论 (25)            | [查看题解](http://www.liuchuo.net/archives/498) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1015/Main.java) |
+| 1016 | 部分A+B (15)          | [查看题解](http://www.liuchuo.net/archives/534) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1016/Main.java) |
+| 1017 | A除以B (20)           | [查看题解](http://www.liuchuo.net/archives/537) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1017/Main.java) |
+| 1018 | 锤子剪刀布 (20)          | [查看题解](http://www.liuchuo.net/archives/539) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1018/Main.java) |
+| 1019 | 数字黑洞 (20)           | [查看题解](http://www.liuchuo.net/archives/541) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1019/Main.java) |
+| 1020 | 月饼 (25)             | [查看题解](http://www.liuchuo.net/archives/543) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1020/Main.java) |
+| 1021 | 个位数统计 (15)          | [查看题解](http://www.liuchuo.net/archives/545) |                                          |
+| 1022 | D进制的A+B (20)        | [查看题解](http://www.liuchuo.net/archives/547) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1022/Main.java) |
+| 1023 | 组个最小数 (20)          | [查看题解](http://www.liuchuo.net/archives/549) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1023/Main.java) |
+| 1024 | 科学计数法 (20)          | [查看题解](http://www.liuchuo.net/archives/551) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1024/Main.java) |
+| 1025 | 反转链表 (25)           | [查看题解](http://www.liuchuo.net/archives/463) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1025/Main.java) |
+| 1026 | 程序运行时间(15)          | [查看题解](http://www.liuchuo.net/archives/553) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1026/Main.java) |
+| 1027 | 打印沙漏(20)            | [查看题解](http://www.liuchuo.net/archives/555) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1027/Main.java) |
+| 1028 | 人口普查(20)            | [查看题解](http://www.liuchuo.net/archives/557) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1028/Main.java) |
+| 1029 | 旧键盘(20)             | [查看题解](http://www.liuchuo.net/archives/559) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1029/Main.java) |
+| 1030 | 完美数列(25)            | [查看题解](http://www.liuchuo.net/archives/500) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1030/Main.java) |
+| 1031 | 查验身份证(15)           | [查看题解](http://www.liuchuo.net/archives/561) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1031/Main.java) |
+| 1032 | 挖掘机技术哪家强(20)        | [查看题解](http://www.liuchuo.net/archives/563) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1032/Main.java) |
+| 1033 | 旧键盘打字(20)           | [查看题解](http://www.liuchuo.net/archives/490) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1033/Main.java) |
+| 1034 | 有理数四则运算(20)         | [查看题解](http://www.liuchuo.net/archives/492) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1034/Main.java) |
+| 1035 | 插入与归并(25)           | [查看题解](http://www.liuchuo.net/archives/503) |                                          |
+| 1036 | 跟奥巴马一起编程(15)        | [查看题解](http://www.liuchuo.net/archives/565) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1036/Main.java) |
+| 1037 | 在霍格沃茨找零钱（20)        | [查看题解](http://www.liuchuo.net/archives/567) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1037/Main.java) |
+| 1038 | 统计同成绩学生(20)         | [查看题解](http://www.liuchuo.net/archives/569) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1038/Main.java) |
+| 1039 | 到底买不买 (20)          | [查看题解](http://www.liuchuo.net/archives/571) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1039/Main.java) |
+| 1040 | 有几个PAT（25)          | [查看题解](http://www.liuchuo.net/archives/573) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1040/Main.java) |
+| 1041 | 考试座位号(15)           | [查看题解](http://www.liuchuo.net/archives/575) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1041/Main.java) |
+| 1042 | 字符统计(20)            | [查看题解](http://www.liuchuo.net/archives/577) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1042/Main.java) |
+| 1043 | 输出PATest(20)        | [查看题解](http://www.liuchuo.net/archives/579) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1043/Main.java) |
+| 1044 | 火星数字(20)            | [查看题解](http://www.liuchuo.net/archives/581) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1044/Main.java) |
+| 1045 | 快速排序(25)            | [查看题解](http://www.liuchuo.net/archives/505) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1045/Main.java) |
+| 1046 | 划拳(15)              | [查看题解](http://www.liuchuo.net/archives/583) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1046/Main.java) |
+| 1047 | 编程团体赛(20)           | [查看题解](http://www.liuchuo.net/archives/586) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1047/Main.java) |
+| 1048 | 数字加密(20)            | [查看题解](http://www.liuchuo.net/archives/465) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1048/Main.java) |
+| 1049 | 数列的片段和(20)          | [查看题解](http://www.liuchuo.net/archives/448) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1049/Main.java) |
+| 1050 | 螺旋矩阵(25)            | [查看题解](http://www.liuchuo.net/archives/2070) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1050/Main.java) |
+| 1051 | 复数乘法 (15)           | [查看题解](http://www.liuchuo.net/archives/606) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1051/Main.java) |
+| 1052 | 卖个萌 (20)            | [查看题解](http://www.liuchuo.net/archives/613) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1052/Main.java) |
+| 1053 | 住房空置率 (20)          | [查看题解](http://www.liuchuo.net/archives/615) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1053/Main.java) |
+| 1054 | 求平均值 (20)           | [查看题解](http://www.liuchuo.net/archives/617) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1054/Main.java) |
+| 1055 | 集体照 (25)            | [查看题解](http://www.liuchuo.net/archives/619) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1055/Main.java) |
+| 1056 | 组合数的和(15)           | [查看题解](http://www.liuchuo.net/archives/2492) |                                          |
+| 1057 | 数零壹(20)             | [查看题解](http://www.liuchuo.net/archives/2494) |                                          |
+| 1058 | 选择题(20)             | [查看题解](http://www.liuchuo.net/archives/2494) |                                          |
+| 1059 | C语言竞赛(20)           | [查看题解](http://www.liuchuo.net/archives/2486) |                                          |
+| 1060 | 爱丁顿数(25)            | [查看题解](http://www.liuchuo.net/archives/2480) |                                          |
 
 
 
