@@ -1,9 +1,5 @@
 - [我的博客地址：http://www.liuchuo.net/](http://www.liuchuo.net)
 
-  [TOC]
-
-
-
 # 甲级题解
 
 |  ID  | Title                               |                C/C++(附分析)                | 备注                          |
@@ -251,4 +247,6 @@
 | L3-008 | 喊山              | [查看题解](http://www.liuchuo.net/archives/2318) | 广度优先搜索BFS             |
 | L3-010 | 是否完全二叉搜索树       | [查看题解](http://www.liuchuo.net/archives/2164) | 完全二叉树                 |
 
+# 致谢
 
+- 感谢[@JoyHwong](https://github.com/JoyHwong)提供的Java版本的题解
