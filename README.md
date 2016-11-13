@@ -125,7 +125,7 @@
 
 | ID   | Title               | C/C++                                    | Java                                     |
 | ---- | ------------------- | ---------------------------------------- | ---------------------------------------- |
-| 1001 | 害死人不偿命的(3n+1)猜想(15) | [查看题解](http://www.liuchuo.net/archives/510) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/tree/master/Basic%20Level/basicLevel1001) |
+| 1001 | 害死人不偿命的(3n+1)猜想(15) | [查看题解](http://www.liuchuo.net/archives/510) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/tree/master/Basic%20Level/basicLevel1001/Main.java) |
 | 1002 | 写出这个数 (20)          | [查看题解](http://www.liuchuo.net/archives/513) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1002/Main.java) |
 | 1003 | 我要通过！(20)           | [查看题解](http://www.liuchuo.net/archives/460) | [查看题解](https://github.com/JoyHwong/PAT-Basic-Level-Practise/blob/master/Basic%20Level/basicLevel1003/Main.java) |
 | 1004 | 成绩排名 (20)           | [查看题解](http://www.liuchuo.net/archives/516) |                                          |
