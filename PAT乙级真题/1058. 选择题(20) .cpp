@@ -24,7 +24,8 @@
 5
 2 2 3 4
 
-分析：
+分析：n个学生，m道题目。对于每一道题目，将题目的总分存储在total[i]数组里面，将题目的选项插入存储在right[i]（为集合类型）里面。wrongCnt[i]存储第i道题错误的人数，对于n个学生，每一个学生的答案插入一个集合st里面，比较st与right[i]是否相等，如果相等说明该生答对了，他的score += total[i]（加上当前题目的总分），如果该生答错了，wrongCnt[i]++，表示第i道题新增一个错误的人。输出每一个学生的得分；遍历wrongCnt数组，求wrongCnt的最大值maxWrongCnt。如果maxWrongCnt == 0说明没有一个人做错题目，则输出“Too simple”，否则输出maxWrongCnt的值，和wrongCnt数组中wrongCnt[i] == maxWrongCnt的那些题号~~
+注意：scanf中的%d和%c之间一定要有分隔符的主动scanf输入，否则可能接收成空格或者空值~~
 
 #include <cstdio>
 #include <vector>
@@ -72,11 +73,12 @@ int main() {
     }
     if(maxWrongCnt == 0)
         printf("Too simple");
-    else
+    else {
         printf("%d", maxWrongCnt);
-    for(int i = 0; i < m; i++) {
-        if(wrongCnt[i] == maxWrongCnt) {
-            printf(" %d", i + 1);
+        for(int i = 0; i < m; i++) {
+            if(wrongCnt[i] == maxWrongCnt) {
+                printf(" %d", i + 1);
+            }
         }
     }
     return 0;
