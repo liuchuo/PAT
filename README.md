@@ -1,9 +1,9 @@
 - [我的博客地址：http://www.liuchuo.net/](http://www.liuchuo.net)
 
-## 目录
-- [PAT甲级题解](#PAT甲级题解)
-- [PAT乙级题解](#PAT乙级题解)
-- [PAT团体程序设计天梯赛GPLT题解](#PAT团体程序设计天梯赛GPLT题解)
+- 目录
+  - [PAT甲级题解](#PAT甲级题解)
+  - [PAT乙级题解](#PAT乙级题解)
+  - [PAT团体程序设计天梯赛GPLT题解](#PAT团体程序设计天梯赛GPLT题解)
 
 # PAT甲级题解
 
