@@ -21,56 +21,42 @@
 5
 10000 23333 44444 55555 88888
 
+分析： 设立数组couple[i] = j表示i的对象是j。一开始先设置为都是-1。设立数组isExist表示某人的对象是否来到了派对上。接收数据的时候，对于每一对a和b，将couple的a设置为b，b设置为a，表示他俩是一对。对于每一个需要判断的人，将其存储在guest数组里面，如果它不是单身的（也就是如果它的couple[guest[i]] != -1）那么就将它对象的isExist设置为1，表示他对象的对象（也就是他自己）来到了派对。这样所有isExist不为1的人，对象是没有来到派对的。把所有的人遍历后插入一个集合set里面，set的size就是所求的人数，set里面的所有数就是所求的人的递增排列。
+
 #include <cstdio>
 #include <set>
-#include <iterator>
-
+#include <vector>
 using namespace std;
-
 int main() {
-
-    int n = 0;
+    int n, a, b, m;
     scanf("%d", &n);
-    int *couple = new int[100000];
-    int *isCoupleAbsent = new int[100000];
-    for (int i = 0; i < 100000; i++) {
+    vector<int> couple(100000);
+    for (int i = 0; i < 100000; i++)
         couple[i] = -1;
-        isCoupleAbsent[i] = 0;
-    }
     for (int i = 0; i < n; i++) {
-        int a = 0, b = 0;
-        scanf("%d %dd", &a, &b);
+        scanf("%d%d", &a, &b);
         couple[a] = b;
         couple[b] = a;
     }
-
-    int m = 0;
     scanf("%d", &m);
-    int *guest = new int[m];
-
+    vector<int> guest(m), isExist(100000);
     for (int i = 0; i < m; i++) {
         scanf("%d", &guest[i]);
         if (couple[guest[i]] != -1) {
-            isCoupleAbsent[couple[guest[i]]] = 1;
+            isExist[couple[guest[i]]] = 1;
         }
     }
-
     set<int> s;
     for (int i = 0; i < m; i++) {
-        if (!isCoupleAbsent[guest[i]]) {
+        if (!isExist[guest[i]]) {
             s.insert(guest[i]);
         }
     }
-
     printf("%d\n", s.size());
     for (set<int>::iterator it = s.begin(); it != s.end(); it++) {
-        if (it != s.begin()) {
+        if (it != s.begin())
             printf(" ");
-        }
         printf("%05d", *it);
     }
-    delete [] isCoupleAbsent;
-    delete [] guest;
-    delete [] couple;
     return 0;
 }
