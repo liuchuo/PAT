@@ -122,6 +122,10 @@
 | 1117 | Eddington Number(25)                | [查看题解](http://www.liuchuo.net/archives/2478) | 简单逻辑题                       |
 | 1118 | Birds in Forest (25)                | [查看题解](http://www.liuchuo.net/archives/2482) | 并查集                         |
 | 1119 | Pre- and Post-order Traversals (30) | [查看题解](http://www.liuchuo.net/archives/2484) | 前序后序转中序                     |
+| 1120 | Friend Numbers (20)                 | [查看题解](http://www.liuchuo.net/archives/2901) | set的应用                      |
+| 1121 | Damn Single (25)                    | [查看题解](http://www.liuchuo.net/archives/2734) | set的应用                      |
+| 1122 | Hamiltonian Cycle (25)              | [查看题解](http://www.liuchuo.net/archives/2748) | 图论                          |
+| 1123 | Is It a Complete AVL Tree (30)      | [查看题解](http://www.liuchuo.net/archives/2732) | AVL树                        |
 
 
 
@@ -189,6 +193,11 @@
 | 1058 | 选择题(20)             | [查看题解](http://www.liuchuo.net/archives/2494) |                                          | 字符串处理        |
 | 1059 | C语言竞赛(20)           | [查看题解](http://www.liuchuo.net/archives/2486) |                                          | 逻辑题          |
 | 1060 | 爱丁顿数(25)            | [查看题解](http://www.liuchuo.net/archives/2480) |                                          | 逻辑题          |
+| 1061 | 判断题(15)             |                 [查看题解]()                 |                                          | 逻辑题          |
+| 1062 | 最简分数(20)            | [查看题解](http://www.liuchuo.net/archives/2744) |                                          | 分数化简         |
+| 1063 | 计算谱半径(20)           | [查看题解](http://www.liuchuo.net/archives/2746) |                                          | 逻辑题          |
+| 1064 | 朋友数(20)             | [查看题解](http://www.liuchuo.net/archives/2889) | [查看题解]( [http://www.liuchuo.net/archives/2738](http://www.liuchuo.net/archives/2738)) | set的使用       |
+| 1065 | 单身狗(25)             | [查看题解](http://www.liuchuo.net/archives/2740) |                                          | 逻辑题，set的使用   |
 
 
 
