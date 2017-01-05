@@ -196,7 +196,7 @@
 | 1061 | 判断题(15)             |                 [查看题解]()                 |                                          | 逻辑题          |
 | 1062 | 最简分数(20)            | [查看题解](http://www.liuchuo.net/archives/2744) |                                          | 分数化简         |
 | 1063 | 计算谱半径(20)           | [查看题解](http://www.liuchuo.net/archives/2746) |                                          | 逻辑题          |
-| 1064 | 朋友数(20)             | [查看题解](http://www.liuchuo.net/archives/2889) | [查看题解]( [http://www.liuchuo.net/archives/2738](http://www.liuchuo.net/archives/2738)) | set的使用       |
+| 1064 | 朋友数(20)             | [查看题解](http://www.liuchuo.net/archives/2889) | [查看题解](http://www.liuchuo.net/archives/2738) | set的使用       |
 | 1065 | 单身狗(25)             | [查看题解](http://www.liuchuo.net/archives/2740) |                                          | 逻辑题，set的使用   |
 
 
