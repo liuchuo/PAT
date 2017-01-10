@@ -21,7 +21,6 @@
 11
 12
 
-
 #include <cstdio>
 #include <vector>
 using namespace std;
