@@ -23,15 +23,19 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1011 | World Cup Betting (20)              | [查看题解](http://www.liuchuo.net/archives/2046) | 查找元素                     |
 | 1012 | The Best Rank (25)                  | [查看题解](http://www.liuchuo.net/archives/2207) | 排序                       |
 | 1013 | Battle Over Cities (25)             | [查看题解](http://www.liuchuo.net/archives/2346) | 图的遍历，统计连通分量的个数，DFS       |
+| 1014 | Waiting in Line (30)                | [查看题解](http://www.liuchuo.net/archives/2943) | queue的应用                 |
 | 1015 | Reversible Primes (20)              | [查看题解](http://www.liuchuo.net/archives/2149) | 素数                       |
 | 1016 | Phone Bills (25)                    | [查看题解](http://www.liuchuo.net/archives/2350) | 排序                       |
+| 1017 | Queueing at Bank (25)               | [查看题解](http://www.liuchuo.net/archives/2945) | 模拟                       |
 | 1018 | Public Bike Management (30)         | [查看题解](http://www.liuchuo.net/archives/2373) | Dijkstra算法 + DFS         |
+| 1019 | General Palindromic Number (20)     | [查看题解](http://www.liuchuo.net/archives/2055) | 回文数                      |
 | 1020 | Tree Traversals (25)                | [查看题解](http://www.liuchuo.net/archives/2100) | 进制转换                     |
 | 1021 | Deepest Root (25)                   | [查看题解](http://www.liuchuo.net/archives/2348) | 图的遍历，DFS，计算连通分量的个数       |
 | 1022 | Digital Library (30)                | [查看题解](http://www.liuchuo.net/archives/2295) | map映射，STL的使用             |
 | 1023 | Have Fun with Numbers (20)          | [查看题解](http://www.liuchuo.net/archives/2151) | 大整数运算                    |
 | 1024 | Palindromic Number (25)             | [查看题解](http://www.liuchuo.net/archives/2329) | 大整数相加                    |
 | 1025 | PAT Ranking (25)                    | [查看题解](http://www.liuchuo.net/archives/2180) | 排序                       |
+| 1026 | Table Tennis (30)                   | [查看题解](http://www.liuchuo.net/archives/2955) | 模拟，排序                    |
 | 1027 | Colors in Mars (20)                 | [查看题解](http://www.liuchuo.net/archives/2057) | 进制转换                     |
 | 1028 | List Sorting (25)                   | [查看题解](http://www.liuchuo.net/archives/2120) | 排序                       |
 | 1029 | Median (25)                         | [查看题解](http://www.liuchuo.net/archives/2248) | two pointers             |
@@ -49,6 +53,7 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1041 | Be Unique (20)                      | [查看题解](http://www.liuchuo.net/archives/2139) | Hash散列                   |
 | 1042 | Shuffling Machine (20)              | [查看题解](http://www.liuchuo.net/archives/2019) | 模拟                       |
 | 1043 | Is It a Binary Search Tree (25)     | [查看题解](http://www.liuchuo.net/archives/2153) | 二叉查找树BST                 |
+| 1044 | Shopping in Mars (25)               | [查看题解](http://www.liuchuo.net/archives/2939) | 二分查找                     |
 | 1045 | Favorite Color Stripe (30)          | [查看题解](http://www.liuchuo.net/archives/2283) | 动态规划，LIS / LCS           |
 | 1046 | Shortest Distance (20)              | [查看题解](http://www.liuchuo.net/archives/2021) | 模拟                       |
 | 1047 | Student List for Course (25)        | [查看题解](http://www.liuchuo.net/archives/2147) | 不定长数组vector，STL的使用       |
@@ -60,6 +65,7 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1053 | Path of Equal Weight (30)           | [查看题解](http://www.liuchuo.net/archives/2285) | 树的遍历                     |
 | 1054 | The Dominant Color (20)             | [查看题解](http://www.liuchuo.net/archives/2048) | map映射，STL的使用             |
 | 1055 | The World’s Richest (25)            | [查看题解](http://www.liuchuo.net/archives/2255) | 排序                       |
+| 1056 | Mice and Rice (25)                  | [查看题解](http://www.liuchuo.net/archives/2936) | queue的用法                 |
 | 1057 | Stack (30)                          | [查看题解](http://www.liuchuo.net/archives/2265) | 树状数组                     |
 | 1058 | A+B in Hogwarts (20)                | [查看题解](http://www.liuchuo.net/archives/2059) | 进制转换                     |
 | 1059 | Prime Factors (25)                  | [查看题解](http://www.liuchuo.net/archives/2289) | 素数表的建立                   |
@@ -98,6 +104,7 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1092 | To Buy or Not to Buy (20)           | [查看题解](http://www.liuchuo.net/archives/1898) | Hash散列                   |
 | 1093 | Count PAT’s (25)                    | [查看题解](http://www.liuchuo.net/archives/1896) | 逻辑题                      |
 | 1094 | The Largest Generation (25)         | [查看题解](http://www.liuchuo.net/archives/2223) | BFS，DFS，树的遍历             |
+| 1095 | Cars on Campus (30)                 | [查看题解](http://www.liuchuo.net/archives/2951) | map的用法，排序                |
 | 1096 | Consecutive Factors (20)            | [查看题解](http://www.liuchuo.net/archives/2110) | 逻辑题                      |
 | 1097 | Deduplication on a Linked List (25) | [查看题解](http://www.liuchuo.net/archives/2118) | 链表                       |
 | 1098 | Insertion or Heap Sort (25)         | [查看题解](http://www.liuchuo.net/archives/2273) | heap sort（堆排序）           |
