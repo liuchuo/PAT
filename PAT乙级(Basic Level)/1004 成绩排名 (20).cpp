@@ -1,16 +1,4 @@
-/*
 1004. 成绩排名 (20)
-
-时间限制
-400 ms
-内存限制
-65536 kB
-代码长度限制
-8000 B
-判题程序
-Standard
-作者
-CHEN, Yue
 读入n名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。
 
 输入格式：每个测试输入包含1个测试用例，格式为
@@ -31,7 +19,7 @@ Mary EE990830 95
 输出样例：
 Mike CS991301
 Joe Math990112
-*/
+
 #include <iostream>
 #include <string>
 using namespace std;
