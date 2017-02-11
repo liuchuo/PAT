@@ -1,4 +1,4 @@
-//1032. 挖掘机技术哪家强(20)
+1032. 挖掘机技术哪家强(20)
 为了用事实说明挖掘机技术到底哪家强，PAT组织了一场挖掘机技能大赛。
 现请你根据比赛结果统计出技术最强的那个学校。
 输入格式：
@@ -19,28 +19,22 @@
 
 #include <iostream>
 using namespace std;
+struct Student{
+    int num;
+    int score;
+};
 int main() {
-    struct Student{
-        int num;
-        int score;
-    };
     int N;
     cin >> N;
     Student *a = new Student [N];
-    for (int i = 0; i < N; i++) {
-        cin >> a[i].num;
-        cin >> a[i].score;
-    }
+    for (int i = 0; i < N; i++)
+        cin >> a[i].num >> a[i].score;
     int *b = new int [N];
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
         b[i] = 0;
-    }
-    
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
         b[a[i].num] += a[i].score;
-    }
-    int max = b[1];
-    int t = 1;
+    int max = b[1], t = 1;
     for (int i = 1; i < N; i++) {
         if (max < b[i]) {
             max = b[i];
@@ -48,7 +42,6 @@ int main() {
         }
     }
     cout << t << " " << max;
-    
     delete [] a;
     delete [] b;
     return 0;
