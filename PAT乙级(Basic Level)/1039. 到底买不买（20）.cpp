@@ -54,20 +54,14 @@ int main() {
             }
         }
     }
-    int count = 0;
-    for (int i = 0; i < lenb; i++) {
-        if (b[i] != '#')
-            count++;
-    }
-    int cou = 0;
-    for (int i = 0; i < lena; i++) {
-        if (a[i] != '#')
-            cou++;
-    }
+    int count = 0, cou = 0;
+    for (int i = 0; i < lenb; i++)
+        if (b[i] != '#') count++;
+    for (int i = 0; i < lena; i++)
+        if (a[i] != '#') cou++;
     if (count != 0)
         cout << "No " << count;
-    else {
+    else
         cout << "Yes " << cou;
-    }
     return 0;
 }
