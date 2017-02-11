@@ -49,12 +49,10 @@ int main() {
             countb++;
     }
     int ta = 0, tb = 0;
-    for (int i = 1; i <= counta; i++) {
+    for (int i = 1; i <= counta; i++)
         ta = 10 * ta + m;
-    }
-    for (int i = 1; i <= countb; i++) {
+    for (int i = 1; i <= countb; i++)
         tb = 10 * tb + n;
-    }
     cout << ta + tb;
     return 0;
 }
