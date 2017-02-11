@@ -1,14 +1,4 @@
 1025. 反转链表 (25)
-时间限制
-300 ms
-内存限制
-65536 kB
-代码长度限制
-8000 B
-判题程序
-Standard
-作者
-CHEN, Yue
 给定一个常数K以及一个单链表L，请编写程序将L中每K个结点反转。
 例如：给定L为1→2→3→4→5→6，K为3，则输出应该为3→2→1→6→5→4；
 如果K为4，则输出应该为4→3→2→1→5→6，即最后不到K个元素不反转。
@@ -66,10 +56,8 @@ int main() {
     int next[100005];
     for (int i = 0; i < n; i++) {
         cin >> temp;
-        cin >> data[temp];
-        cin >> next[temp];
+        cin >> data[temp] >> next[temp];
     }
-    
     int list[100005];
     int sum = 0;//不一定所有的输入的结点都是有用的，加个计数器
     while (first != -1) {
@@ -77,15 +65,10 @@ int main() {
         first = next[first];
     }
     int result[100005];
-    for (int i = 0; i < sum; i++) {
+    for (int i = 0; i < sum; i++)
         result[i] = list[i];
-    }
-    
-    for (int i = 0; i < (sum - sum % k); i++) {
+    for (int i = 0; i < (sum - sum % k); i++)
         result[i] = list[i / k * k + k - 1 - i % k];
-    }
-    
-    
     for (int i = 0; i < sum - 1; i++)
         printf("%05d %d %05d\n", result[i], data[result[i]], result[i + 1]);
     printf("%05d %d -1", result[sum - 1], data[result[sum - 1]]);
