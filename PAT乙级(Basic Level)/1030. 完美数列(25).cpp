@@ -58,6 +58,6 @@ int main() {
         }
     }
     cout << result;
-    
+    delete [] a;
     return 0;
 }
