@@ -1,14 +1,4 @@
-//1020. 月饼 (25)
-时间限制
-100 ms
-内存限制
-65536 kB
-代码长度限制
-8000 B
-判题程序
-Standard
-作者
-CHEN, Yue
+1020. 月饼 (25)
 月饼是中国人在中秋佳节时吃的一种传统食品，不同地区有许多不同风味的月饼。
 现给定所有种类月饼的库存量、总售价、以及市场的最大需求量，请你计算可以
 获得的最大收益是多少。
@@ -36,37 +26,24 @@ CHEN, Yue
 
 #include <iostream>
 #include <algorithm>
-
 using namespace std;
-
 struct mooncake{
     float mount;
     float price;
     float unit;
 };
-
-int cmp(mooncake a, mooncake b) {
-    return a.unit > b.unit;
-}
-
+int cmp(mooncake a, mooncake b) {return a.unit > b.unit;}
 int main() {
-    int n;
-    cin >> n;
-    int need;
-    cin >> need;
-    
+    int n, need;
+    cin >> n >> need;
     mooncake *a = new mooncake [n];
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
         cin >> a[i].mount;
-    }
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
         cin >> a[i].price;
-    }
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
         a[i].unit = a[i].price / a[i].mount;
-    }
     sort(a, a + n, cmp);
-    
     float result = 0.0;
     for (int i = 0; i < n; i++) {
         if (a[i].mount <= need) {
@@ -78,5 +55,6 @@ int main() {
         need = need - a[i].mount;
     }
     printf("%.2f",result);
+    delete [] a;
     return 0;
 }
