@@ -55,7 +55,6 @@ int main() {
     }
     // 如果E后面的那个符号是负号‘-’
     if (s[pose + 1] == '-') {
-
         if (0 < after) {
             cout << "0.";
             for (int i = 1; i < after; i++) {
@@ -66,7 +65,6 @@ int main() {
                     cout << s[i];
                 }
             }
-        // if (after == 0)
         } else {
             for (int i = 0; i < pose; i++) {
                 cout << s[i];
