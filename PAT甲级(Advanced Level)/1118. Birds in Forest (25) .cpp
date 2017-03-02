@@ -43,8 +43,8 @@ int findFather(int x) {
     }
     while(a != fa[a]) {
         int z = a;
-        fa[a] = x;
-        a = fa[z];
+        a = fa[a];
+        fa[z] = x;
     }
     return x;
 }
