@@ -15,30 +15,14 @@ Sample Output
 #include <iostream>
 using namespace std;
 int main() {
-    int a;
-    int b;
+    int a, b;
     cin >> a >> b;
-    int result = a + b;
-    if (result < 0) {
-        cout << "-";
-        result = result * (-1);
-    }
-    int s[7];
-    if (result == 0) {
-        cout << 0;
-        return 0;
-    }
-    int i = 0;
-    while (result != 0) {
-        s[i++] = result % 10;
-        result = result / 10;
-    }
-    int count = i;
-    for (int j = i - 1; j >= 0; j--) {
-        cout << s[j];
-        count--;
-        if (count % 3 == 0 && count != 0)
-            cout << ",";
+    string s = to_string(a + b);
+    int len = s.length();
+    for (int i = 0; i < len; i++) {
+        cout << s[i];
+        if (s[i] == '-') continue;
+        if ((i + 1) % 3 == len % 3 && i != len - 1) cout << ",";
     }
     return 0;
 }
