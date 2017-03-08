@@ -31,11 +31,14 @@ case1__this_isss_a_teest
 
 输出整个正确的字符串：如果当前s[i]是坏键，在输出一次后，令 i = i + k - 1，再输出，保证坏键出现k次只输出一次~~
 
+tips：谢谢在csdn博客的评论里和github里面的同学友情提醒，如果出现了先不是坏建后又判断是坏键的情况，这种情况会出现错误，因为前面已经认为它不是坏键了，说明它一定不是坏建，所以要加一个sureNoBroken，把确定不是坏键的键标记出来，在map都设置完成后把确定不是坏键的m标记为false。虽然测试用例里面没有考虑到这种情况，但是如果输入3 aabbaaa，应该输出没有坏键～代码已改～
+
 #include <iostream>
 #include <map>
 #include <cstdio>
 #include <set>
 using namespace std;
+bool sureNoBroken[256];
 int main() {
     int k, cnt = 1;
     scanf("%d", &k);
@@ -44,22 +47,31 @@ int main() {
     map<char, bool> m;
     set<char> printed;
     char pre = '#';
+    s = s + '#';
     for(int i = 0; i < s.length(); i++) {
-        if(s[i] == pre)
+        if(s[i] == pre) {
             cnt++;
-        else
+        } else {
+            if(cnt % k != 0) {
+                sureNoBroken[pre] = true;
+            }
             cnt = 1;
-        m[s[i]] = (cnt % k == 0);
+        }
+        if(i != s.length() - 1) m[s[i]] = (cnt % k == 0);
         pre = s[i];
     }
-    for(int i = 0; i < s.length(); i++) {
+    for(int i = 0; i < s.length() - 1; i++) {
+        if(sureNoBroken[s[i]] == true)
+            m[s[i]] = false;
+    }
+    for(int i = 0; i < s.length() - 1; i++) {
         if(m[s[i]] && printed.find(s[i]) == printed.end()) {
             printf("%c", s[i]);
             printed.insert(s[i]);
         }
     }
     printf("\n");
-    for(int i = 0; i < s.length(); i++) {
+    for(int i = 0; i < s.length() - 1; i++) {
         printf("%c", s[i]);
         if(m[s[i]])
             i = i + k - 1;
