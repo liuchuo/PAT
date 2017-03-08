@@ -23,7 +23,7 @@ vector<int> prime(500000, 1);
 int main() {
     for(int i = 2; i * i < 500000; i++)
         for(int j = 2; j * i < 500000; j++)
-            prime[j * i] = 1;
+            prime[j * i] = 0;
     long int a;
     scanf("%ld", &a);
     printf("%ld=", a);
