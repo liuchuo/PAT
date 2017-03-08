@@ -139,8 +139,8 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1123 | Is It a Complete AVL Tree (30)      | [查看题解](http://www.liuchuo.net/archives/2732) | AVL树                     |
 | 1124 | Raffle for Weibo Followers (20)     | [查看题解](http://www.liuchuo.net/archives/3738) | map映射                    |
 | 1125 | Chain the Ropes (25)                | [查看题解](http://www.liuchuo.net/archives/3741) | 排序，贪心                    |
-| 1126 | 1126. Eulerian Path (25)            | [查看题解](http://www.liuchuo.net/archives/3751) | 连通图                      |
-| 1127 |                                     |                                          |                          |
+| 1126 | Eulerian Path (25)                  | [查看题解](http://www.liuchuo.net/archives/3751) | 连通图                      |
+| 1127 | ZigZagging on a Tree (30)           | [查看题解](http://www.liuchuo.net/archives/3758) | 中序后序建树，层序遍历              |
 
 
 
@@ -215,7 +215,7 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1065 | 单身狗(25)             | [查看题解](http://www.liuchuo.net/archives/2740) |                                          | 逻辑题，set的使用   |
 | 1066 | 图像过滤(15)            | [查看题解](http://www.liuchuo.net/archives/3747) |                                          | 逻辑题          |
 | 1067 | 试密码(20)             | [查看题解](http://www.liuchuo.net/archives/3749) |                                          | 字符串          |
-| 1068 |                     |                                          |                                          |              |
+| 1068 | 万绿丛中一点红(20)         | [查看题解](http://www.liuchuo.net/archives/3755) |                                          | 逻辑题          |
 | 1069 | 微博转发抽奖(20)          | [查看题解](http://www.liuchuo.net/archives/3743) |                                          | map映射        |
 | 1070 | 结绳(25)              | [查看题解](http://www.liuchuo.net/archives/3745) |                                          | 排序，贪心        |
 
