@@ -31,12 +31,12 @@ int dis[510], weight[510], e[510][510], num[510], w[510], pre[510];
 bool visit[510];
 const int inf = 99999999;
 void printPath(int v) {
-    if(v == s) {
+    if(v == c1) {
         printf("%d", v);
         return ;
     }
     printPath(pre[v]);
-    printf("%d ", v);
+    printf(" %d", v);
 }
 int main() {
     scanf("%d%d%d%d", &n, &m, &c1, &c2);
@@ -80,7 +80,7 @@ int main() {
             }
         }
     }
-    printf("%d %d", num[c2], w[c2]);
+    printf("%d %d\n", num[c2], w[c2]);
     printPath(c2);
     return 0;
 }
