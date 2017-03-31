@@ -141,8 +141,10 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1125 | Chain the Ropes (25)                | [查看题解](http://www.liuchuo.net/archives/3741) | 排序，贪心                    |
 | 1126 | Eulerian Path (25)                  | [查看题解](http://www.liuchuo.net/archives/3751) | 连通图                      |
 | 1127 | ZigZagging on a Tree (30)           | [查看题解](http://www.liuchuo.net/archives/3758) | 中序后序建树，层序遍历              |
-
-
+| 1128 | N Queens Puzzle (20)                | [查看题解](http://www.liuchuo.net/archives/3796) | 逻辑题                      |
+| 1129 | Recommendation System (25)          | [查看题解](http://www.liuchuo.net/archives/3848) | set的应用，运算符重载             |
+| 1130 | Infix Expression (25)               | [查看题解](http://www.liuchuo.net/archives/3798) | dfs深度优先搜索                |
+| 1131 | Subway Map (30)                     | [查看题解](http://www.liuchuo.net/archives/3850) | dfs深度优先搜索                |
 
 # PAT乙级题解
 
