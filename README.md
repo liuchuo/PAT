@@ -295,6 +295,7 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | L3-008 | 喊山              | [查看题解](http://www.liuchuo.net/archives/2318) | 广度优先搜索BFS             |
 | L3-010 | 是否完全二叉搜索树       | [查看题解](http://www.liuchuo.net/archives/2164) | 完全二叉树                 |
 | L3-013 | 非常弹的球           | [查看题解](http://www.liuchuo.net/archives/3837) | 物理题                   |
+| L3-014 | 周游世界            | [查看题解](http://www.liuchuo.net/archives/3853) | 深度优先搜索DFS             |
 | L3-015 | 球队“食物链”         | [查看题解](http://www.liuchuo.net/archives/3839) | 深度优先搜索DFS             |
 
 # 致谢
