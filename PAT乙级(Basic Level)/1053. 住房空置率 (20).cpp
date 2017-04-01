@@ -39,33 +39,22 @@ K E1 E2 ... EK
 40.0% 20.0%
 （样例解释：第2、3户为“可能空置”，第4户为“空置”，其他户不是空置。）
 */
-#include <iostream>
-#include <cstdio>
-using namespace std;
 
+#include <iostream>
+using namespace std;
 int main() {
-    int n, d;
-    double e;
+    int n, d, k, maybe = 0, must = 0;
+    double e, temp;
     cin >> n >> e >> d;
-    int maybe = 0;
-    int must = 0;
     for (int i = 0; i < n; i++) {
-        int k;
         cin >> k;
         int sum = 0;
         for (int j = 0; j < k; j++) {
-            double temp;
             cin >> temp;
-            if (temp < e) {
-                sum++;
-            }
+            if (temp < e) sum++;
         }
         if(sum > (k / 2)) {
-            if (k > d) {
-                must++;
-            } else {
-                maybe++;
-            }
+            k > d ? must++ : maybe++;
         }
     }
     double mayberesult = (double)maybe / n * 100;
@@ -73,4 +62,3 @@ int main() {
     printf("%.1f%% %.1f%%", mayberesult, mustresult);
     return 0;
 }
-
