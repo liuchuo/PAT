@@ -46,11 +46,8 @@ int main() {
     getchar();
     while(1) {
         getline(cin, temp);
-        if (temp != "#") {
-            cnt++;
-        } else {
-            break;
-        }
+        if (temp == "#") break;
+        cnt++;
         if (cnt <= n && temp == password) {
             cout << "Welcome in";
             break;
