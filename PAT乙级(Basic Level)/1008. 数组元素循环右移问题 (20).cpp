@@ -15,39 +15,23 @@
 
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
-
-void Reverse(int a[], int left, int right) {
-    int temp;
-    int i = left;
-    int j = right;
-    while (i < j) {
-        swap(a[i], a[j]);
-        i++;
-        j--;
-    }
-}
-
 int main() {
     int n, m;
     cin >> n >> m;
-    int *a = new int [n];
-    for (int i = 0; i < n; i++) {
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
         cin >> a[i];
+    if (m != n && m != 0) {
+        if (m > n) m = m - n;
+        reverse(begin(a), begin(a) + n);
+        reverse(begin(a), begin(a) + m);
+        reverse(begin(a) + m, begin(a) + n);
     }
-    if (m != 0 && m != n) {
-        if (m > n)
-            m = m - n;
-        // 先全体交换，然后交换前m个，然后交换剩下的
-        Reverse(a, 0, n - 1);
-        Reverse(a, 0, m - 1);
-        Reverse(a, m, n - 1);
-        // 如果是左移，那就先全体交换，然后交换后m个，然后交换剩下的前面部分
-    }
-    printf("%d", a[0]);
-    for (int i = 1; i < n; i++) {
-        printf(" %d", a[i]);
-    }
-    delete [] a;
+    for (int i = 0; i < n - 1; i++)
+        cout << a[i] << " ";
+    cout << a[n - 1];
     return 0;
 }
