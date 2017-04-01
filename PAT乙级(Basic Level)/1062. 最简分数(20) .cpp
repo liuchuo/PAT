@@ -16,7 +16,6 @@
 输出样例：
 5/12 7/12
 
-#include <cstdio>
 #include <iostream>
 using namespace std;
 int gcd(int a, int b){
@@ -34,11 +33,8 @@ int main() {
     while(n1 * k >= m1 * num) num++;
     while(n1 * k < m1 * num && m2 * num < n2 * k) {
         if(gcd(num, k) == 1) {
-            if(!flag)
-                flag = true;
-            else
-                printf(" ");
-            printf("%d/%d", num, k);
+            printf("%s%d/%d", flag == true ? " " : "", num, k);
+            flag = true;
         }
         num++;
     }
