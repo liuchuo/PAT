@@ -23,68 +23,29 @@ redlesPayBestPATTopTeePHPereatitAPPT
 PATestPATestPTetPTePePee
 
 
-update: v2.0
 #include <iostream>
-#include <string>
+#include <algorithm>
 #include <map>
 using namespace std;
-
 int main() {
-    map<char, int> a {
-        {'P', 0}, {'A', 0}, {'T', 0}, {'e', 0}, {'s', 0}, {'t', 0}
-    };
-    string s;
-    cin >> s;
-    int len = s.length();
-    for (int i = 0; i < len; i++) {
-        if (s[i] == 'P' || s[i] == 'A' || s[i] == 'T'
-            || s[i] == 'e' || s[i] == 's' || s[i] == 't') {
-            a[s[i]]++;
+    char t;
+    map<char, int> m;
+    while(cin >> t) {
+        if (t == 'P' || t == 'A' || t == 'T' || t == 'e' || t == 's' || t == 't')
+            m[t]++;
+    }
+    char c[7] = {"PATest"};
+    int maxCnt = 0;
+    for (auto it : m) {
+        maxCnt = max(maxCnt, it.second);
+    }
+    for (int i = 0; i < maxCnt; i++) {
+        for (int j = 0; j < 6; j++) {
+            if (m[c[j]] != 0) {
+                cout << c[j];
+                m[c[j]]--;
+            }
         }
-    }
-    
-    while(a['P'] != 0 || a['A'] != 0 || a['T'] != 0 || a['e'] != 0 || a['s'] != 0 || a['t'] != 0) {
-        if(a['P'] != 0) {cout << "P"; a['P']--;}
-        if(a['A'] != 0) {cout << "A"; a['A']--;}
-        if(a['T'] != 0) {cout << "T"; a['T']--;}
-        if(a['e'] != 0) {cout << "e"; a['e']--;}
-        if(a['s'] != 0) {cout << "s"; a['s']--;}
-        if(a['t'] != 0) {cout << "t"; a['t']--;}
-    }
-    return 0;
-}
-
-
-
-#include <iostream>
-#include <string>
-using namespace std;
-int main() {
-    string s;
-    cin >> s;
-    int len = s.length();
-    int a[6] = {0};
-    for (int i = 0; i < len; i++) {
-        if (s[i] == 'P') a[0]++;
-        if (s[i] == 'A') a[1]++;
-        if (s[i] == 'T') a[2]++;
-        if (s[i] == 'e') a[3]++;
-        if (s[i] == 's') a[4]++;
-        if (s[i] == 't') a[5]++;
-    }
-    int max = a[0];
-    for (int i = 1; i < 6; i++) {
-        if (a[i] > max) {
-            max = a[i];
-        }
-    }
-    for (int i = 0; i < max; i++) {
-        if (a[0] != 0) {cout << "P";a[0]--;}
-        if (a[1] != 0) {cout << "A";a[1]--;}
-        if (a[2] != 0) {cout << "T";a[2]--;}
-        if (a[3] != 0) {cout << "e";a[3]--;}
-        if (a[4] != 0) {cout << "s";a[4]--;}
-        if (a[5] != 0) {cout << "t";a[5]--;}
     }
     return 0;
 }

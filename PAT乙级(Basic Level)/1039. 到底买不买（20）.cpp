@@ -38,30 +38,26 @@ YrR8RrY
 No 2
 
 #include <iostream>
-#include <string>
 using namespace std;
-
 int main() {
     string a, b;
     cin >> a >> b;
-    int lena = a.length();
-    int lenb = b.length();
-    for (int i = 0; i < lenb; i++) {
-        for (int j = 0; j < lena; j++) {
+    for (int i = 0; i < b.length(); i++) {
+        for (int j = 0; j < a.length(); j++) {
             if (a[j] == b[i]) {
                 b[i] = '#';
                 a[j] = '#';
             }
         }
     }
-    int count = 0, cou = 0;
-    for (int i = 0; i < lenb; i++)
-        if (b[i] != '#') count++;
-    for (int i = 0; i < lena; i++)
-        if (a[i] != '#') cou++;
-    if (count != 0)
-        cout << "No " << count;
+    int cnt1 = 0, cnt2 = 0;
+    for (int i = 0; i < b.length(); i++)
+        if (b[i] != '#') cnt1++;
+    for (int i = 0; i < a.length(); i++)
+        if (a[i] != '#') cnt2++;
+    if (cnt1 != 0)
+        cout << "No " << cnt1;
     else
-        cout << "Yes " << cou;
+        cout << "Yes " << cnt2;
     return 0;
 }

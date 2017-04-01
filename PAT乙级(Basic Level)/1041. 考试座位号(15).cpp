@@ -41,37 +41,29 @@ CHEN, Yue
 输出样例：
 10120150912002 2
 10120150912119 1
-
 #include <iostream>
+#include <vector>
 using namespace std;
 struct stu {
     string s;
-    int one;
-    int two;
+    int one, two;
 };
-
 int main() {
-    int n;
+    int n, m, temp;
     cin >> n;
-    stu *a = new stu [n];
+    vector<stu> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i].s;
-        cin >> a[i].one;
-        cin >> a[i].two;
+        cin >> a[i].s >> a[i].one >> a[i].two;
     }
-    int m;
     cin >> m;
-    int temp;
     for (int i = 0; i < m; i++) {
         cin >> temp;
         for (int j = 0; j < n; j++) {
             if (a[j].one == temp) {
-                cout << a[j].s << " ";
-                cout << a[j].two << endl;
+                cout << a[j].s << " " << a[j].two << endl;
                 break;
             }
         }
     }
-    delete [] a;
     return 0;
 }

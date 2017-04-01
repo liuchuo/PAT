@@ -18,31 +18,24 @@
 2 150
 
 #include <iostream>
+#include <vector>
 using namespace std;
-struct Student{
-    int num;
-    int score;
-};
 int main() {
     int N;
     cin >> N;
-    Student *a = new Student [N];
-    for (int i = 0; i < N; i++)
-        cin >> a[i].num >> a[i].score;
-    int *b = new int [N];
-    for (int i = 0; i < N; i++)
-        b[i] = 0;
-    for (int i = 0; i < N; i++)
-        b[a[i].num] += a[i].score;
-    int max = b[1], t = 1;
+    vector<int> a(N);
+    int num, score;
+    for (int i = 0; i < N; i++) {
+        cin >> num >> score;
+        a[num] += score;
+    }
+    int max = a[1], t = 1;
     for (int i = 1; i < N; i++) {
-        if (max < b[i]) {
-            max = b[i];
+        if (max < a[i]) {
+            max = a[i];
             t = i;
         }
     }
     cout << t << " " << max;
-    delete [] a;
-    delete [] b;
     return 0;
 }

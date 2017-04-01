@@ -38,11 +38,9 @@ CHEN, Yue
 
 #include <iostream>
 using namespace std;
-
 int main() {
-    int n;
+    int n, t, num, score;
     cin >> n;
-    int t, num, score;
     int team[1001] = {0};
     for (int i = 1; i <= n; i++) {
         scanf("%d-%d %d", &t, &num, &score);
