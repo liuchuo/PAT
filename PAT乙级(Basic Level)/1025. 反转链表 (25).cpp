@@ -28,15 +28,6 @@ Address Data Next
 99999 5 68237
 12309 2 33218
 
-/*
-00100 1 12309
-12309 2 33218
-33218 3 00000
-00000 4 99999
-99999 5 68237
-68237 6 -1
-*/
-
 输出样例：
 00000 4 33218
 33218 3 12309
@@ -45,32 +36,39 @@ Address Data Next
 99999 5 68237
 68237 6 -1
 
+分析：输入样例正确连接顺序应该是：
+/*
+00100 1 12309
+12309 2 33218
+33218 3 00000
+00000 4 99999
+99999 5 68237
+68237 6 -1
+*/
+还应该考虑输入样例中有不在链表中的结点的情况。所以用个sum计数~
+
+而且，algorithm头文件里面有reverse函数可以直接调用～
+
 #include <iostream>
+#include <algorithm>
 using namespace std;
 int main() {
-    int first, k, n;
+    int first, k, n, temp;
     cin >> first >> n >> k;
-    // 把地址为temp的数的数值存入data[temp]中，把temp的下一个结点的地址存入next[temp]中。
-    int temp;
-    int data[100005];
-    int next[100005];
+    int data[100005], next[100005], list[100005];
     for (int i = 0; i < n; i++) {
         cin >> temp;
         cin >> data[temp] >> next[temp];
     }
-    int list[100005];
     int sum = 0;//不一定所有的输入的结点都是有用的，加个计数器
     while (first != -1) {
         list[sum++] = first;
         first = next[first];
     }
-    int result[100005];
-    for (int i = 0; i < sum; i++)
-        result[i] = list[i];
-    for (int i = 0; i < (sum - sum % k); i++)
-        result[i] = list[i / k * k + k - 1 - i % k];
+    for (int i = 0; i < (sum - sum % k); i += k)
+        reverse(begin(list) + i, begin(list) + i + k);
     for (int i = 0; i < sum - 1; i++)
-        printf("%05d %d %05d\n", result[i], data[result[i]], result[i + 1]);
-    printf("%05d %d -1", result[sum - 1], data[result[sum - 1]]);
+        printf("%05d %d %05d\n", list[i], data[list[i]], list[i + 1]);
+    printf("%05d %d -1", list[sum - 1], data[list[sum - 1]]);
     return 0;
 }
