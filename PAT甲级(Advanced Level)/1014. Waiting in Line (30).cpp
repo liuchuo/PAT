@@ -82,7 +82,7 @@ int main() {
             }
         }
         window[tempwindow].q.pop();
-        window[tempwindow].q.push(tempmin);
+        window[tempwindow].q.push(time[index]);
         window[tempwindow].poptime +=  window[tempwindow].q.front();
         if(window[tempwindow].endtime >= 540)
             sorry[index] = true;
