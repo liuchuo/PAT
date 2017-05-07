@@ -1,5 +1,5 @@
 1054. The Dominant Color (20)
-Behind the scenes in the computer's memory, color is always talked about as a series of 24 bits of information for each pixel. In an image, the color with the largest proportional area is called the dominant color. A strictly dominant color takes more than half of the total area. Now given an image of resolution M by N (for example, 800x600), you are supposed to point out the strictly dominant color.
+Behind the scenes in the computers memory, color is always talked about as a series of 24 bits of information for each pixel. In an image, the color with the largest proportional area is called the dominant color. A strictly dominant color takes more than half of the total area. Now given an image of resolution M by N (for example, 800x600), you are supposed to point out the strictly dominant color.
 
 Input Specification:
 
@@ -38,7 +38,7 @@ int main() {
 			arr[temp]++;
 			if(arr[temp] > half) {
 				scanf("%d", temp);
-				break;
+				return 0;
 			}
 		}
 	}
