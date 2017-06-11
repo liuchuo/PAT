@@ -207,7 +207,7 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1055 | 集体照 (25)            | [查看题解](http://www.liuchuo.net/archives/619) | [查看题解](https://github.com/JoyHwong/PAT-Solutions/blob/master/Java/Basic/basicLevel1055/Main.java) | 排序           |
 | 1056 | 组合数的和(15)           | [查看题解](http://www.liuchuo.net/archives/2492) |                                          | 数学问题         |
 | 1057 | 数零壹(20)             | [查看题解](http://www.liuchuo.net/archives/2494) |                                          | 进制转换         |
-| 1058 | 选择题(20)             | [查看题解](http://www.liuchuo.net/archives/2494) |                                          | 字符串处理        |
+| 1058 | 选择题(20)             | [查看题解](https://www.liuchuo.net/archives/2496) |                                          | 字符串处理        |
 | 1059 | C语言竞赛(20)           | [查看题解](http://www.liuchuo.net/archives/2486) |                                          | 逻辑题          |
 | 1060 | 爱丁顿数(25)            | [查看题解](http://www.liuchuo.net/archives/2480) |                                          | 逻辑题          |
 | 1061 | 判断题(15)             | [查看题解](http://www.liuchuo.net/archives/2742) |                                          | 逻辑题          |
