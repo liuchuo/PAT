@@ -31,25 +31,21 @@ CHEN, Yue
 3 2 0
 
 #include <iostream>
+#include <vector>
 using namespace std;
 int main() {
-    int n;
+    int n, m, temp;
     cin >> n;
-    int *a = new int [n];
-    int b[101] = {0};
+    vector<int> a(n), b(101);
     for (int i = 0; i < n; i++) {
         cin >> a[i];
         b[a[i]]++;
     }
-    int m;
     cin >> m;
-    int temp;
-    for (int i = 0; i < m - 1; i++) {
+    for (int i = 0; i < m; i++) {
         cin >> temp;
-        cout << b[temp] << " ";
+        if (i != 0) cout << " ";
+        cout << b[temp];
     }
-    cin >> temp;
-    cout << b[temp];
-    delete [] a;
     return 0;
 }
