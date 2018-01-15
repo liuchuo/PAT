@@ -16,6 +16,8 @@ Sample Input:
 Sample Output:
 3
 
+分析：一道简单的前序中序转后序，而且只需要知道后序的第一个值，所以可以定义一个变量flag，当post的第一个值已经输出，则flag为true，递归出口处判断flag，可以提前return
+ps：经过测试发现没有flag按照正常前序中序转后序也可以AC，但是我在考场上第一次尝试直接转没有提前退出递归的写法并没有能够AC，而是有一部分运行超时，后来增加了flag才AC。可能pat考试时更为严苛，所以对于准备pat考试的小伙伴，建议如果能够缩小运行时间尽量精益求精
 
 #include <iostream>
 #include <vector>

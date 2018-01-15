@@ -145,6 +145,14 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1129 | Recommendation System (25)          | [查看题解](http://www.liuchuo.net/archives/3848) | set的应用，运算符重载             |
 | 1130 | Infix Expression (25)               | [查看题解](http://www.liuchuo.net/archives/3798) | dfs深度优先搜索                |
 | 1131 | Subway Map (30)                     | [查看题解](http://www.liuchuo.net/archives/3850) | dfs深度优先搜索                |
+| 1132 | Cut Integer (20)                    | [查看题解](https://www.liuchuo.net/archives/4090) | 数学问题                     |
+| 1133 | Splitting A Linked List (25)        | [查看题解](https://www.liuchuo.net/archives/4092) | 链表                       |
+| 1134 | Vertex Cover (25)                   | [查看题解](https://www.liuchuo.net/archives/4096) | hash散列                   |
+| 1135 | Is It A Red-Black Tree (30)         | [查看题解](https://www.liuchuo.net/archives/4099) | 红黑树                      |
+| 1136 | A Delayed Palindrome (20)           | [查看题解](https://www.liuchuo.net/archives/4204) | 简单题                      |
+| 1137 | Final Grading (25)                  | [查看题解](https://www.liuchuo.net/archives/4206) | map映射，排序                 |
+| 1138 | Postorder Traversal (25)            | [查看题解](https://www.liuchuo.net/archives/4208) | 树的遍历，前序中序转后序             |
+| 1139 | First Contact (30)                  | [查看题解](https://www.liuchuo.net/archives/4210) | 模拟                       |
 
 # PAT乙级题解
 
@@ -220,6 +228,16 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1068 | 万绿丛中一点红(20)         | [查看题解](http://www.liuchuo.net/archives/3755) |                                          | 逻辑题          |
 | 1069 | 微博转发抽奖(20)          | [查看题解](http://www.liuchuo.net/archives/3743) |                                          | map映射        |
 | 1070 | 结绳(25)              | [查看题解](http://www.liuchuo.net/archives/3745) |                                          | 排序，贪心        |
+| 1071 | 小赌怡情(15)            | [查看题解](http://www.liuchuo.net/archives/4212) |                                          | 简单题          |
+| 1072 | 开学寄语(20)            | [查看题解](http://www.liuchuo.net/archives/4214) |                                          | 简单题          |
+| 1073 | 多选题常见计分法(20)        | [查看题解](http://www.liuchuo.net/archives/4216) |                                          | 逻辑题          |
+| 1074 | 宇宙无敌加法器(20)         | [查看题解](http://www.liuchuo.net/archives/4218) |                                          | 逻辑题          |
+| 1075 | 链表元素分类(25)          | [查看题解](http://www.liuchuo.net/archives/4094) |                                          | 链表           |
+| 1076 | Wifi密码              | [查看题解](http://www.liuchuo.net/archives/4193) |                                          | 简单题          |
+| 1077 | 互评成绩计算              | [查看题解](http://www.liuchuo.net/archives/4196) |                                          | 简单题          |
+| 1078 | 字符串压缩与解压            | [查看题解](http://www.liuchuo.net/archives/4198) |                                          | 逻辑题          |
+| 1079 | 延迟的回文数              | [查看题解](http://www.liuchuo.net/archives/4094) |                                          | 回文数          |
+| 1080 | MOOC期终成绩            | [查看题解](https://www.liuchuo.net/archives/4202) |                                          | map映射，排序     |
 
 
 
@@ -301,3 +319,4 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 # 致谢
 
 - 感谢[@JoyHwong](https://github.com/JoyHwong)提供的Java版本的题解
+- 感谢[@聪明可爱的小学弟](https://github.com/15715216140)整理的README.md
