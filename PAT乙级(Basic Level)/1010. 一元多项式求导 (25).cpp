@@ -18,25 +18,21 @@ Standard
 输出样例：
 12 3 -10 1 6 0
 
-注意：记得考虑没有输入的情况。以及，输入的只是常数项的情况。这个时候是要输出"0 0"的。
+分析：1.flag用来判断是否已经有过输出～当没有输出并且b==0的时候，输出“0 0”
+2.当b!=0时，因为给出的是所有非零项系数，所以必定会有输出，先判断flag是否为1，如果为1表示已经有过输出，那么在前面要先输出一个空格
+3.输出 a * b 和 b - 1，然后将flag标记为1表示已经有过输出
 
 #include <iostream>
 using namespace std;
 int main() {
-    int a, b;
-    int flag = 0;
+    int a, b, flag = 0;
     while (cin >> a >> b) {
-        if (b == 0) {
-            if (flag == 0) 
-                cout << "0 0";//要是第一次输出就是b = 0的情况，那直接0 0
-            return 0;
-        }
-        if (flag == 1)
-            cout << " ";//不是第一次输出了 那前面就加一个空格
-        cout << a * b << " " << b - 1;
-        flag = 1;
+        if (flag == 0 && b == 0) cout << "0 0";
+        if (b != 0) {
+            if (flag == 1) cout << " ";
+            cout << a * b << " " << b - 1;
+            flag = 1;
+        } 
     }
-    if (flag == 0) //如果没有输入，就要输出0 0
-        cout << "0 0";
     return 0;
 }
