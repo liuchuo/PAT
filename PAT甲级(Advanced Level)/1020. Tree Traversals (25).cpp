@@ -13,7 +13,7 @@ Sample Output:
 
 题目大意：给定一棵二叉树的后序遍历和中序遍历，请你输出其层序遍历的序列。这里假设键值都是互不相等的正整数。
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 using namespace std;
 vector<int> post, in, level(100000, -1);
@@ -34,13 +34,12 @@ int main() {
     for(int i = 0; i < n; i++) scanf("%d", &in[i]);
     pre(n-1, 0, n-1, 0);
     for(int i = 0; i < level.size(); i++) {
-        if(level[i] != -1 && cnt != n - 1) {
-            printf("%d ", level[i]);
-            cnt++;
-        } else if(level[i] != -1){
+        if (level[i] != -1) {
+            if (cnt != 0) printf(" ");
             printf("%d", level[i]);
-            break;
+            cnt++;
         }
+        if (cnt == n) break;
     }
     return 0;
 }
