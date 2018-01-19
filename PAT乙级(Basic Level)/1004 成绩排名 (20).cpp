@@ -21,38 +21,24 @@ Mike CS991301
 Joe Math990112
 
 #include <iostream>
-#include <string>
 using namespace std;
 int main() {
-    struct Student {
-        string name;
-        string num;
-        int score;
-    };
-    int n;
+    int n, max = -1, min = 101, score;
     cin >> n;
-    Student *stu = new Student [n]; 
+    string maxname, minname, maxnum, minnum, name, num;
     for (int i = 0; i < n; i++) {
-        cin >> stu[i].name;
-        cin >> stu[i].num;
-        cin >> stu[i].score;
-    }
-    int max = stu[0].score;
-    int min = stu[0].score;
-    int maxstudent = 0;
-    int minstudent = 0;
-    for (int i = 1; i < n; i++) {
-        if (max < stu[i].score) {
-            max = stu[i].score;
-            maxstudent = i;
+        cin >> name >> num >> score;
+        if (max < score) {
+            max = score;
+            maxname = name;
+            maxnum = num;
         }
-        if (min > stu[i].score) {
-            min = stu[i].score;
-            minstudent = i;
+        if (min > score) {
+            min = score;
+            minname = name;
+            minnum = num;
         }
     }
-    cout << stu[maxstudent].name << " " << stu[maxstudent].num << endl;
-    cout << stu[minstudent].name << " " << stu[minstudent].num;
-    delete [] stu;
+    cout << maxname << " " << maxnum << endl << minname << " " << minnum;
     return 0;
 }
