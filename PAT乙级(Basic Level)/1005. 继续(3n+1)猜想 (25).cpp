@@ -1,15 +1,4 @@
 1005. 继续(3n+1)猜想 (25)
-
-时间限制
-400 ms
-内存限制
-65536 kB
-代码长度限制
-8000 B
-判题程序
-Standard
-作者
-CHEN, Yue
 卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。
 
 当我们验证卡拉兹猜想的时候，为了避免重复计算，可以记录下递推过程中遇到的每一个数。例如对n=3进行验证的时候，我们需要计算3、5、8、4、2、1，则当我们对n=5、8、4、2进行验证的时候，就可以直接判定卡拉兹猜想的真伪，而不需要重复计算，因为这4个数已经在验证3的时候遇到过了，我们称5、8、4、2是被3“覆盖”的数。我们称一个数列中的某个数n为“关键数”，如果n不能被数列中的其他数字所覆盖。
@@ -27,44 +16,31 @@ CHEN, Yue
 7 6
 
 #include <iostream>
+#include <vector>
 #include <algorithm>
 using namespace std;
-
-int cmp(int a, int b) {return a > b;}
-
+int arr[10000];
+bool cmp(int a, int b) {return a > b;}
 int main() {
-    int n;
-    cin >> n;
-    int *a = new int [n];
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
-    int t;
-    sort(a, a + n, cmp);
-    for (int i = 0; i < n; i++) {
-        t = a[i];
-        while (t != 1 && t != 999) {
-            if (t % 2 == 0) {
-                t = t / 2;
-            } else {
-                t = (t * 3 + 1) / 2;
-            }
-            for (int j = 0; j < n; j++) {
-                if(t == a[j] && j != i)
-                    a[j] = 999;//相同的数字变为999
-            }
+    int k, n, flag = 0;
+    cin >> k;
+    vector<int> v(k);
+    for (int i = 0; i < k; i++) {
+        cin >> n;
+        v[i] = n;
+        while (n != 1) {
+            if (n % 2 != 0) n = 3 * n + 1;
+            n = n / 2;
+            arr[n] = 1;
         }
     }
-    sort(a, a + n, cmp);//999排序后到了最前面
-    int temp = 0;
-    for (int k = n - 1; k >= 0; k--) {
-        if (a[k] != 999)//第一个不等于999的下标为temp
-            temp = k;
+    sort(v.begin(), v.end(), cmp);
+    for (int i = 0; i < v.size(); i++) {
+        if (arr[v[i]] == 0) {
+            if (flag == 1) cout << " ";
+            cout << v[i];
+            flag = 1;
+        }
     }
-    for (int m = temp; m < n - 1; m++) {
-        cout << a[m] << " ";
-    }
-    cout << a[n - 1];
-    delete [] a;
     return 0;
 }
