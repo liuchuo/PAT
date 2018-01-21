@@ -24,59 +24,41 @@ d&Hyscvnm
 输出样例：
 THU 14:04
 
+分析：按照题目所给的方法找到相等的字符后判断即可，如果输出的时间不足2位数要在前面添0，即用%02d输出～
+
 #include <iostream>
-#include <string>
+#include <cctype>
 using namespace std;
 int main() {
     string a, b, c, d;
     cin >> a >> b >> c >> d;
-    int lena = a.length();
-    int lenb = b.length();
-    int min1 = lena < lenb ? lena : lenb;
-    int lenc = c.length();
-    int lend = d.length();
-    int min2 = lenc < lend ? lenc : lend;
-    string weekday[7] = {"MON ", "TUE ", "WED ", "THU ", "FRI ", "SAT ", "SUN "};
     char t[2];
-    int pos;
-    int j;
-    for (int i = 0; i < min1; i++) {
+    int pos, i = 0, j = 0;
+    while(i < a.length() && i < b.length()) {
         if (a[i] == b[i] && (a[i] >= 'A' && a[i] <= 'G')) {
             t[0] = a[i];
-            a[i] = '#';
-            j = i;
             break;
         }
+        i++;
     }
-    for (int i = j + 1; i < min1; i++) {
-        if (a[i] == b[i] && ((a[i] >= 'A' && a[i] <= 'N') || (a[i] >= '0' && a[i] <= '9'))) {
+    i = i + 1;
+    while (i < a.length() && i < b.length()) {
+        if (a[i] == b[i] && ((a[i] >= 'A' && a[i] <= 'N') || isdigit(a[i]))) {
             t[1] = a[i];
             break;
         }
+        i++;
     }
-    for (int i = 0; i < min2; i++) {
-        if (c[i] == d[i] && ((c[i] >= 'A' && c[i] <= 'Z') || (c[i] >= 'a' && c[i] <= 'z'))) {
-            pos = i;
+    while (j < c.length() && j < d.length()) {
+        if (c[j] == d[j] && isalpha(c[j])) {
+            pos = j;
             break;
         }
+        j++;
     }
-
-    int m;
-    if (t[1] >= '0' && t[1] <= '9') {
-        m = t[1] - '0';
-    } else {
-        m = t[1] - 'A' + 10;
-    }
-    cout << weekday[t[0] - 'A'];
-    if (m >= 0 && m <= 9) {
-        cout << 0 << m << ":";
-    } else {
-        cout << m << ":";
-    }
-    if (pos >= 0 && pos <= 9) {
-        cout << 0 << pos;
-    } else {
-        cout << pos;
-    }
+    string week[7] = {"MON ", "TUE ", "WED ", "THU ", "FRI ", "SAT ", "SUN "};
+    int m = isdigit(t[1]) ? t[1] - '0' : t[1] - 'A' + 10;
+    cout << week[t[0]-'A'];
+    printf("%02d:%02d", m, pos);
     return 0;
 }
