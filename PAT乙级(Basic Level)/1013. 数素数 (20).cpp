@@ -1,4 +1,4 @@
-//1013. 数素数 (20)
+1013. 数素数 (20)
 令Pi表示第i个素数。现任给两个正整数M <= N <= 10^4，请输出PM到PN的所有素数。
 
 输入格式：
@@ -14,44 +14,33 @@
 47 53 59 61 67 71 73 79 83 89
 97 101 103
 
+分析：vector中保存第M到第N个素数，用cnt标记输出了多少个，如果当前已经输出的个数为10的倍数，则输出一个空行
+
 #include <iostream>
-#include <cmath>
+#include <vector>
 using namespace std;
 bool isprime(int a) {
-    for (int i = 2; i <= sqrt(a); i++) {
-        if(a % i == 0)
-            return false;
-    }
+    for (int i = 2; i * i <= a; i++)
+        if(a % i == 0) return false;
     return true;
 }
-
 int main() {
-    int M, N;
+    int M, N, num = 2, cnt = 0;
     cin >> M >> N;
-    int t = 0;
-    int k = 2;
-    int a[10000];
-    int j = 0;
-    while (t < N) {
-        if (isprime(k)) {
-            t++;
-            if (t >= M)
-                a[++j] = k;
+    vector<int> v;
+    while (cnt < N) {
+        if (isprime(num)) {
+            cnt++;
+            if (cnt >= M) v.push_back(num);
         }
-        k++;
+        num++;
     }
-    int row = j / 10;
-    if (j % 10 == 0)
-        row = row - 1;
-    for (int i = 0; i < row; i++) {
-        for (int k = 1; k < 10; k++) {
-            cout << a[10 * i + k] << " ";
-        }
-        cout << a[(i + 1) * 10] << endl;
+    cnt = 0;
+    for (int i = 0; i < v.size(); i++) {
+        cnt++;
+        if (cnt % 10 != 1) printf(" ");
+        printf("%d", v[i]);
+        if (cnt % 10 == 0) printf("\n");
     }
-    for (int i = row * 10 + 1; i < j; i++) {
-        cout << a[i] << " ";
-    }
-    cout << a[j]; 
     return 0;
 }
