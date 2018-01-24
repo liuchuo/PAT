@@ -1,5 +1,5 @@
 1030. Travel Plan (30)
-A traveler's map gives the distances between cities along the highways, together with the cost of each highway. Now you are supposed to write a program to help a traveler to decide the shortest path between his/her starting city and the destination. If such a shortest path is not unique, you are supposed to output the one with the minimum cost, which is guaranteed to be unique.
+A traveler‘s map gives the distances between cities along the highways, together with the cost of each highway. Now you are supposed to write a program to help a traveler to decide the shortest path between his/her starting city and the destination. If such a shortest path is not unique, you are supposed to output the one with the minimum cost, which is guaranteed to be unique.
 
 Input Specification:
 
@@ -76,7 +76,7 @@ int main() {
         for(int j = 0; j < n; j++) {
             if(visit[j] == false && dis[j] < minn) {
                 u = j;
-                minn = j;
+                minn = dis[j];
             }
         }
         if(u == -1) break;
