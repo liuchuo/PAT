@@ -1,14 +1,4 @@
-//1041. 考试座位号(15)
-时间限制
-400 ms
-内存限制
-65536 kB
-代码长度限制
-8000 B
-判题程序
-Standard
-作者
-CHEN, Yue
+1041. 考试座位号(15)
 每个PAT考生在参加考试时都会被分配两个座位号，一个是试机座位，一个
 是考试座位。正常情况下，考生在入场时先得到试机座位号码，入座进入试
 机状态后，系统会显示该考生的考试座位号码，考试时考生需要换到考试座
@@ -41,29 +31,22 @@ CHEN, Yue
 输出样例：
 10120150912002 2
 10120150912119 1
+
 #include <iostream>
-#include <vector>
 using namespace std;
-struct stu {
-    string s;
-    int one, two;
-};
 int main() {
-    int n, m, temp;
+    string stu[1005][2], s1, s2;;
+    int n, m, t;
     cin >> n;
-    vector<stu> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i].s >> a[i].one >> a[i].two;
-    }
+    for(int i = 0; i < n; i++) {
+        cin >> s1 >> t >> s2;
+        stu[t][0] = s1;
+        stu[t][1] = s2; 
+    } 
     cin >> m;
-    for (int i = 0; i < m; i++) {
-        cin >> temp;
-        for (int j = 0; j < n; j++) {
-            if (a[j].one == temp) {
-                cout << a[j].s << " " << a[j].two << endl;
-                break;
-            }
-        }
-    }
+    for(int i = 0; i < m; i++) {
+        cin >> t;
+        cout << stu[t][0] << " " << stu[t][1] << endl;
+    } 
     return 0;
 }
