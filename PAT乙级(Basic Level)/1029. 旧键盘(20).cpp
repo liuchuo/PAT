@@ -20,33 +20,19 @@ _hs_s_a_es
 输出样例：
 7TI
 
-#include <iostream>
-#include <cctype>
-using namespace std;
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+#define strupr(str) \
+    for (int i = 0; i < strlen(str); i++) str[i] = toupper(str[i])
 int main() {
-    string a, b;
-    cin >> a >> b;
-    char c[80];
-    int flag, index = 0;
-    for (int i = 0; i < a.length(); i++) {
-        flag = 0;
-        for (int j = 0; j < b.length(); j++) {
-            if (a[i] == b[j]) {
-                flag = 1;
-                break;
-            }
-        }
-        if (!flag) c[index++] = toupper(a[i]);
-    }
-    for (int i = 1; i < index; i++) {
-        for (int j = 0; j < i; j++) {
-            if (c[i] == c[j]) {
-                c[i] = '#';
-                break;
-            }
-        }
-    }
-    for (int i = 0; i < index; i++)
-        if (c[i] != '#') cout << c[i];
+    char str1[81] = {0}, str2[81] = {0}, bad[81] = {0};
+    scanf("%s %s", str1, str2);
+    strupr(str1);
+    strupr(str2);
+    for (int i = 0, j = 0; i < strlen(str1); i++)
+        if (strchr(str2, str1[i]) == NULL && strchr(bad, str1[i]) == NULL)
+            bad[j++] = str1[i];
+    puts(bad);
     return 0;
 }
