@@ -20,33 +20,18 @@ _hs_s_a_es
 输出样例：
 7TI
 
+分析：用string的find函数～遍历字符串s1，当当前字符s1[i]不在s2中，它的大写也不在ans中时，将当前字符的大写放入ans中，最后输出ans字符串即可～
+ps：感谢github上的@xiaorong61给我发的pull request中strchr()函数带来的灵感～让我想到了string的find函数～
+
 #include <iostream>
 #include <cctype>
 using namespace std;
 int main() {
-    string a, b;
-    cin >> a >> b;
-    char c[80];
-    int flag, index = 0;
-    for (int i = 0; i < a.length(); i++) {
-        flag = 0;
-        for (int j = 0; j < b.length(); j++) {
-            if (a[i] == b[j]) {
-                flag = 1;
-                break;
-            }
-        }
-        if (!flag) c[index++] = toupper(a[i]);
-    }
-    for (int i = 1; i < index; i++) {
-        for (int j = 0; j < i; j++) {
-            if (c[i] == c[j]) {
-                c[i] = '#';
-                break;
-            }
-        }
-    }
-    for (int i = 0; i < index; i++)
-        if (c[i] != '#') cout << c[i];
+    string s1, s2, ans;
+    cin >> s1 >> s2;
+    for (int i = 0; i < s1.length(); i++)
+        if (s2.find(s1[i]) == string::npos && ans.find(toupper(s1[i])) == string::npos)
+            ans += toupper(s1[i]);
+    cout << ans;
     return 0;
 }
