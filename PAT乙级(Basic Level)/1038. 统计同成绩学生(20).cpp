@@ -36,10 +36,11 @@ using namespace std;
 int main() {
     int n, m, temp;
     cin >> n;
-    vector<int> a(n), b(101);
+    vector<int> b(101);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        b[a[i]]++;
+        int a;
+        cin >> a;
+        b[a]++;
     }
     cin >> m;
     for (int i = 0; i < m; i++) {
