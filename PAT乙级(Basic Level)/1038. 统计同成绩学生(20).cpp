@@ -1,15 +1,4 @@
-//1038. 统计同成绩学生(20)
-
-时间限制
-250 ms
-内存限制
-65536 kB
-代码长度限制
-8000 B
-判题程序
-Standard
-作者
-CHEN, Yue
+1038. 统计同成绩学生(20)
 本题要求读入N名学生的成绩，将获得某一给定分数的学生人数输出。
 
 输入格式：
@@ -36,10 +25,10 @@ using namespace std;
 int main() {
     int n, m, temp;
     cin >> n;
-    vector<int> a(n), b(101);
+    vector<int> b(101);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        b[a[i]]++;
+        cin >> temp;
+        b[temp]++;
     }
     cin >> m;
     for (int i = 0; i < m; i++) {
