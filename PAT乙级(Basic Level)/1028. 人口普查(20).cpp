@@ -1,3 +1,14 @@
+1028. 人口普查(20)
+时间限制
+200 ms
+内存限制
+65536 kB
+代码长度限制
+8000 B
+判题程序
+Standard
+作者
+CHEN, Yue
 某城镇进行人口普查，得到了全体居民的生日。现请你写个程序，找出镇上最年长和最年轻的人。
 
 这里确保每个输入的日期都是合法的，但不一定是合理的——假设已知镇上没有超过200岁的老人，而今天是2014年9月6日，所以超过200岁的生日和未出生的生日都是不合理的，应该被过滤掉。
@@ -24,34 +35,33 @@ Steve 1967/11/20
 using namespace std;
 struct peo{
 	string name;
-	int year, mon, date, sum;//sum表示出生天数的序号 
+	int year, mon, date, id;
+	//id表示像身份证一样把生日编号;  
+	//id越小越老,越大越年轻; 
 }t; 
 int main() {
-	int n, cnt = 0, maxn = 0, minn =20140907;//	2014*366 + 31*9 + 7
+	int n, cnt = 0, maxn = 0, minn =20140907;
 	string maxname,minname;
 	cin >> n;
 	for(int i = 0; i < n; i++) {
 		cin >> t.name;
 		scanf("%d/%d/%d",&t.year, &t.mon, &t.date);
-//		图省事直接10000,100, 和366,31道理一样; t.sum表示出生天数（从0年0月0日起）的序号 
-//		t.sum  = 366* t.year + 31*t.mon + t.date ;
-//		if(t.sum >=1814*366 + 31*9 + 6 && t.sum <= 2014*366 + 31 + 6) {
-		t.sum  = 10000* t.year + 100*t.mon + t.date ;
-		if(t.sum >=18140906 && t.sum <= 20140906) {
+		t.id  = 10000* t.year + 100*t.mon + t.date ;//编写id号码 
+		if(t.id >=18140906 && t.id <= 20140906) {
 			cnt++;
-			if(t.sum > maxn) {
-				maxn = t.sum ;
+			if(t.id > maxn) {
+				maxn = t.id ;
 				maxname = t.name ;
 			}
-			if(t.sum < minn) {
-				minn = t.sum ;
+			if(t.id < minn) {
+				minn = t.id ;
 				minname = t.name ;
 			}
 		}
 	}
 	cout << cnt ;
 	if(cnt != 0)
-		cout << ' ' << minname << ' ' << maxname;//出生的天数序号越小越老 
+		cout << ' ' << minname << ' ' << maxname;//id越小越老 
 return 0;
 }
 
