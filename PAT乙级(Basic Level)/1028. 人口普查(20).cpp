@@ -1,62 +1,67 @@
-1028. äººå£æ™®æŸ¥(20)
-æŸåŸŽé•‡è¿›è¡Œäººå£æ™®æŸ¥ï¼Œå¾—åˆ°äº†å…¨ä½“å±…æ°‘çš„ç”Ÿæ—¥ã€‚çŽ°è¯·ä½ å†™ä¸ªç¨‹åºï¼Œæ‰¾å‡ºé•‡ä¸Šæœ€å¹´é•¿å’Œæœ€å¹´è½»çš„äººã€‚
-è¿™é‡Œç¡®ä¿æ¯ä¸ªè¾“å…¥çš„æ—¥æœŸéƒ½æ˜¯åˆæ³•çš„ï¼Œä½†ä¸ä¸€å®šæ˜¯åˆç†çš„â€”â€”å‡è®¾å·²çŸ¥é•‡ä¸Šæ²¡æœ‰è¶…è¿‡200å²çš„è€äººï¼Œ
-è€Œä»Šå¤©æ˜¯2014å¹´9æœˆ6æ—¥ï¼Œæ‰€ä»¥è¶…è¿‡200å²çš„ç”Ÿæ—¥å’Œæœªå‡ºç”Ÿçš„ç”Ÿæ—¥éƒ½æ˜¯ä¸åˆç†çš„ï¼Œåº”è¯¥è¢«è¿‡æ»¤æŽ‰ã€‚
+1028. ÈË¿ÚÆÕ²é(20)
+Ê±¼äÏÞÖÆ
+200 ms
+ÄÚ´æÏÞÖÆ
+65536 kB
+´úÂë³¤¶ÈÏÞÖÆ
+8000 B
+ÅÐÌâ³ÌÐò
+Standard
+×÷Õß
+CHEN, Yue
+Ä³³ÇÕò½øÐÐÈË¿ÚÆÕ²é£¬µÃµ½ÁËÈ«Ìå¾ÓÃñµÄÉúÈÕ¡£ÏÖÇëÄãÐ´¸ö³ÌÐò£¬ÕÒ³öÕòÉÏ×îÄê³¤ºÍ×îÄêÇáµÄÈË¡£
 
-è¾“å…¥æ ¼å¼ï¼š
+ÕâÀïÈ·±£Ã¿¸öÊäÈëµÄÈÕÆÚ¶¼ÊÇºÏ·¨µÄ£¬µ«²»Ò»¶¨ÊÇºÏÀíµÄ¡ª¡ª¼ÙÉèÒÑÖªÕòÉÏÃ»ÓÐ³¬¹ý200ËêµÄÀÏÈË£¬¶ø½ñÌìÊÇ2014Äê9ÔÂ6ÈÕ£¬ËùÒÔ³¬¹ý200ËêµÄÉúÈÕºÍÎ´³öÉúµÄÉúÈÕ¶¼ÊÇ²»ºÏÀíµÄ£¬Ó¦¸Ã±»¹ýÂËµô¡£
 
-è¾“å…¥åœ¨ç¬¬ä¸€è¡Œç»™å‡ºæ­£æ•´æ•°Nï¼Œå–å€¼åœ¨(0, 10^5]ï¼›éšåŽNè¡Œï¼Œæ¯è¡Œç»™å‡º1ä¸ªäººçš„å§“å
-ï¼ˆç”±ä¸è¶…è¿‡5ä¸ªè‹±æ–‡å­—æ¯ç»„æˆçš„å­—ç¬¦ä¸²ï¼‰ã€ä»¥åŠæŒ‰â€œyyyy/mm/ddâ€ï¼ˆå³å¹´/æœˆ/æ—¥ï¼‰æ ¼å¼ç»™å‡ºçš„ç”Ÿæ—¥ã€‚
-é¢˜ç›®ä¿è¯æœ€å¹´é•¿å’Œæœ€å¹´è½»çš„äººæ²¡æœ‰å¹¶åˆ—ã€‚
+ÊäÈë¸ñÊ½£º
 
-è¾“å‡ºæ ¼å¼ï¼š
+ÊäÈëÔÚµÚÒ»ÐÐ¸ø³öÕýÕûÊýN£¬È¡ÖµÔÚ(0, 105]£»ËæºóNÐÐ£¬Ã¿ÐÐ¸ø³ö1¸öÈËµÄÐÕÃû£¨ÓÉ²»³¬¹ý5¸öÓ¢ÎÄ×ÖÄ¸×é³ÉµÄ×Ö·û´®£©¡¢ÒÔ¼°°´¡°yyyy/mm/dd¡±£¨¼´Äê/ÔÂ/ÈÕ£©¸ñÊ½¸ø³öµÄÉúÈÕ¡£ÌâÄ¿±£Ö¤×îÄê³¤ºÍ×îÄêÇáµÄÈËÃ»ÓÐ²¢ÁÐ¡£
 
-åœ¨ä¸€è¡Œä¸­é¡ºåºè¾“å‡ºæœ‰æ•ˆç”Ÿæ—¥çš„ä¸ªæ•°ã€æœ€å¹´é•¿äººå’Œæœ€å¹´è½»äººçš„å§“åï¼Œå…¶é—´ä»¥ç©ºæ ¼åˆ†éš”ã€‚
+Êä³ö¸ñÊ½£º
 
-2
-John 2001/05/12
-Tom 1814/09/06
-è¾“å…¥æ ·ä¾‹ï¼š
+ÔÚÒ»ÐÐÖÐË³ÐòÊä³öÓÐÐ§ÉúÈÕµÄ¸öÊý¡¢×îÄê³¤ÈËºÍ×îÄêÇáÈËµÄÐÕÃû£¬Æä¼äÒÔ¿Õ¸ñ·Ö¸ô¡£
+
+ÊäÈëÑùÀý£º
 5
 John 2001/05/12
 Tom 1814/09/06
 Ann 2121/01/30
 James 1814/09/05
-Steve 2007/11/20
-è¾“å‡ºæ ·ä¾‹ï¼š
+Steve 1967/11/20
+Êä³öÑùÀý£º
 3 Tom John
-
 #include <iostream>
+#include <string>
 using namespace std;
+struct peo{
+	string name;
+	int year, mon, date, id;
+	//id±íÊ¾ÏñÉí·ÝÖ¤Ò»Ñù°ÑÉúÈÕ±àºÅ;  
+	//idÔ½Ð¡Ô½ÀÏ,Ô½´óÔ½ÄêÇá; 
+}t; 
 int main() {
-    int n;
-    cin >> n;
-    string name;
-    int year, month, day, count = 0;
-    int maxyear = 0, maxmonth = 0, maxday = 0, minyear = 9999, minmonth = 9999, minday = 9999;
-    string maxname, minname;
-    for (int i = 0; i < n; i++) {
-        cin >> name;
-        scanf("%d/%d/%d",&year, &month, &day);
-        if((year < 2014 || (year == 2014 && month < 9) || (year == 2014 && month == 9 && day <= 6)) &&
-           (year > 1814 || (year == 1814 && month > 9) || (year == 1814 && month == 9 && day >= 6))) {
-            count++;
-            if(year > maxyear || (year == maxyear && month > maxmonth) || (year == maxyear && month == maxmonth && day > maxday)) {
-                maxyear = year;
-                maxmonth = month;
-                maxday = day;
-                maxname = name;
-            }
-            if(year < minyear || (year == minyear && month < minmonth) || (year == minyear && month == minmonth && day < minday)) {
-                minyear = year;
-                minmonth = month;
-                minday = day;
-                minname = name;
-            }
-        }
-    }
-    cout << count;
-    if (count != 0)
-        cout << " " << minname << " " << maxname;
-    return 0;
+	int n, cnt = 0, maxn = 0, minn =20140907;
+	string maxname,minname;
+	cin >> n;
+	for(int i = 0; i < n; i++) {
+		cin >> t.name;
+		scanf("%d/%d/%d",&t.year, &t.mon, &t.date);
+		t.id  = 10000* t.year + 100*t.mon + t.date ;//±àÐ´idºÅÂë 
+		if(t.id >=18140906 && t.id <= 20140906) {
+			cnt++;
+			if(t.id > maxn) {
+				maxn = t.id ;
+				maxname = t.name ;
+			}
+			if(t.id < minn) {
+				minn = t.id ;
+				minname = t.name ;
+			}
+		}
+	}
+	cout << cnt ;
+	if(cnt != 0)
+		cout << ' ' << minname << ' ' << maxname;//idÔ½Ð¡Ô½ÀÏ 
+return 0;
 }
+
