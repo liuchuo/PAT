@@ -63,7 +63,7 @@ bool cmp(node a, node b) {
 }
 map<string, int> idx;
 int main() {
-    int p, m, n, score, cnt = 1;
+    int p, m, n, score, cnt = 0;
     cin >> p >> m >> n;
     vector<node> v, ans;
     string s;
@@ -76,12 +76,12 @@ int main() {
     }
     for (int i = 0; i < m; i++) {
         cin >> s >> score;
-        if (idx[s] != 0) v[idx[s] - 1].gm = score;
+        if (idx.count(s) != 0) v[idx[s]].gm = score;
     }
     for (int i = 0; i < n; i++) {
         cin >> s >> score;
-        if (idx[s] != 0) {
-            int temp = idx[s] - 1;
+        if (idx.count(s) != 0) {
+            int temp = idx[s];
             v[temp].gf = v[temp].g = score;
             if (v[temp].gm > v[temp].gf) v[temp].g = int(v[temp].gm * 0.4 + v[temp].gf * 0.6 + 0.5);
         }
