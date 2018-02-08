@@ -1,82 +1,62 @@
-1014. ç¦å°”æ‘©æ–¯çš„çº¦ä¼š (20)
-å¤§ä¾¦æŽ¢ç¦å°”æ‘©æ–¯æŽ¥åˆ°ä¸€å¼ å¥‡æ€ªçš„å­—æ¡ï¼šâ€œæˆ‘ä»¬çº¦ä¼šå§ï¼ 
-3485djDkxh4hhGE 2984akDfkkkkggEdsb s&hgsfdk d&Hyscvnmâ€ã€‚
-å¤§ä¾¦æŽ¢å¾ˆå¿«å°±æ˜Žç™½äº†ï¼Œå­—æ¡ä¸Šå¥‡æ€ªçš„ä¹±ç å®žé™…ä¸Šå°±æ˜¯çº¦ä¼šçš„æ—¶é—´â€œæ˜ŸæœŸå›› 14:04â€ï¼Œ
-å› ä¸ºå‰é¢ä¸¤å­—ç¬¦ä¸²ä¸­ç¬¬1å¯¹ç›¸åŒçš„å¤§å†™è‹±æ–‡å­—æ¯ï¼ˆå¤§å°å†™æœ‰åŒºåˆ†ï¼‰æ˜¯ç¬¬4ä¸ªå­—æ¯'D'ï¼Œ
-ä»£è¡¨æ˜ŸæœŸå››ï¼›ç¬¬2å¯¹ç›¸åŒçš„å­—ç¬¦æ˜¯'E'ï¼Œé‚£æ˜¯ç¬¬5ä¸ªè‹±æ–‡å­—æ¯ï¼Œä»£è¡¨ä¸€å¤©é‡Œçš„ç¬¬14ä¸ª
-é’Ÿå¤´ï¼ˆäºŽæ˜¯ä¸€å¤©çš„0ç‚¹åˆ°23ç‚¹ç”±æ•°å­—0åˆ°9ã€ä»¥åŠå¤§å†™å­—æ¯Aåˆ°Nè¡¨ç¤ºï¼‰ï¼›åŽé¢ä¸¤å­—ç¬¦ä¸²
-ç¬¬1å¯¹ç›¸åŒçš„è‹±æ–‡å­—æ¯'s'å‡ºçŽ°åœ¨ç¬¬4ä¸ªä½ç½®ï¼ˆä»Ž0å¼€å§‹è®¡æ•°ï¼‰ä¸Šï¼Œä»£è¡¨ç¬¬4åˆ†é’Ÿã€‚çŽ°ç»™å®š
-ä¸¤å¯¹å­—ç¬¦ä¸²ï¼Œè¯·å¸®åŠ©ç¦å°”æ‘©æ–¯è§£ç å¾—åˆ°çº¦ä¼šçš„æ—¶é—´ã€‚
+1014. ¸£¶ûÄ¦Ë¹µÄÔ¼»á (20)
+Ê±¼äÏÞÖÆ
+100 ms
+ÄÚ´æÏÞÖÆ
+65536 kB
+´úÂë³¤¶ÈÏÞÖÆ
+8000 B
+ÅÐÌâ³ÌÐò
+Standard
+×÷Õß
+CHEN, Yue
+´óÕìÌ½¸£¶ûÄ¦Ë¹½Óµ½Ò»ÕÅÆæ¹ÖµÄ×ÖÌõ£º¡°ÎÒÃÇÔ¼»á°É£¡ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&hgsfdk d&Hyscvnm¡±¡£´óÕìÌ½ºÜ¿ì¾ÍÃ÷°×ÁË£¬×ÖÌõÉÏÆæ¹ÖµÄÂÒÂëÊµ¼ÊÉÏ¾ÍÊÇÔ¼»áµÄÊ±¼ä¡°ÐÇÆÚËÄ 14:04¡±£¬ÒòÎªÇ°ÃæÁ½×Ö·û´®ÖÐµÚ1¶ÔÏàÍ¬µÄ´óÐ´Ó¢ÎÄ×ÖÄ¸£¨´óÐ¡Ð´ÓÐÇø·Ö£©ÊÇµÚ4¸ö×ÖÄ¸'D'£¬´ú±íÐÇÆÚËÄ£»µÚ2¶ÔÏàÍ¬µÄ×Ö·ûÊÇ'E'£¬ÄÇÊÇµÚ5¸öÓ¢ÎÄ×ÖÄ¸£¬´ú±íÒ»ÌìÀïµÄµÚ14¸öÖÓÍ·£¨ÓÚÊÇÒ»ÌìµÄ0µãµ½23µãÓÉÊý×Ö0µ½9¡¢ÒÔ¼°´óÐ´×ÖÄ¸Aµ½N±íÊ¾£©£»ºóÃæÁ½×Ö·û´®µÚ1¶ÔÏàÍ¬µÄÓ¢ÎÄ×ÖÄ¸'s'³öÏÖÔÚµÚ4¸öÎ»ÖÃ£¨´Ó0¿ªÊ¼¼ÆÊý£©ÉÏ£¬´ú±íµÚ4·ÖÖÓ¡£ÏÖ¸ø¶¨Á½¶Ô×Ö·û´®£¬Çë°ïÖú¸£¶ûÄ¦Ë¹½âÂëµÃµ½Ô¼»áµÄÊ±¼ä¡£
 
-è¾“å…¥æ ¼å¼ï¼š
-è¾“å…¥åœ¨4è¡Œä¸­åˆ†åˆ«ç»™å‡º4ä¸ªéžç©ºã€ä¸åŒ…å«ç©ºæ ¼ã€ä¸”é•¿åº¦ä¸è¶…è¿‡60çš„å­—ç¬¦ä¸²ã€‚
+ÊäÈë¸ñÊ½£º
 
-è¾“å‡ºæ ¼å¼ï¼š
-åœ¨ä¸€è¡Œä¸­è¾“å‡ºçº¦ä¼šçš„æ—¶é—´ï¼Œæ ¼å¼ä¸ºâ€œDAY HH:MMâ€ï¼Œå…¶ä¸­â€œDAYâ€æ˜¯æŸæ˜ŸæœŸçš„3å­—ç¬¦ç¼©å†™ï¼Œ
-å³MONè¡¨ç¤ºæ˜ŸæœŸä¸€ï¼ŒTUEè¡¨ç¤ºæ˜ŸæœŸäºŒï¼ŒWEDè¡¨ç¤ºæ˜ŸæœŸä¸‰ï¼ŒTHUè¡¨ç¤ºæ˜ŸæœŸå››ï¼ŒFRIè¡¨ç¤ºæ˜ŸæœŸäº”ï¼Œ
-SATè¡¨ç¤ºæ˜ŸæœŸå…­ï¼ŒSUNè¡¨ç¤ºæ˜ŸæœŸæ—¥ã€‚é¢˜ç›®è¾“å…¥ä¿è¯æ¯ä¸ªæµ‹è¯•å­˜åœ¨å”¯ä¸€è§£ã€‚
+ÊäÈëÔÚ4ÐÐÖÐ·Ö±ð¸ø³ö4¸ö·Ç¿Õ¡¢²»°üº¬¿Õ¸ñ¡¢ÇÒ³¤¶È²»³¬¹ý60µÄ×Ö·û´®¡£
 
-è¾“å…¥æ ·ä¾‹ï¼š
-3485djDkxh4hhGE
-2984akDfkkkkggEdsb
-s&hgsfdk
+Êä³ö¸ñÊ½£º
+
+ÔÚÒ»ÐÐÖÐÊä³öÔ¼»áµÄÊ±¼ä£¬¸ñÊ½Îª¡°DAY HH:MM¡±£¬ÆäÖÐ¡°DAY¡±ÊÇÄ³ÐÇÆÚµÄ3×Ö·ûËõÐ´£¬¼´MON±íÊ¾ÐÇÆÚÒ»£¬TUE±íÊ¾ÐÇÆÚ¶þ£¬WED±íÊ¾ÐÇÆÚÈý£¬THU±íÊ¾ÐÇÆÚËÄ£¬FRI±íÊ¾ÐÇÆÚÎå£¬SAT±íÊ¾ÐÇÆÚÁù£¬SUN±íÊ¾ÐÇÆÚÈÕ¡£ÌâÄ¿ÊäÈë±£Ö¤Ã¿¸ö²âÊÔ´æÔÚÎ¨Ò»½â¡£
+
+ÊäÈëÑùÀý£º
+3485djDkxh4hhGE 
+2984akDfkkkkggEdsb 
+s&hgsfdk 
 d&Hyscvnm
-è¾“å‡ºæ ·ä¾‹ï¼š
+Êä³öÑùÀý£º
 THU 14:04
-
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
 int main() {
-    string a, b, c, d;
-    cin >> a >> b >> c >> d;
-    int lena = a.length();
-    int lenb = b.length();
-    int min1 = lena < lenb ? lena : lenb;
-    int lenc = c.length();
-    int lend = d.length();
-    int min2 = lenc < lend ? lenc : lend;
-    string weekday[7] = {"MON ", "TUE ", "WED ", "THU ", "FRI ", "SAT ", "SUN "};
-    char t[2];
-    int pos;
-    int j;
-    for (int i = 0; i < min1; i++) {
-        if (a[i] == b[i] && (a[i] >= 'A' && a[i] <= 'G')) {
-            t[0] = a[i];
-            a[i] = '#';
-            j = i;
-            break;
-        }
-    }
-    for (int i = j + 1; i < min1; i++) {
-        if (a[i] == b[i] && ((a[i] >= 'A' && a[i] <= 'N') || (a[i] >= '0' && a[i] <= '9'))) {
-            t[1] = a[i];
-            break;
-        }
-    }
-    for (int i = 0; i < min2; i++) {
-        if (c[i] == d[i] && ((c[i] >= 'A' && c[i] <= 'Z') || (c[i] >= 'a' && c[i] <= 'z'))) {
-            pos = i;
-            break;
-        }
-    }
-
-    int m;
-    if (t[1] >= '0' && t[1] <= '9') {
-        m = t[1] - '0';
-    } else {
-        m = t[1] - 'A' + 10;
-    }
-    cout << weekday[t[0] - 'A'];
-    if (m >= 0 && m <= 9) {
-        cout << 0 << m << ":";
-    } else {
-        cout << m << ":";
-    }
-    if (pos >= 0 && pos <= 9) {
-        cout << 0 << pos;
-    } else {
-        cout << pos;
-    }
-    return 0;
+	string s1, s2, s3, s4;
+	cin >> s1 >> s2 >> s3 >> s4;
+	string da[] = {"MON","TUE","WED","THU","FRI","SAT","SUN"};
+	int i;
+	for(i = 0; i < s1.size(); i++) {
+		if(s1[i] == s2[i] && (s1[i] >= 'A' && s1[i] <= 'G')) {
+			cout << da[s1[i]-'A'] << ' ';
+			i++;
+			break;
+		}
+	}
+	for(; i < s1.size() ; i++) {
+		if(s1[i] == s2[i] && (s1[i] >= 'A' && s1[i] <= 'N')) {
+			cout << s1[i]-'A'+10 << ":";
+			break;
+		}
+		if(s1[i] == s2[i] && isdigit(s1[i])) {
+			printf("%02d:",s1[i]-'0');
+			break;
+		}
+	}
+	for(i = 0; i < s3.size(); i++) {
+		if(s3[i] == s4[i] && isalpha(s3[i])){
+			printf("%02d",i);
+	 		break;
+	 	}
+	}
+	return 0;
 }

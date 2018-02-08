@@ -1,13 +1,15 @@
-1003. æˆ‘è¦é€šè¿‡ï¼(20)
-â€œç­”æ¡ˆæ­£ç¡®â€æ˜¯è‡ªåŠ¨åˆ¤é¢˜ç³»ç»Ÿç»™å‡ºçš„æœ€ä»¤äººæ¬¢å–œçš„å›žå¤ã€‚æœ¬é¢˜å±žäºŽPATçš„â€œç­”æ¡ˆæ­£ç¡®â€å¤§æ´¾é€ â€”â€” åªè¦è¯»å…¥çš„å­—ç¬¦ä¸²æ»¡è¶³ä¸‹åˆ—æ¡ä»¶ï¼Œç³»ç»Ÿå°±è¾“å‡ºâ€œç­”æ¡ˆæ­£ç¡®â€ï¼Œå¦åˆ™è¾“å‡ºâ€œç­”æ¡ˆé”™è¯¯â€ã€‚
-å¾—åˆ°â€œç­”æ¡ˆæ­£ç¡®â€çš„æ¡ä»¶æ˜¯ï¼š
-1. å­—ç¬¦ä¸²ä¸­å¿…é¡»ä»…æœ‰P, A, Tè¿™ä¸‰ç§å­—ç¬¦ï¼Œä¸å¯ä»¥åŒ…å«å…¶å®ƒå­—ç¬¦ï¼›
-2. ä»»æ„å½¢å¦‚ xPATx çš„å­—ç¬¦ä¸²éƒ½å¯ä»¥èŽ·å¾—â€œç­”æ¡ˆæ­£ç¡®â€ï¼Œå…¶ä¸­ x æˆ–è€…æ˜¯ç©ºå­—ç¬¦ä¸²ï¼Œæˆ–è€…æ˜¯ä»…ç”±å­—æ¯ A ç»„æˆçš„å­—ç¬¦ä¸²ï¼›
-3. å¦‚æžœ aPbTc æ˜¯æ­£ç¡®çš„ï¼Œé‚£ä¹ˆ aPbATca ä¹Ÿæ˜¯æ­£ç¡®çš„ï¼Œå…¶ä¸­ a, b, c å‡æˆ–è€…æ˜¯ç©ºå­—ç¬¦ä¸²ï¼Œæˆ–è€…æ˜¯ä»…ç”±å­—æ¯ A ç»„æˆçš„å­—ç¬¦ä¸²ã€‚
-çŽ°åœ¨å°±è¯·ä½ ä¸ºPATå†™ä¸€ä¸ªè‡ªåŠ¨è£åˆ¤ç¨‹åºï¼Œåˆ¤å®šå“ªäº›å­—ç¬¦ä¸²æ˜¯å¯ä»¥èŽ·å¾—â€œç­”æ¡ˆæ­£ç¡®â€çš„ã€‚
-è¾“å…¥æ ¼å¼ï¼š æ¯ä¸ªæµ‹è¯•è¾“å…¥åŒ…å«1ä¸ªæµ‹è¯•ç”¨ä¾‹ã€‚ç¬¬1è¡Œç»™å‡ºä¸€ä¸ªè‡ªç„¶æ•°n (<10)ï¼Œæ˜¯éœ€è¦æ£€æµ‹çš„å­—ç¬¦ä¸²ä¸ªæ•°ã€‚æŽ¥ä¸‹æ¥æ¯ä¸ªå­—ç¬¦ä¸²å ä¸€è¡Œï¼Œå­—ç¬¦ä¸²é•¿åº¦ä¸è¶…è¿‡100ï¼Œä¸”ä¸åŒ…å«ç©ºæ ¼ã€‚
-è¾“å‡ºæ ¼å¼ï¼šæ¯ä¸ªå­—ç¬¦ä¸²çš„æ£€æµ‹ç»“æžœå ä¸€è¡Œï¼Œå¦‚æžœè¯¥å­—ç¬¦ä¸²å¯ä»¥èŽ·å¾—â€œç­”æ¡ˆæ­£ç¡®â€ï¼Œåˆ™è¾“å‡ºYESï¼Œå¦åˆ™è¾“å‡ºNOã€‚
-è¾“å…¥æ ·ä¾‹ï¼š
+1003. ÎÒÒªÍ¨¹ý£¡(20)-Õã´óPATÒÒ¼¶ÕæÌâ
+¡°´ð°¸ÕýÈ·¡±ÊÇ×Ô¶¯ÅÐÌâÏµÍ³¸ø³öµÄ×îÁîÈË»¶Ï²µÄ»Ø¸´¡£±¾ÌâÊôÓÚPATµÄ¡°´ð°¸ÕýÈ·¡±´óÅÉËÍ ¡ª¡ª Ö»Òª¶ÁÈëµÄ×Ö·û´®Âú×ãÏÂÁÐÌõ¼þ£¬ÏµÍ³¾ÍÊä³ö¡°´ð°¸ÕýÈ·¡±£¬·ñÔòÊä³ö¡°´ð°¸´íÎó¡±¡£
+µÃµ½¡°´ð°¸ÕýÈ·¡±µÄÌõ¼þÊÇ£º
+1. ×Ö·û´®ÖÐ±ØÐë½öÓÐP, A, TÕâÈýÖÖ×Ö·û£¬²»¿ÉÒÔ°üº¬ÆäËü×Ö·û£»
+2. ÈÎÒâÐÎÈç xPATx µÄ×Ö·û´®¶¼¿ÉÒÔ»ñµÃ¡°´ð°¸ÕýÈ·¡±£¬ÆäÖÐ x »òÕßÊÇ¿Õ×Ö·û´®£¬»òÕßÊÇ½öÓÉ×ÖÄ¸ A ×é³ÉµÄ×Ö·û´®£»
+3. Èç¹û aPbTc ÊÇÕýÈ·µÄ£¬ÄÇÃ´ aPbATca Ò²ÊÇÕýÈ·µÄ£¬ÆäÖÐ a, b, c ¾ù»òÕßÊÇ¿Õ×Ö·û´®£¬»òÕßÊÇ½öÓÉ×ÖÄ¸ A ×é³ÉµÄ×Ö·û´®¡£
+ÏÖÔÚ¾ÍÇëÄãÎªPATÐ´Ò»¸ö×Ô¶¯²ÃÅÐ³ÌÐò£¬ÅÐ¶¨ÄÄÐ©×Ö·û´®ÊÇ¿ÉÒÔ»ñµÃ¡°´ð°¸ÕýÈ·¡±µÄ¡£
+ÊäÈë¸ñÊ½£º
+Ã¿¸ö²âÊÔÊäÈë°üº¬1¸ö²âÊÔÓÃÀý¡£µÚ1ÐÐ¸ø³öÒ»¸ö×ÔÈ»Êýn (<10)£¬ÊÇÐèÒª¼ì²âµÄ×Ö·û´®¸öÊý¡£½ÓÏÂÀ´Ã¿¸ö×Ö·û´®Õ¼Ò»ÐÐ£¬×Ö·û´®³¤¶È²»³¬¹ý100£¬ÇÒ²»°üº¬¿Õ¸ñ¡£
+Êä³ö¸ñÊ½£º
+Ã¿¸ö×Ö·û´®µÄ¼ì²â½á¹ûÕ¼Ò»ÐÐ£¬Èç¹û¸Ã×Ö·û´®¿ÉÒÔ»ñµÃ¡°´ð°¸ÕýÈ·¡±£¬ÔòÊä³öYES£¬·ñÔòÊä³öNO¡£
+ÊäÈëÑùÀý£º
 8
 PAT
 PAAT
@@ -17,7 +19,7 @@ xPATx
 PT
 Whatever
 APAAATAA
-è¾“å‡ºæ ·ä¾‹ï¼š
+Êä³öÑùÀý£º
 YES
 YES
 YES
@@ -26,78 +28,63 @@ NO
 NO
 NO
 NO
+
+·ÖÎö£º
+
+ÈÎÒâÐÎÈç xPATx µÄ×Ö·û´®¶¼¿ÉÒÔ»ñµÃ¡°´ð°¸ÕýÈ·¡±£¬ÆäÖÐ x »òÕßÊÇ¿Õ×Ö·û´®£¬»òÕßÊÇ½öÓÉ×ÖÄ¸ A ×é³ÉµÄ×Ö·û´®£»
+ÄÇÃ´ÕýÈ·µÄÓÐÕâÐ©£º
+PAT
+APATA
+AAPATAA
+AAAPATAAA
+¡­²»ËµÁË£¬¾ÍÊÇÖÐ¼äÒ»¸öA×óÓÒ¼ÓÉÏµÈÁ¿µÄA£¨²»¼ÓÒ²ÐÐ£©¶¼ÊÇÕýÈ·µÄ¡£
+
+Èç¹û aPbTc ÊÇÕýÈ·µÄ£¬ÄÇÃ´ aPbATca Ò²ÊÇÕýÈ·µÄ£¬ÆäÖÐ a, b, c ¾ù»òÕßÊÇ¿Õ×Ö·û´®£¬»òÕßÊÇ½öÓÉ×ÖÄ¸ A ×é³ÉµÄ×Ö·û´®¡£
+ÄÃÉÏÃæµÄÄÇ¼¸¸öÕýÈ·µÄ¾ÙÀý×Ó£¬ÄÇÃ´ÕýÈ·µÄÓÐÕâÐ©£º
+PAT ¡ª¡ª ¶ÔÓÚ aPbTc À´ËµacÊÇ¿Õ£¬bÊÇA¡£ËùÒÔ PAAT ÊÇÕýÈ·µÄ¡£Í¬ÀíPAAAAATÖÐ¼ä¼Ó¶àÉÙ¸öA¶¼ÊÇÕýÈ·ßÕ~
+APATA ¡ª¡ª ¶ÔÓÚaPbTcÀ´Ëµ£¬abc¶¼ÊÇA¡£ËùÒÔ APAATAA ÊÇÕýÈ·µÄ¡£ÔÙÀàÍÆÒ»ÏÂ£¬ÄÇÃ´ APAAATAAA ÊÇÕýÈ·µÄ¡£
+AAPATAA ¡ª¡ª ¶ÔÓÚaPbTcÀ´Ëµ£¬aºÍcÊÇAA£¬bÊÇA¡£ËùÒÔAAPAATAAAAÊÇÕýÈ·µÄ£¬ÔÙÀàÍÆÒ»ÏÂ£¬AAPAAATAAAAAA ÊÇÕýÈ·µÄ~ 
+ËùÒÔËµ¹æÂÉ¾ÍÊÇ£¬¿ÉÒÔÔÚPºÍTÖÐ¼ä¼ÓA²¢ÇÒÔÚTºóÃæ¼ÓA£¬ÒªÇó±ØÐëÊÇ£¬ÖÐ¼ä¼ÓÉÏÒ»¸öA£¬Ä©Î²¾ÍµÃ¼ÓÉÏ¼¸±¶µÄ(PÇ°ÃæAµÄÄÇ¸ö×Ö·û´®)¡£
+»»¾ä»°Ëµ¾ÍÊÇ£¬ÖÐ¼äµÄAµÄ¸öÊýÈç¹ûÊÇ3£¬ÄÇÃ´Ä©Î²µÄAµÄ¸öÊý¾ÍµÃÊÇ¿ªÍ·AµÄ¸öÊýµÄ3±¶¡£
+ºÜÇÉ£¬µ±ÖÐ¼äAÎªÒ»¸öµÄÊ±ºò£¬Ä©Î²ºÍ¿ªÍ·AµÄ¸öÊý±ØÐëÏàµÈÕýºÃÊÇµÚ¶þÌõµÄÒªÇó~~~
+
+ËùÒÔÒ»¾ä»°×Ü½á×Ö·û´®µÄÒªÇó£ºÖ»ÄÜÓÐÒ»¸öPÒ»¸öT£¬ÖÐ¼äÄ©Î²ºÍ¿ªÍ·¿ÉÒÔËæ±ã²åÈëA¡£
+µ«ÊÇ±ØÐëÂú×ã¿ªÍ·µÄAµÄ¸öÊý * ÖÐ¼äµÄAµÄ¸öÊý = ½áÎ²µÄAµÄ¸öÊý
+
+
+map<char,int> m  ÓÃm.count() ±íÊ¾ÊÇ·ñ³öÏÖ£¬m[]±íÊ¾³öÏÖÁË¼¸´Î 
 
 #include <iostream>
-#include <string>
+#include <map>
 using namespace std;
-
-int func(string str);
-
 int main() {
-    int n;
-    cin >> n;
-    getchar(); //è¯»å…¥nåŽè¦ç”¨getcharè¯»èµ°ç©ºæ ¼
-    string *s = new string [n];
-    for (int i = 0; i < n; i++) {
-        getline(cin, s[i]); //è¯»å…¥ä¸€æ•´è¡Œçš„å­—ç¬¦ä¸²ï¼Œç”¨getline(cin, string x);
-    }
-    int *t = new int [n];
-    for (int i = 0; i < n; i++) {
-        t[i] = 0;
-    }
-    for (int j = 0; j < n; j++) {
-        t[j] = func(s[j]);
-    }
-    
-    for (int k = 0; k < n; k++) {
-        if (t[k] == 1) {
-            cout << "YES" << endl;
-        }
-        if (t[k] == 0) {
-            cout << "NO" << endl;
-        }
-    }
-    delete [] s;
-    delete [] t;
-    return 0;
+	int n;
+	string s;
+	cin >> n;
+	for(int i = 0; i < n; i++) {
+		cin >> s;
+		map<char,int> m;
+		for(int j = 0; j < s.size(); j++)
+			m[s[j]]++;
+		if(m['P'] == 1 && m.count('A') == 1 && m['T']== 1 && m.size() == 3) {
+			int j = 0, a1 = 0, a2 = 0, a3 = 0;
+			while(s[j] != 'P'){
+				if(s[j] == 'A')		a1++;
+				j++;
+			}
+			while(s[j] != 'T'){
+				if(s[j] == 'A')		a2++;
+				j++;
+			}
+			while(j < s.size()){
+				if(s[j] == 'A')		a3++;
+				j++;
+			}
+			if(a1*a2 == a3)			cout << "YES\n";
+			else					cout << "NO\n";
+		} 
+		else 	cout << "NO\n";
+	}
+	return 0;
 }
 
-int func(string str) {
-    int len = str.length();
-    if (len <= 2)
-        return 0;
-    for (int i = 0; i < len; i++) {
-        if (str[i] != 'P' && str[i] != 'A' && str[i] != 'T') {
-            return 0;
-        }
-        if (str[i] == 'P') {
-            // æ‰¾åˆ°Pä¹‹åŽï¼ŒPå‰é¢çš„æ‰€æœ‰å­—æ¯åªèƒ½æ˜¯Aï¼Œå¦‚æžœä¸æ˜¯Aï¼Œå°±return 0;
-            for (int j = 0; j < i; j++) {
-                if (str[j] != 'A')
-                    return 0;
-            }
-            // Pä¹‹åŽçš„ä¸€ä¸ªå­—æ¯ä¹Ÿå¿…ç„¶æ˜¯Aï¼Œå¦‚æžœä¸æ˜¯ï¼Œç›´æŽ¥return 0;
-            if (str [i + 1] != 'A')
-                return 0;
-
-            for (int k = i + 2; k < len; k++) {
-                if (str[k] != 'A') {
-                    // PåŽé¢è‹¥å¹²ä¸ªAï¼Œå¦‚æžœAç»“æŸåŽçš„ç¬¬ä¸€ä¸ªå­—æ¯ä¸æ˜¯Tï¼Œä¸ç¬¦åˆç›´æŽ¥return 0;
-                    if (str[k] != 'T') {
-                        return 0;
-                    }
-                    // kæ˜¯å½“å‰Tçš„ä½ç½® å¦‚æžœTåŽé¢çš„å­—ç¬¦é•¿åº¦ä¸æ˜¯På‰é¢å­—ç¬¦é•¿åº¦çš„ k - 1 - iå€ï¼Œé”™è¯¯ç›´æŽ¥return 0;
-                    if ((len - 1 - k) != ((k - 1 - i) * i))
-                        return 0;
-                    // å¦‚æžœTåŽé¢çš„å­—æ¯æœ‰ä¸æ˜¯Açš„ã€‚ç›´æŽ¥return 0;
-                    for (int m = k + 1; m < len; m++) {
-                        if (str[m] != 'A')
-                            return 0;
-                    }
-                }
-            }
-        }
-    }
-    // å¦‚æžœæœ‰å¹¸åˆ°äº†è¿™ä¸€æ­¥ï¼Œé‚£å°±æ˜¯æ­£ç¡®çš„å•¦ã€‚return 1;
-    return 1;
-}
