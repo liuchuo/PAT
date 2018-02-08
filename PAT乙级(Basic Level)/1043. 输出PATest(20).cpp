@@ -1,14 +1,4 @@
-//1043. 输出PATest(20)
-时间限制
-400 ms
-内存限制
-65536 kB
-代码长度限制
-8000 B
-判题程序
-Standard
-作者
-CHEN, Yue
+1043. 输出PATest(20)
 给定一个长度不超过10000的、仅由英文字母构成的字符串。请将字符重新调整顺序，
 按“PATestPATest....”这样的顺序输出，并忽略其它字符。当然，六种字符的个
 数不一定是一样多的，若某种字符已经输出完，则余下的字符仍按PATest的顺序打印，
@@ -26,8 +16,8 @@ PATestPATestPTetPTePePee
 #include <iostream>
 using namespace std;
 int main() {
-  int map[128] = {0};
-  for (int c; (c = cin.get()) != EOF;) map[c]++;
+  int map[128] = {0}, c;
+  while ((c = cin.get()) != EOF) map[c]++;
   while (map['P'] > 0 || map['A'] > 0 || map['T'] > 0 || map['e'] > 0 || map['s'] > 0 || map['t'] > 0) {
     if (map['P']-- > 0) cout << 'P';
     if (map['A']-- > 0) cout << 'A';
