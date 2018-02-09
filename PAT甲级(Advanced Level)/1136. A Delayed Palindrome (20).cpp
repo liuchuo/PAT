@@ -1,21 +1,13 @@
 1136. A Delayed Palindrome (20)
 Consider a positive integer N written in standard notation with k+1 digits ai as ak...a1a0 with 0 <= ai < 10 for all i and ak > 0. Then N is palindromic if and only if ai = ak-i for all i. Zero is written 0 and is also palindromic by definition.
-
 Non-palindromic numbers can be paired with palindromic ones via a series of operations. First, the non-palindromic number is reversed and the result is added to the original number. If the result is not a palindromic number, this is repeated until it gives a palindromic number. Such number is called a delayed palindrome. (Quoted from https://en.wikipedia.org/wiki/Palindromic_number)
-
 Given any positive integer, you are supposed to find its paired palindromic number.
-
 Input Specification:
-
 Each input file contains one test case which gives a positive integer no more than 1000 digits.
-
 Output Specification:
-
 For each test case, print line by line the process of finding the palindromic number. The format of each line is the following:
-
 A + B = C
 where A is the original number, B is the reversed A, and C is their sum. A starts being the input number, and this process ends until C becomes a palindromic number -- in this case we print in the last line "C is a palindromic number."; or if a palindromic number cannot be found in 10 iterations, print "Not found in 10 iterations." instead.
-
 Sample Input 1:
 97152
 Sample Output 1:

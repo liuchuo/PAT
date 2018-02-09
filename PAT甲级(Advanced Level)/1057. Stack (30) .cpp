@@ -1,19 +1,13 @@
 1057. Stack (30)
 Stack is one of the most fundamental data structures, which is based on the principle of Last In First Out (LIFO). The basic operations include Push (inserting an element onto the top position) and Pop (deleting the top element). Now you are supposed to implement a stack with an extra operation: PeekMedian -- return the median value of all the elements in the stack. With N elements, the median value is defined to be the (N/2)-th smallest element if N is even, or ((N+1)/2)-th if N is odd.
-
 Input Specification:
-
 Each input file contains one test case. For each case, the first line contains a positive integer N (<= 105). Then N lines follow, each contains a command in one of the following 3 formats:
-
 Push key
 Pop
 PeekMedian
 where key is a positive integer no more than 105.
-
 Output Specification:
-
 For each Push command, insert key into the stack and output nothing. For each Pop or PeekMedian command, print in a line the corresponding returned value. If the command is invalid, print "Invalid" instead.
-
 Sample Input:
 17
 Pop
@@ -50,7 +44,7 @@ Invalid
 题目大意：现请你实现一种特殊的堆栈，它多了一种操作叫“查中值”，即返回堆栈中所有元素的中值。对于N个元素，若N是偶数，则中值定义为第N/2个最小元；若N是奇数，则中值定义为第(N+1)/2个最小元。
 分析：用树状数组，即求第k = (s.size() + 1) / 2大的数。查询小于等于x的数的个数是否等于k的时候用二分法更快~
 
-#include <cstdio>
+#include <iostream>
 #include <stack>
 #define lowbit(i) ((i) & (-i))
 const int maxn = 100010;

@@ -1,20 +1,13 @@
 1072. Gas Station (30)
 A gas station has to be built at such a location that the minimum distance between the station and any of the residential housing is as far away as possible. However it must guarantee that all the houses are in its service range.
-
 Now given the map of the city and several candidate locations for the gas station, you are supposed to give the best recommendation. If there are more than one solution, output the one with the smallest average distance to all the houses. If such a solution is still not unique, output the one with the smallest index number.
-
 Input Specification:
-
 Each input file contains one test case. For each case, the first line contains 4 positive integers: N (<= 103), the total number of houses; M (<= 10), the total number of the candidate locations for the gas stations; K (<= 104), the number of roads connecting the houses and the gas stations; and DS, the maximum service range of the gas station. It is hence assumed that all the houses are numbered from 1 to N, and all the candidate locations are numbered from G1 to GM.
-
 Then K lines follow, each describes a road in the format
 P1 P2 Dist
 where P1 and P2 are the two ends of a road which can be either house numbers or gas station numbers, and Dist is the integer length of the road.
-
 Output Specification:
-
 For each test case, print in the first line the index number of the best location. In the next line, print the minimum and the average distances between the solution and all the houses. The numbers in a line must be separated by a space and be accurate up to 1 decimal place. If the solution does not exist, simply output “No Solution”.
-
 Sample Input 1:
 4 3 11 5
 1 2 2
@@ -43,9 +36,9 @@ No Solution
 因为加油站之间也是彼此有路连接的，所以最短路径计算的时候也要把加油站算上。所以我们就是堆n+m个点进行Dijkstra计算最短路径。要求计算出1~m号加油站距离其他站点的最短路径。这时候可以遍历dis数组，如果dis存在一个距离大于服务范围ds的距离，那么我们就舍弃这个加油站。取最最短的路径，这就是距离它最近的加油站mindis。如果mindis > ansdis，就是说找到了一个距离居民最小距离的加油站是更远的，那就选这个加油站，更新ansid为它的id。最后输出
 对于加油站的字符串编号的处理：如果最近居民区最大的值没有变化但是找到了一个更小的平均距离，那就选这个。我们可以根据输入的是G还是数字，如果是数字就令编号为他自己，如果是G开头的，编号设为n+G后面的数字。
 
-#include <cstdio>
-#include <algorithm>
+
 #include <iostream>
+#include <algorithm>
 #include <string>
 using namespace std;
 const int inf = 999999999;

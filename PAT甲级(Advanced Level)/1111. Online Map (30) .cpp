@@ -1,32 +1,18 @@
 1111. Online Map (30)
 Input our current position and a destination, an online map can recommend several paths. Now your job is to recommend two paths to your user: one is the shortest, and the other is the fastest. It is guaranteed that a path exists for any request.
-
 Input Specification:
-
 Each input file contains one test case. For each case, the first line gives two positive integers N (2 <= N <= 500), and M, being the total number of streets intersections on a map, and the number of streets, respectively. Then M lines follow, each describes a street in the format:
-
 V1 V2 one-way length time
-
 where V1 and V2 are the indices (from 0 to N-1) of the two ends of the street; one-way is 1 if the street is one-way from V1 to V2, or 0 if not; length is the length of the street; and time is the time taken to pass the street.
-
 Finally a pair of source and destination is given.
-
 Output Specification:
-
 For each case, first print the shortest path from the source to the destination with distance D in the format:
-
 Distance = D: source -> v1 -> ... -> destination
-
 Then in the next line print the fastest path with total time T:
-
 Time = T: source -> w1 -> ... -> destination
-
 In case the shortest path is not unique, output the fastest one among the shortest paths, which is guaranteed to be unique. In case the fastest path is not unique, output the one that passes through the fewest intersections, which is guaranteed to be unique.
-
 In case the shortest and the fastest paths are identical, print them in one line in the format:
-
 Distance = D; Time = T: source -> u1 -> ... -> destination
-
 Sample Input 1:
 10 15
 0 1 0 1 1

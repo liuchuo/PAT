@@ -14,7 +14,6 @@ Sample Output
 3 2 1.5 1 2.9 0 3.2
 
 #include <iostream>
-#include <cstdio>
 using namespace std;
 int main() {
     float a[1001], b[1001], c[1001];

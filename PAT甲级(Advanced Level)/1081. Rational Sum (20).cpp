@@ -1,14 +1,9 @@
 1081. Rational Sum (20)
 Given N rational numbers in the form "numerator/denominator", you are supposed to calculate their sum.
-
 Input Specification:
-
 Each input file contains one test case. Each case starts with a positive integer N (<=100), followed in the next line N rational numbers "a1/b1 a2/b2 ..." where all the numerators and denominators are in the range of "long int". If there is a negative number, then the sign must appear in front of the numerator.
-
 Output Specification:
-
 For each test case, output the sum in the simplest form "integer numerator/denominator" where "integer" is the integer part of the sum, "numerator" < "denominator", and the numerator and the denominator have no common factor. You must output only the fractional part if the integer part is 0.
-
 Sample Input 1:
 5
 2/5 4/15 1/30 -2/60 8/3
@@ -32,7 +27,7 @@ Sample Output 3:
 以及：abs()在stdlib.h头文件里面。
 应该还要考虑整数和小数部分都为0时候输出0的情况，但是测试用例中不涉及，所以如果没有最后两句也是可以AC的。
 
-#include <cstdio>
+#include <iostream>
 #include <cstdlib>
 using namespace std;
 long long gcd(long long a, long long b) {return b == 0 ? abs(a) : gcd(b, a % b);}

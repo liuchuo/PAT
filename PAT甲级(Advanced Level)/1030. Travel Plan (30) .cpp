@@ -26,7 +26,7 @@ Sample Output
 分析：Dijksta + DFS。 Dijkstra记录路径pre数组，然后用dfs求最短的一条mincost以及它的路径path，最后输出path数组和mincost
 注意路径path因为是从末端一直压入push_back到path里面的，所以要输出路径的时候倒着输出
 
-#include <cstdio>
+#include <iostream>
 #include <algorithm>
 #include <vector>
 using namespace std;

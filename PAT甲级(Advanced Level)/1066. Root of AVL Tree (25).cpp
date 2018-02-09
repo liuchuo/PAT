@@ -15,7 +15,8 @@ Sample Input 2:
 88 70 61 96 120 90 65
 Sample Output 2:
 88
-#include <cstdio>
+
+#include <iostream>
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 struct node {
     int val;

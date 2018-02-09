@@ -1,18 +1,11 @@
 1026. Table Tennis (30)
 A table tennis club has N tables available to the public. The tables are numbered from 1 to N. For any pair of players, if there are some tables open when they arrive, they will be assigned to the available table with the smallest number. If all the tables are occupied, they will have to wait in a queue. It is assumed that every pair of players can play for at most 2 hours.
-
 Your job is to count for everyone in queue their waiting time, and for each table the number of players it has served for the day.
-
 One thing that makes this procedure a bit complicated is that the club reserves some tables for their VIP members. When a VIP table is open, the first VIP pair in the queue will have the priviledge to take it. However, if there is no VIP in the queue, the next pair of players can take it. On the other hand, if when it is the turn of a VIP pair, yet no VIP table is available, they can be assigned as any ordinary players.
-
 Input Specification:
-
 Each input file contains one test case. For each case, the first line contains an integer N (<=10000) - the total number of pairs of players. Then N lines follow, each contains 2 times and a VIP tag: HH:MM:SS - the arriving time, P - the playing time in minutes of a pair of players, and tag - which is 1 if they hold a VIP card, or 0 if not. It is guaranteed that the arriving time is between 08:00:00 and 21:00:00 while the club is open. It is assumed that no two customers arrives at the same time. Following the players' info, there are 2 positive integers: K (<=100) - the number of tables, and M (< K) - the number of VIP tables. The last line contains M table numbers.
-
 Output Specification:
-
 For each test case, first print the arriving time, serving time and the waiting time for each pair of players in the format shown by the sample. Then print in a line the number of players served by each table. Notice that the output must be listed in chronological order of the serving time. The waiting time must be rounded up to an integer minute(s). If one cannot get a table before the closing time, their information must NOT be printed.
-
 Sample Input:
 9
 20:52:00 10 0
@@ -47,7 +40,7 @@ k张桌子中m张是vip桌，如果vip桌子有空闲，而且队列里面有vip
 如果最早空闲的桌子index不是vip桌，那么看队首的球员是不是vip球员。如果是普通人，就直接把球桌分配给他，如果是vip，那么需要找到最早空闲的vip桌子的号vipindex，根据vip球员的到达时间和vipindex桌子的空闲时间继续分类讨论。
 分配的时候标记table的num++，统计该table服务的人数。
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cmath>

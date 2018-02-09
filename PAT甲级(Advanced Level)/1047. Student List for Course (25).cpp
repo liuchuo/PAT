@@ -1,14 +1,9 @@
 1047. Student List for Course (25)
 Zhejiang University has 40000 students and provides 2500 courses. Now given the registered course list of each student, you are supposed to output the student name lists of all the courses.
-
 Input Specification:
-
 Each input file contains one test case. For each case, the first line contains 2 numbers: N (<=40000), the total number of students, and K (<=2500), the total number of courses. Then N lines follow, each contains a student's name (3 capital English letters plus a one-digit number), a positive number C (<=20) which is the number of courses that this student has registered, and then followed by C course numbers. For the sake of simplicity, the courses are numbered from 1 to K.
-
 Output Specification:
-
 For each test case, print the student name lists of all the courses in increasing order of the course numbers. For each course, first print in one line the course number and the number of registered students, separated by a space. Then output the students' names in alphabetical order. Each name occupies a line.
-
 Sample Input:
 10 5
 ZOE1 2 4 5
@@ -58,7 +53,7 @@ ZOE1
 题目大意：给出选课人数和课程数目，然后再给出每个人的选课情况，请针对每门课程输出选课人数以及所有选该课的学生姓名，按照字典序~~~
 分析：建立int的二维数组，course[i][j] = k表示第i号课程上的人的一个列表，k是上这个课的学生的姓名所在的字符数组name[i][j]的i下标~~
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string.h>

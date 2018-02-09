@@ -1,24 +1,13 @@
 1032. Sharing (25)
 To store English words, one method is to use linked lists and store a word letter by letter. To save some space, we may let the words share the same sublist if they share the same suffix. For example, "loading" and "being" are stored as showed in Figure 1.
-
-
-Figure 1
 You are supposed to find the starting position of the common suffix (e.g. the position of "i" in Figure 1).
-
 Input Specification:
-
 Each input file contains one test case. For each case, the first line contains two addresses of nodes and a positive N (<= 105), where the two addresses are the addresses of the first nodes of the two words, and N is the total number of nodes. The address of a node is a 5-digit positive integer, and NULL is represented by -1.
-
 Then N lines follow, each describes a node in the format:
-
 Address Data Next
-
 where Address is the position of the node, Data is the letter contained by this node which is an English letter chosen from {a-z, A-Z}, and Next is the position of the next node.
-
 Output Specification:
-
 For each case, simply output the 5-digit starting position of the common suffix. If the two words have no common suffix, output "-1" instead.
-
 Sample Input 1:
 11111 22222 9
 67890 i 00002
@@ -45,7 +34,7 @@ Sample Output 2:
 分析：用结构体数组存储，node[i]表示地址为i的结点，key表示值，next为下一个结点的地址，flag表示第一条链表有没有该结点
 遍历第一条链表，将访问过的结点的flag都标记为true，当遍历第二条结点的时候，如果遇到了true的结点就输出并结束程序，没有遇到就输出-1
 
-#include <cstdio>
+#include <iostream>
 using namespace std;
 struct NODE {
     char key;

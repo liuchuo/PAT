@@ -1,16 +1,10 @@
 1060. Are They Equal (25)
 If a machine can save only 3 significant digits, the float numbers 12300 and 12358.9 are considered equal since they are both saved as 0.123*105 with simple chopping. Now given the number of significant digits on a machine and two float numbers, you are supposed to tell if they are treated equal in that machine.
-
 Input Specification:
-
 Each input file contains one test case which gives three numbers N, A and B, where N (<100) is the number of significant digits, and A and B are the two float numbers to be compared. Each float number is non-negative, no greater than 10100, and that its total digit number is less than 100.
-
 Output Specification:
-
 For each test case, print in a line "YES" if the two numbers are treated equal, and then the number in the standard form "0.d1...dN*10^k" (d1>0 unless the number is 0); or "NO" if they are not treated equal, and then the two numbers in their standard form. All the terms must be separated by a space, with no extra space at the end of a line.
-
 Note: Simple chopping is assumed without rounding.
-
 Sample Input 1:
 3 12300 12358.9
 Sample Output 1:
@@ -33,7 +27,7 @@ NO 0.120*10^3 0.128*10^3
 - 题目中说，无需四舍五入。
 - 数组开大点，虽然只有100位，但是很有可能前面的0很多导致根本不止100位。一开始开的110，几乎没有AC的任何测试点。。后来开了10000就AC了~
 
-#include <cstdio>
+#include <iostream>
 #include <cstring>
 using namespace std;
 int main() {
