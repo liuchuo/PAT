@@ -12,7 +12,6 @@
 _hs_s_a_tst
 
 
-
 #include <iostream>
 #include <cctype>
 using namespace std;

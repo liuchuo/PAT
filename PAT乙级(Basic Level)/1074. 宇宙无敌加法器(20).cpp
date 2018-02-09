@@ -16,7 +16,7 @@
 long的最长是19位，题目最长可能是20 位，所以用字符串的方式进行处理。
 注意结果为0的情况和long long 溢出的情况。
 
-#include <cstdio>
+#include <iostream>
 #include <cstring>
 #include <stack>
 #include <deque>

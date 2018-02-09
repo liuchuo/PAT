@@ -13,9 +13,9 @@
 53 20 76
 58 60 76
 
+#include <iostream>
 #include <cmath>
 #include <vector>
-#include <cstdio>
 #include <algorithm>
 using namespace std;
 int func(int N) {
