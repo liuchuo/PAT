@@ -56,6 +56,7 @@ int main() {
 
 bool func(string s) {
     int sum = 0;
+<<<<<<< HEAD
     int a[18];
     for (int i = 0; i < 17; i++)
         a[i] = s[i] - '0';
@@ -75,6 +76,15 @@ bool func(string s) {
             cout << a[17] << endl;
         else
             cout << "X" << endl;
+=======
+    int b[17] = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
+    for (int i = 0; i < 17; i++) {
+        sum = sum + (s[i] - '0') * b[i];
+    }
+    string c = "10X98765432";
+    if (c[sum % 11] != s[17]) {
+        cout << s << '\n';
+>>>>>>> origin/master
         return true;
     }
     return false;
