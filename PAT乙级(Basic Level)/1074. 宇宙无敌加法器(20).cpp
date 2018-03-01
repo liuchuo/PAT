@@ -12,57 +12,31 @@
 输出样例：
 7201
 
-分析：从最后一位向前遍历，把两个位置的数字相加，并求出进位值。把每一个结果存进一个双端队列当中，最后输出双端队列的时候，把前排的零先去掉。
-long的最长是19位，题目最长可能是20 位，所以用字符串的方式进行处理。
-注意结果为0的情况和long long 溢出的情况。
+分析：先将要相加的两个字符串S1和S2都扩展到和S等长，然后从后往前按照进制相加到ans中，注意进位carry，最后输出字符串ans，记得不要输出字符串ans前面的0。如果一次都没有输出，最后要输出一个0
 
 #include <iostream>
-#include <cstring>
-#include <stack>
-#include <deque>
 using namespace std;
 int main() {
-    char radix[30], a[30], b[30];
-    scanf("%s %s %s", radix, a, b);
-    int ai = strlen(a) - 1, bi = strlen(b) - 1, carry = 0, ri = strlen(radix) - 1;
-    deque<int> ans;
-    while (ai >= 0 || bi >= 0) {
-        int temp = radix[ri] - '0';
-        if (temp == 0) temp = 10;
-        if (ai >= 0 && bi >= 0) {
-            ans.push_back((a[ai] - '0' + b[bi] - '0' + carry) % temp);
-            carry = (a[ai] - '0' + b[bi] - '0' + carry) / temp;
-            ai--;
-            bi--;
-            ri--;
-        } else if (ai >= 0) {
-            ans.push_back((a[ai] - '0' + carry) % temp);
-            carry = (a[ai] - '0' + carry) / temp;
-            ai--;
-            ri--;
-        } else if (bi >= 0) {
-            ans.push_back((b[bi] - '0' + carry) % temp);
-            carry = (b[bi] - '0' + carry) / temp;
-            bi--;
-            ri--;
-        } else {
-            break;
+    string s, s1, s2, ans;
+    int carry = 0, flag = 0;
+    cin >> s >> s1 >> s2;
+    ans = s;
+    string ss1(s.length() - s1.length(), '0');
+    s1 = ss1 + s1;
+    string ss2(s.length() - s2.length(), '0');
+    s2 = ss2 + s2;
+    for(int i = s.length() - 1; i >= 0; i--) {
+        int mod = s[i] == '0' ? 10 : (s[i] - '0');
+        ans[i] = (s1[i] - '0' + s2[i] - '0' + carry) % mod + '0';
+        carry = (s1[i] - '0' + s2[i] - '0' + carry) / mod;
+    }
+    if (carry != 0) ans = '1' + ans;
+    for(int i = 0; i < ans.size(); i++) {
+        if (ans[i] != '0' || flag == 1) {
+            flag = 1;
+            cout << ans[i];
         }
     }
-    if (carry != 0) {
-        int temp = radix[ri] - '0';
-        if (temp == 0) temp = 10;
-        ans.push_back(carry % temp);
-    }
-    while (ans.size() != 0 && ans.back() == 0) {
-        ans.pop_back();
-    }
-    if (ans.size() == 0) printf("0");
-    else {
-        while (ans.size() != 0) {
-            printf("%d", ans.back());
-            ans.pop_back();
-        }
-    }
+    if (flag == 0) cout << 0;
     return 0;
 }
