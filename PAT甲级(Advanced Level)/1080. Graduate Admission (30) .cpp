@@ -41,8 +41,8 @@ Sample Output:
 4.从第一个学生开始，根据他的志愿，来尝试被学校录取。如果当前学校名额未满。那么就录取进去，并且让学校的nowNum加1.并且更新lastRank为这个学生的rank。如果当前学校的lastRank等于自己的rank，那么不管名额满不满都录取。而且记得把学生的id添加到学校的stuID列表中。
 5.输出的时候因为id顺序是乱的，要先从小到大排序，然后输出。每个学校占一行、
 
+#include <iostream>
 #include <algorithm>
-#include <cstdio>
 #include <vector>
 using namespace std;
 int n, m, k;

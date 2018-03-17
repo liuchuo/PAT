@@ -20,7 +20,7 @@ Sample Output:
 分析：用链表存储，构建二叉搜索树，深度优先搜索，将每一层所对应的结点个数存储在数组num中，并标记最大深度maxdepth，输出数组的最后两个的值~~~~
 
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 using namespace std;
 struct node {

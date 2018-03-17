@@ -17,7 +17,7 @@ Sample Output:
 注意：如果采用保存某个结点的父结点的下标的形式，然后一直遍历到根结点的深度/广度优先，会出现三个超时。因为从叶子结点往上遍历将会把所有路径都走一遍，很多都是重复走的路径，会超时，没有从根结点往下遍历的方式快~~~
 记得r是百分比，要除以100之后再计算复利~
 
-#include <cstdio>
+#include <iostream>
 #include <cmath>
 #include <vector>
 using namespace std;
