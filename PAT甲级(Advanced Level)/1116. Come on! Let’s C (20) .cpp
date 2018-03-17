@@ -33,7 +33,7 @@ Sample Output:
 
 分析：ran数组标记每个id对应的排名，集合ss存储所有已经询问过的id，如果发现当前id已经出现在ss中，则输出“Checked”，如果ran[id] == 0说明当前id不在排名列表中，所以输出“Are you kidding?”，如果ran[id]为1则输出“Minion”，如果ran[id]为素数则输出“Mystery Award”，否则输出“Chocolate”
 
-#include <cstdio>
+#include <iostream>
 #include <set>
 #include <cmath>
 using namespace std;
