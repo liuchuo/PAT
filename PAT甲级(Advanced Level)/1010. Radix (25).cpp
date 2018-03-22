@@ -22,9 +22,10 @@ Sample Input 2:
 Sample Output 2:
 Impossible
 
+分析：convert函数：给定一个数值和一个进制，将它转化为10进制。转化过程中可能产生溢出
+find_radix函数：找到令两个数值相等的进制数。在查找的过程中，需要使用二分查找算法，如果使用当前进制转化得到数值比另一个大或者小于0，说明这个进制太大
 
 #include <iostream>
-#include <string>
 #include <cctype>
 #include <algorithm>
 #include <cmath>
