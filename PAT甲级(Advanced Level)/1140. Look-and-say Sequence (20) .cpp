@@ -11,31 +11,21 @@ Sample Input:
 Sample Output:
 1123123111
 题目大意：给两个数字D和n，第一个序列是D，后一个序列描述前一个序列的所有数字以及这个数字出现的次数，比如D出现了1次，那么第二个序列就是D1，对于第二个序列D1，第三个序列这样描述：D出现1次，1出现1次，所以是D111……以此类推，输出第n个序列
-分析：用string s接收所需变幻的数字，char pre标记前一个字符，遍历字符串s，每次比较当前字符和前一个字符是否相等，如果不等，就将之前统计的相等的个数tempcnt追加到临时字符串temp后面，再将当前字符追加到temp字符串后面，并将tempcnt标记为1，否则就tempcnt++; 最终不要忘记把最后一个tempcnt放入temp字符串后面，然后赋值给s，只要没达到n次就继续循环，最后输出s的值
+用string s接收所需变幻的数字，每次遍历s，从当前位置i开始，看后面有多少个与s[i]相同，设j处开始不相同，那么临时字符串t =t + s[i] + to_string(j - i); 然后再将t赋值给s，cnt只要没达到n次就继续加油循环下一次，最后输出s的值～
 
 #include <iostream>
 using namespace std;
 int main() {
     string s;
-    int n, cnt = 1;
+    int n, j;
     cin >> s >> n;
-    while (cnt < n) {
-        char pre = s[0];
-        int tempcnt = 1;
-        string temp;
-        temp += s[0];
-        for (int i = 1; i < s.length(); i++) {
-            if (s[i] != pre) {
-                temp += to_string(tempcnt);
-                temp += s[i];
-                tempcnt = 1;
-                pre = s[i];
-            } else {
-                tempcnt++;
-            }
+    for (int cnt = 1; cnt < n; cnt++) {
+        string t;
+        for (int i = 0; i < s.length(); i = j) {
+            for (j = i; j < s.length() && s[j] == s[i]; j++);
+            t = t + s[i] + to_string(j - i);
         }
-        s = temp + to_string(tempcnt);
-        cnt++;
+        s = t;
     }
     cout << s;
     return 0;
