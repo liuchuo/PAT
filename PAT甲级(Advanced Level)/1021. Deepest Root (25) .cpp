@@ -52,21 +52,19 @@ void dfs(int node, int height) {
 int main() {
     scanf("%d", &n);
     v.resize(n + 1);
-    int a, b, cnt = 0;
+    int a, b, cnt = 0, s1 = 0;
     for(int i = 0; i < n - 1; i++) {
         scanf("%d%d", &a, &b);
         v[a].push_back(b);
         v[b].push_back(a);
     }
-    int s1 = 0;
     for(int i = 1; i <= n; i++) {
         if(visit[i] == false) {
             dfs(i, 1);
             if(i == 1) {
-                for(int j = 0; j < temp.size(); j++) {
+                if (temp.size() != 0) s1 = temp[0];
+                for(int j = 0; j < temp.size(); j++)
                     s.insert(temp[j]);
-                    if(j == 0) s1 = temp[j];
-                }
             }
             cnt++;
         }
@@ -80,9 +78,8 @@ int main() {
         dfs(s1, 1);
         for(int i = 0; i < temp.size(); i++)
             s.insert(temp[i]);
-        for(set<int>::iterator it = s.begin(); it != s.end(); it++)
+        for(auto it = s.begin(); it != s.end(); it++)
             printf("%d\n", *it);
-
     }
     return 0;
 }
