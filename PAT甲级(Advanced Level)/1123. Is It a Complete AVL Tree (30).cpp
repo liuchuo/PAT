@@ -26,143 +26,102 @@ AVL树一共有四种情况，这里我把发现树不平衡的那个结点叫�
 新来的结点插入到A的右子树的右子树
 发现不平衡时就需要处理，第1种情况只要简单的右旋，第4种情况只需左旋一下，第2种情况需要先对A的左子树左旋一下，然后对A右旋，同理第3种情况需要对A的右子树右旋一下，然后对A左旋，代码如下：
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 #include <queue>
-
 using namespace std;
-
-struct Node {
+struct node {
     int val;
-    struct Node *left, *right;
+    struct node *left, *right;
 };
-
-struct Node* leftRotate(struct Node *tree) {
-    struct Node *temp = tree->right;
+node* leftRotate(node *tree) {
+    node *temp = tree->right;
     tree->right = temp->left;
     temp->left = tree;
     return temp;
 }
-
-struct Node* rightRotate(struct Node *tree) {
-    struct Node *temp = tree->left;
+node* rightRotate(node *tree) {
+    node *temp = tree->left;
     tree->left = temp->right;
     temp->right = tree;
     return temp;
 }
-
-int getHeight(struct Node *tree) {
-    if (tree == NULL) {
-        return 0;
-    } else {
-        int l = getHeight(tree->left);
-        int r = getHeight(tree->right);
-        return l > r ? l + 1 : r + 1;
-    }
-}
-
-struct Node* leftRightRotate(struct Node *tree) {
+node* leftRightRotate(node *tree) {
     tree->left = leftRotate(tree->left);
-    tree = rightRotate(tree);
-    return tree;
+    return rightRotate(tree);
 }
-
-struct Node* rightLeftRotate(struct Node *tree) {
+node* rightLeftRotate(node *tree) {
     tree->right = rightRotate(tree->right);
-    tree = leftRotate(tree);
-    return tree;
+    return leftRotate(tree);
 }
-
-struct Node* insert(struct Node *tree, int val) {
+int getHeight(node *tree) {
+    if (tree == NULL) return 0;
+    int l = getHeight(tree->left);
+    int r = getHeight(tree->right);
+    return max(l, r) + 1;
+}
+node* insert(node *tree, int val) {
     if (tree == NULL) {
-        tree = new struct Node();
+        tree = new node();
         tree->val = val;
-        return tree;
-    }
-    if (tree->val > val) {
+    }else if (tree->val > val) {
         tree->left = insert(tree->left, val);
-        int l = getHeight(tree->left);
-        int r = getHeight(tree->right);
+        int l = getHeight(tree->left), r = getHeight(tree->right);
         if (l - r >= 2) {
-            if (val < tree->left->val) {
+            if (val < tree->left->val)
                 tree = rightRotate(tree);
-            } else {
+            else
                 tree = leftRightRotate(tree);
-            }
         }
     } else {
         tree->right = insert(tree->right, val);
-        int l = getHeight(tree->left);
-        int r = getHeight(tree->right);
+        int l = getHeight(tree->left), r = getHeight(tree->right);
         if (r - l >= 2) {
-            if (val > tree->right->val) {
+            if (val > tree->right->val)
                 tree = leftRotate(tree);
-            } else {
+            else
                 tree = rightLeftRotate(tree);
-            }
         }
     }
     return tree;
 }
-
 int isComplete = 1, after = 0;
-
-vector<int> levelOrder(struct Node *tree) {
+vector<int> levelOrder(node *tree) {
     vector<int> v;
-    queue<struct Node *> queue;
+    queue<node *> queue;
     queue.push(tree);
-    while (queue.size() != 0) {
-        struct Node *temp = queue.front();
+    while (!queue.empty()) {
+        node *temp = queue.front();
         queue.pop();
         v.push_back(temp->val);
         if (temp->left != NULL) {
-            if (after) {
-                isComplete = 0;
-            }
+            if (after) isComplete = 0;
             queue.push(temp->left);
         } else {
             after = 1;
         }
         if (temp->right != NULL) {
-            if (after) {
-                isComplete = 0;
-            }
+            if (after) isComplete = 0;
             queue.push(temp->right);
         } else {
             after = 1;
         }
     }
-
     return v;
 }
-
-void print(vector<int> v) {
-    for (int i = 0; i < v.size(); i++) {
-        if (i == 0) {
-            printf("%d", v[i]);
-        } else {
-            printf(" %d", v[i]);
-        }
-    }
-    printf("\n");
-}
-
 int main() {
-    int n = 0;
+    int n, temp;
     scanf("%d", &n);
-    struct Node *tree = NULL;
+    node *tree = NULL;
     for (int i = 0; i < n; i++) {
-        int temp = 0;
         scanf("%d", &temp);
         tree = insert(tree, temp);
     }
-
     vector<int> v = levelOrder(tree);
-    print(v);
-    if (isComplete) {
-        printf("YES");
-    } else {
-        printf("NO");
+    for (int i = 0; i < v.size(); i++) {
+        if (i != 0) printf(" ");
+        printf("%d", v[i]);
     }
+    printf("\n%s", isComplete ? "YES" : "NO");
     return 0;
 }
