@@ -157,6 +157,10 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1141 | PAT Ranking of Institutions (25)    | [查看题解](https://www.liuchuo.net/archives/4612) | 排序，map STL                      |
 | 1142 | Maximal Clique (25)                 | [查看题解](https://www.liuchuo.net/archives/4614) | 图论，无向完全图                   |
 | 1143 | Lowest Common Ancestor (30)         | [查看题解](https://www.liuchuo.net/archives/4616) | 水题                               |
+| 1144 | The Missing Number (20)             | [查看题解](https://www.liuchuo.net/archives/4662) | STL，map                           |
+| 1145 | Hashing – Average Search Time (25)  | [查看题解](https://www.liuchuo.net/archives/4671) | 哈希映射，哈希表，平方探测法       |
+| 1146 | Topological Order (25)              | [查看题解](https://www.liuchuo.net/archives/4665) | 拓扑排序                           |
+| 1147 | Heaps (30)                          | [查看题解](https://www.liuchuo.net/archives/4667) | 堆，树的遍历                       |
 
 # PAT乙级题解
 
