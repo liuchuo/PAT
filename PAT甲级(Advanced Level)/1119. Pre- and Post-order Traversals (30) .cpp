@@ -21,60 +21,42 @@ No
 2 1 3 4
 
 题目大意：给出一棵树的结点个数n，以及它的前序遍历和后序遍历，输出它的中序遍历，如果中序遍历不唯一就输出No，且输出其中一个中序即可，如果中序遍历唯一就输出Yes，并输出它的中序
-分析：用unique标记是否唯一，如果为1就表示中序是唯一的。
+分析：用unique标记是否唯一，如果为true就表示中序是唯一的。
 已知二叉树的前序和后序是无法唯一确定一颗二叉树的，因为可能会存在多种情况，这种情况就是一个结点可能是根的左孩子也有可能是根的右孩子，如果发现了一个无法确定的状态，置unique = 0，又因为题目只需要输出一个方案，可以假定这个不可确定的孩子的状态是右孩子，接下来的问题是如何求根结点和左右孩子划分的问题了，首先我们需要知道树的表示范围，需要四个变量，分别是前序的开始的地方prel，前序结束的地方prer，后序开始的地方postl，后序结束的地方postr，前序的开始的第一个应该是后序的最后一个是相等的，这个结点就是根结点，以后序的根结点的前面一个结点作为参考，寻找这个结点在前序的位置，就可以根据这个位置来划分左右孩子，递归处理。
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 using namespace std;
-vector<int> ans;
-int *pre, *post, unique = 1;
-
-int findFromPre (int x, int l, int r) {
-	for (int i = l; i <= r; i++) {
-		if (x == pre[i]) {
-			return i;
-		}
-	}
-	return -1;
-}
-
-void setIn (int prel, int prer, int postl, int postr) {
-	if (prel == prer) {
-		ans.push_back(pre[prel]);
+vector<int> in, pre, post;
+bool unique = true;
+void getIn(int preLeft, int preRight, int postLeft, int postRight) {
+	if(preLeft == preRight) {
+		in.push_back(pre[preLeft]);
 		return;
 	}
-	if (pre[prel] == post[postr]) {
-		int x = findFromPre(post[postr - 1], prel + 1, prer);
-		if (x - prel > 1) {
-			setIn(prel + 1, x - 1, postl, postl + x - prel - 2);
-			ans.push_back(post[postr]);
-			setIn(x, prer, postl + x - prel - 2 + 1, postr - 1);
-		} else {
-			unique = 0;
-			ans.push_back(post[postr]);
-			setIn(x, prer, postl + x - prel - 2 + 1, postr - 1);
-		}
+	if (pre[preLeft] == post[postRight]) {
+		int i = preLeft + 1;
+		while (i <= preRight && pre[i] != post[postRight-1]) i++;
+		if (i - preLeft > 1)
+			getIn(preLeft + 1, i - 1, postLeft, postLeft + (i - preLeft - 1) - 1);
+		else
+			unique = false;
+		in.push_back(post[postRight]);
+		getIn(i, preRight, postLeft + (i - preLeft - 1), postRight - 1);
 	}
 }
-
 int main() {
-	int n = 0;
+	int n;
 	scanf("%d", &n);
-	pre = new int [n];
-	post = new int [n];
-	for (int i = 0; i < n; i++) {
+	pre.resize(n), post.resize(n);
+	for (int i = 0; i < n; i++) 
 		scanf("%d", &pre[i]);
-	}
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++)
 		scanf("%d", &post[i]);
-	}
-	setIn(0, n - 1, 0, n - 1);
-	printf("%s\n", unique ? "Yes" : "No");
-	printf("%d", ans[0]);
-	for (int i = 1; i < ans.size(); i++) {
-		printf(" %d", ans[i]);
-	}
+	getIn(0, n-1, 0, n-1);
+	printf("%s\n%d", unique == true ? "Yes" : "No", in[0]);
+	for (int i = 1; i < in.size(); i++)
+		printf(" %d", in[i]);
 	printf("\n");
 	return 0;
 }
