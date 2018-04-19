@@ -17,7 +17,7 @@ Sample Output 2:
 88
 
 #include <iostream>
-#define max(a, b) (((a) > (b)) ? (a) : (b))
+using namespace std;
 struct node {
     int val;
     struct node *left, *right;
