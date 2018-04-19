@@ -34,14 +34,13 @@ NO 1
 分析：先用结构体tree[i].left和tree[i].right保存第i结点的左右孩子，然后遍历找出没有出现过的结点，这个结点就是根节点
 已知根结点和每个结点的左右孩子，根据二叉树的层序遍历的方法（广度优先搜索，使用队列）遍历这棵二叉树，每遍历一个结点就cnt++，如果发现有-1，判断当前cnt是否和n相等，如果不等，说明该结点不是最后一个结点，返回NO，否则YES
 
-#include <cstdio>
+#include <iostream>
 #include <queue>
 #include <vector>
-#include <string.h>
+#include <string>
 using namespace std;
 struct TREE {
-    int left;
-    int right;
+    int left, right;
 };
 int main() {
     int n, root = 0;
@@ -49,30 +48,20 @@ int main() {
     vector<TREE> tree(n);
     vector<int> book(n);
     for(int i = 0; i < n; i++) {
-        char l[3], r[3];
-        scanf("%s %s", l, r);
-        if(l[0] == '-') {
+        string l, r;
+        cin >> l >> r;
+        if(l == "-") {
             tree[i].left = -1;
         } else {
-            int temp = l[0] - '0';
-            if(strlen(l) == 2) {
-                temp = temp * 10 + (l[1] - '0');
-            }
-            tree[i].left = temp;
+            tree[i].left = stoi(l);
+            book[tree[i].left] = 1;
         }
-        if(r[0] == '-') {
+        if(r == "-"){
             tree[i].right = -1;
         } else {
-            int temp = r[0] - '0';
-            if(strlen(r) == 2) {
-                temp = temp * 10 + (r[1] - '0');
-            }
-            tree[i].right = temp;
-        }
-        if(tree[i].left != -1)
-            book[tree[i].left] = 1;
-        if(tree[i].right != -1)
+            tree[i].right = stoi(r);
             book[tree[i].right] = 1;
+        }   
     }
     for(int i = 0; i < n; i++) {
         if(book[i] == 0) {
@@ -82,8 +71,7 @@ int main() {
     }
     queue<int> q;
     q.push(root);
-    int cnt = 0;
-    int lastnode = 0;
+    int cnt = 0, lastnode = 0;
     while(!q.empty()) {
         int node = q.front();
         q.pop();
@@ -98,7 +86,7 @@ int main() {
             return 0;
         }
         q.push(tree[node].left);
-        q.push(tree[node].right);  
+        q.push(tree[node].right);
     }
     return 0;
 }
