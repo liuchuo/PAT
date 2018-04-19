@@ -12,28 +12,19 @@ Sample Output:
 6
 
 题目大意：英国天文学家爱丁顿很喜欢骑车。据说他为了炫耀自己的骑车功力，还定义了一个“爱丁顿数”E，即满足有E天骑车超过E英里的最大整数E。据说爱丁顿自己的E等于87。
-分析：从下标1开始存储n天的公里数在数组a中，对n个数据从大到小排序，i表示了骑车的天数，那么满足a[i] > i的最大值即为所求
+分析：在数组a中存储n天的公里数，对n个数据从大到小排序，i表示了骑车的天数，那么满足a[i] > i+1的最大i+1即为所求
 
-#include <cstdio>
+#include <iostream>
 #include <algorithm>
 using namespace std;
 int a[1000000];
-bool cmp1(int a, int b) {
-    return a > b;
-}
 int main() {
-    int n;
+    int n, e = 0;
     scanf("%d", &n);
-    for(int i = 1; i <= n; i++) {
+    for(int i = 0; i < n; i++)
         scanf("%d", &a[i]);
-    }
-    sort(a+1, a+n+1, cmp1);
-    int ans = 0;
-    int p = 1;
-    while(ans <= n && a[p] > p) {
-        ans++;
-        p++;
-    }
-    printf("%d", ans);
+    sort(a, a+n, greater<int>());
+    while(e < n && a[e] > e+1) e++;
+    printf("%d", e);
     return 0;
 }
