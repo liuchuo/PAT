@@ -33,8 +33,12 @@ int main() {
         bool result = true;
         for (int j = 0; j < n; j++) {
             cin >> v[j];
-            for (int t = 0; t < j; t++)
-                if (v[j] == v[t] || abs(v[j]-v[t]) == abs(j-t)) result = false;
+            for (int t = 0; t < j; t++) {
+                if (v[j] == v[t] || abs(v[j]-v[t]) == abs(j-t)) {
+                    result = false;
+                    break;
+                }
+            }
         }
         cout << (result == true ? "YES\n" : "NO\n");
     }
