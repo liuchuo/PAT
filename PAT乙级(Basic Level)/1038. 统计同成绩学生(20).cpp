@@ -19,17 +19,17 @@
 using namespace std;
 int main() {
     int n, m, temp;
-    cin >> n;
+    scanf("%d", &n);
     vector<int> b(101);
     for (int i = 0; i < n; i++) {
-        cin >> temp;
+        scanf("%d", &temp);
         b[temp]++;
     }
-    cin >> m;
+    scanf("%d", &m);
     for (int i = 0; i < m; i++) {
-        cin >> temp;
-        if (i != 0) cout << " ";
-        cout << b[temp];
+        scanf("%d", &temp);
+        if (i != 0) printf(" ");
+        printf("%d", b[temp]);
     }
     return 0;
 }
