@@ -37,7 +37,7 @@ Sample Output:
 #include <algorithm>
 #include <cctype>
 #include <vector>
-#include <map>
+#include <unordered_map>
 using namespace std;
 struct node {
     string school;
@@ -54,8 +54,8 @@ bool cmp(node a, node b) {
 int main() {
     int n;
     scanf("%d", &n);
-    map<string, int> cnt;
-    map<string, double> sum;
+    unordered_map<string, int> cnt;
+    unordered_map<string, double> sum;
     for (int i = 0; i < n; i++) {
         string id, school;
         cin >> id;
