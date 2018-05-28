@@ -57,12 +57,15 @@ Sample Output:
 5 如果用int接收一对朋友，-0000和0000对于int来说都是0，将无法得知这个人的性别，也就会影响他找他的同性朋友的那个步骤，所以考虑用字符串接收，因为题目中已经表示会以符号位加四位的方式给出输入，所以只要判断字符串是否大小相等，如果大小相等说明这两个人是同性
 6 结果数组因为必须按照第一个人的编号从小到大排序（当第一个相等时按照第二个人编号的从小到大排序），所以要用sort对ans数组排序后再输出结果
 
+Update: 新PAT系统中原代码导致了一个测试点内存超限，使用unordered_map<int, bool> arr 替代二维数组可避免内存超限（2018-05-28更新）
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 using namespace std;
-bool arr[10000][10000];
+unordered_map<int, bool> arr;
 struct node {
     int a, b;
 };
@@ -80,7 +83,7 @@ int main() {
             v[abs(stoi(a))].push_back(abs(stoi(b)));
             v[abs(stoi(b))].push_back(abs(stoi(a)));
         }
-        arr[abs(stoi(a))][abs(stoi(b))] = arr[abs(stoi(b))][abs(stoi(a))] = true;
+        arr[abs(stoi(a)) * 10000 + abs(stoi(b))] = arr[abs(stoi(b)) * 10000 + abs(stoi(a))] = true;
     }
     scanf("%d", &k);
     for (int i = 0; i < k; i++) {
@@ -90,7 +93,7 @@ int main() {
         for (int j = 0; j < v[abs(c)].size(); j++) {
             for (int k = 0; k < v[abs(d)].size(); k++) {
                 if (v[abs(c)][j] == abs(d) || abs(c) == v[abs(d)][k]) continue;
-                if (arr[v[abs(c)][j]][v[abs(d)][k]] == true)
+                if (arr[v[abs(c)][j] * 10000 + v[abs(d)][k]] == true)
                     ans.push_back(node{v[abs(c)][j], v[abs(d)][k]});
             }
         }
