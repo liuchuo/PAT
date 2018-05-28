@@ -10,8 +10,9 @@ Sample Input:
 1 8
 Sample Output:
 1123123111
+
 题目大意：给两个数字D和n，第一个序列是D，后一个序列描述前一个序列的所有数字以及这个数字出现的次数，比如D出现了1次，那么第二个序列就是D1，对于第二个序列D1，第三个序列这样描述：D出现1次，1出现1次，所以是D111……以此类推，输出第n个序列
-用string s接收所需变幻的数字，每次遍历s，从当前位置i开始，看后面有多少个与s[i]相同，设j处开始不相同，那么临时字符串t =t + s[i] + to_string(j - i); 然后再将t赋值给s，cnt只要没达到n次就继续加油循环下一次，最后输出s的值～
+分析：用string s接收所需变幻的数字，每次遍历s，从当前位置i开始，看后面有多少个与s[i]相同，设j处开始不相同，那么临时字符串t += to_string((s[i] - '0') * 10 + j - i);然后再将t赋值给s，cnt只要没达到n次就继续加油循环下一次，最后输出s的值～
 
 #include <iostream>
 using namespace std;
@@ -23,7 +24,7 @@ int main() {
         string t;
         for (int i = 0; i < s.length(); i = j) {
             for (j = i; j < s.length() && s[j] == s[i]; j++);
-            t = t + s[i] + to_string(j - i);
+            t += to_string((s[i] - '0') * 10 + j - i);
         }
         s = t;
     }
