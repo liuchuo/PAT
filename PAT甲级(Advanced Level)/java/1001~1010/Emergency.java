@@ -37,7 +37,7 @@ public class Emergency {
 
     static class Node implements Comparable<Node> {
         //city id
-        int id = -1;
+        int id;
         //聚集在节点的救援人数
         int rescueTeams = 0;
         //到达此节点的路径长度
@@ -51,7 +51,7 @@ public class Emergency {
         @Override
         public int compareTo(Node o) {
             int compare = roadLength - o.roadLength;
-            return compare==0?hashCode()-o.hashCode():compare;
+            return compare == 0 ? hashCode() - o.hashCode() : compare;
         }
 
         @Override
@@ -91,7 +91,7 @@ public class Emergency {
             //初始化 邻接表
             roads = new LinkedList[cityNumbers];
             for (int i = 0; i < cityNumbers; i++) {
-                roads[i]=new LinkedList<>();
+                roads[i] = new LinkedList<>();
             }
 
             for (int i = 0; i < roadNumbers; i++) {
@@ -111,7 +111,8 @@ public class Emergency {
     }
 
     /**
-     *  最短路径 DFS+dijsktra
+     * 最短路径 DFS+dijsktra
+     *
      * @param args
      * @throws IOException
      */
@@ -124,42 +125,42 @@ public class Emergency {
         boolean[] visited = new boolean[cityMap.cityNumbers];
         TreeSet<Node> nodes = new TreeSet<>();
         nodes.add(new Node(start_city, rescues[start_city]));
-        int max_counts=0;
-        int max_rescue_teams=0;
-        int min_load_length=Integer.MAX_VALUE;
+        int max_counts = 0;
+        int max_rescue_teams = 0;
+        int min_load_length = Integer.MAX_VALUE;
         while (!nodes.isEmpty()) {
             //移除路径最短节点
             Node node = nodes.pollFirst();
 
             //更新访问状态
-            visited[node.id]=true;
+            visited[node.id] = true;
+
+            //路径长度已经大于最小路径,没必要再继续
+            if (node.roadLength > min_load_length) {
+                break;
+            }
 
             //遍历到目标城市,则更新最短路径数,最大救援队数量
-            if(node.id==end_city){
-               if(node.roadLength<min_load_length){
-                  max_counts=1;
-                  max_rescue_teams=node.rescueTeams;
-                  min_load_length=node.roadLength;
-               }else if(node.roadLength==min_load_length){
-                  max_counts++;
-                  max_rescue_teams=Math.max(max_rescue_teams,node.rescueTeams);
-               }
+            if (node.id == end_city) {
+                min_load_length = node.roadLength;
+                max_counts++;
+                max_rescue_teams = Math.max(max_rescue_teams, node.rescueTeams);
             }
             //遍历搜索下一个节点
             for (Road road : cityMap.roads[node.id]) {
                 if (!visited[road.toCity]) {
                     Node newNode = new Node(
-                                        road.toCity,
-                                        //累加救援队人数(节点权重)
-                            node.rescueTeams+rescues[road.toCity]);
+                            road.toCity,
+                            //累加救援队人数(节点权重)
+                            node.rescueTeams + rescues[road.toCity]);
                     //累加路径长度
-                    newNode.roadLength=node.roadLength+road.distance;
+                    newNode.roadLength = node.roadLength + road.distance;
                     nodes.add(newNode);
                 }
             }
         }
 
 
-        System.out.println(max_counts+" "+max_rescue_teams);
+        System.out.println(max_counts + " " + max_rescue_teams);
     }
 }
