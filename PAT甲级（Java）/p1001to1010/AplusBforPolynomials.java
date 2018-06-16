@@ -1,3 +1,6 @@
+package PTA.p1001to1010;
+
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +18,7 @@ import java.io.InputStreamReader;
  * <p>
  * 3 2 1.5 1 2.9 0 3.2
  */
-public class ApulusBforPolynomials {
+public class AplusBforPolynomials {
     /**
      * 多项式
      */
