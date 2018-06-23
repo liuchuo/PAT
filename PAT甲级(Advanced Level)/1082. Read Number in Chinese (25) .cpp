@@ -13,76 +13,51 @@ Sample Input 2:
 Sample Output 2:
 yi Shi Wan ling ba Bai
 
-分析：
-1. 四位四位的分离读取，每次read(num)中的num为万或者亿之前的四位数
-2. 子函数和主函数里面都设立多个flag1flag2flag3..保证输出的“ling”
-3. 设立全局flag表示跨越（从亿到万或者从亿到千，或者从万到千）是否会产生“ling”
-4. 空格采取不确定的用flag单独判断的形式，没有统一的形式。
-
-
-#include <cstdio>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-char c[6][5] = {"Shi", "Bai", "Qian", "Wan", "Yi"};
-char t[11][5] = {"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"};
-int a, flag = 0;
-void read(int num) {
-    int flag1 = 0, flag2 = 0, flag3 = 0;
-    if(num / 1000) {
-        printf("%s %s", t[num / 1000], c[2]);
-        flag1 = 1;
-    }
-    if(flag == 1 && flag1 == 0) printf("ling ");
-    if(num / 100 % 10) {
-        if(flag1 == 1) printf(" ");
-        printf("%s %s", t[num / 100 % 10], c[1]);
-        flag2 = 1;
-    }
-    if(flag1 == 1 && flag2 == 0 && num % 100 != 0)
-        printf(" ling");
-    if(num / 10 % 10) {
-        if(flag1 == 1 || flag2 == 1) printf(" ");
-        printf("%s %s", t[num / 10 % 10], c[0]);
-        flag3 = 1;
-    }
-    if(flag2 == 1 && flag3 == 0 && num % 10 != 0)
-        printf(" ling");
-    if(num % 10) {
-        if(flag1 == 1 || flag2 == 1 || flag3 == 1) printf(" ");
-        printf("%s", t[num % 10]);
-    }
-    
-}
+string num[10] = { "ling","yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu" };
+string c[6] = { "Ge","Shi", "Bai", "Qian", "Yi", "Wan" };
+int J[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
+vector<string> res;
 int main() {
-    int flag1 = 0, flag2 = 0;
-    scanf("%d", &a);
-    if(a < 0) {
-        printf("Fu ");
-        a = 0 - a;
+    int n;
+    cin >> n;
+    if (n == 0) {
+        cout << "ling";
+        return 0;
     }
-    if(a == 0) printf("ling");
-    if(a > 99999999) {
-        int temp = a / 100000000;
-        read(temp);
-        printf(" %s", c[4]);
-        a = a % 100000000;
-        flag1 = 1;
+    if (n < 0) {
+        cout << "Fu ";
+        n = -n;
     }
-    if(a > 9999) {
-        int temp = a / 10000;
-        if(flag1 == 1) {
-            printf(" ");
-            flag = 1;
+    int part[3];
+    part[0]= n / 100000000; 
+    part[1]= (n % 100000000) / 10000;
+    part[2] = n % 10000;
+    bool zero = false; //是否在非零数字前输出合适的ling
+    int printCnt = 0; //用于维护单词前没有空格，之后输入的单词都在前面加一个空格。
+    for (int i = 0; i < 3; i++) {
+        int temp = part[i]; //三个部分，每部分内部的命名规则都一样，都是X千X百X十X
+        for (int j = 3; j >= 0; j--) {
+            int curPos = 8 - i * 4 + j; //当前数字的位置
+            if (curPos >= 9) continue; //最多九位数
+            int cur = (temp / J[j]) % 10;//取出当前数字
+            if (cur != 0) {
+                if (zero) {
+                    printCnt++ == 0 ? cout<<"ling" : cout<<" ling";
+                    zero = false;
+                }
+                if (j == 0)
+                    printCnt++ == 0 ? cout << num[cur] : cout << ' ' << num[cur]; //在个位，直接输出
+                else                             
+                    printCnt++ == 0 ? cout << num[cur] << ' ' << c[j] : cout << ' ' << num[cur] << ' ' << c[j]; //在其他位，还要输出十百千
+            } else {
+                if (!zero&&j != 0 && n / J[curPos] >= 10) zero = true;   //注意100020这样的情况
+            }
         }
-        read(temp);
-        printf(" %s", c[3]);
-        a = a % 10000;
-        flag2 = 1;
+        if (i != 2 && part[i]>0) cout << ' ' << c[i + 4]; //处理完每部分之后，最后输出单位，Yi/Wan
     }
-    flag = 0;
-    if((flag1 == 1 || flag2 == 1) && a != 0) {
-        flag = 1;
-        printf(" ");
-    }
-    read(a);
     return 0;
 }
