@@ -35,7 +35,7 @@ No Solution
 分析：
 因为加油站之间也是彼此有路连接的，所以最短路径计算的时候也要把加油站算上。所以我们就是堆n+m个点进行Dijkstra计算最短路径。要求计算出1~m号加油站距离其他站点的最短路径。这时候可以遍历dis数组，如果dis存在一个距离大于服务范围ds的距离，那么我们就舍弃这个加油站。取最最短的路径，这就是距离它最近的加油站mindis。如果mindis > ansdis，就是说找到了一个距离居民最小距离的加油站是更远的，那就选这个加油站，更新ansid为它的id。最后输出
 对于加油站的字符串编号的处理：如果最近居民区最大的值没有变化但是找到了一个更小的平均距离，那就选这个。我们可以根据输入的是G还是数字，如果是数字就令编号为他自己，如果是G开头的，编号设为n+G后面的数字。
-
+Update：Github用户littlesevenmo提出需要添加输入判断，题目中并没有说明两点之间最多只有一条路。也就是说，有可能两点之间有多条路，因此需要添加判断，只存储距离最短的路。另外，也有可能会出现 G1 G1 9999这样的测试数据，因此，自身与自身之间的距离要初始化为0。完善后的代码如下：
 
 #include <iostream>
 #include <algorithm>
@@ -47,74 +47,73 @@ int e[1020][1020], dis[1020];
 bool visit[1020];
 int main() {
     fill(e[0], e[0] + 1020 * 1020, inf);
+    for (int i = 0; i < 1020; i++)
+        e[i][i] = 0;
     fill(dis, dis + 1020, inf);
     scanf("%d%d%d%d", &n, &m, &k, &ds);
-    for(int i = 0; i < k; i++) {
+    string s, t;
+    for (int i = 0; i < k; i++) {
         int tempdis;
-        string s, t;
         cin >> s >> t >> tempdis;
         int a, b;
-        if(s[0] == 'G') {
+        if (s[0] == 'G') {
             s = s.substr(1);
             a = n + stoi(s);
         } else {
             a = stoi(s);
         }
-        if(t[0] == 'G') {
+        if (t[0] == 'G') {
             t = t.substr(1);
             b = n + stoi(t);
         } else {
             b = stoi(t);
         }
-        e[a][b] = tempdis;
-        e[b][a] = tempdis;
+        e[a][b] = e[b][a] = min(tempdis, e[a][b]);
     }
     int ansid = -1;
     double ansdis = -1, ansaver = inf;
-    for(int index = n + 1; index <= n + m; index++) {
+    for (int index = n + 1; index <= n + m; index++) {
         double mindis = inf, aver = 0;
         fill(dis, dis + 1020, inf);
         fill(visit, visit + 1020, false);
         dis[index] = 0;
-        for(int i = 0; i < n + m; i++) {
+        for (int i = 0; i < n + m; i++) {
             int u = -1, minn = inf;
-            for(int j = 1; j <= n + m; j++) {
-                if(visit[j] == false && dis[j] < minn) {
+            for (int j = 1; j <= n + m; j++) {
+                if (visit[j] == false && dis[j] < minn) {
                     u = j;
                     minn = dis[j];
                 }
             }
-            if(u == -1) break;
+            if (u == -1) break;
             visit[u] = true;
-            for(int v = 1; v <= n + m; v++) {
-                if(visit[v] == false && dis[v] > dis[u] + e[u][v])
+            for (int v = 1; v <= n + m; v++) {
+                if (visit[v] == false && dis[v] > dis[u] + e[u][v])
                     dis[v] = dis[u] + e[u][v];
             }
         }
-        for(int i = 1; i <= n; i++) {
-            if(dis[i] > ds) {
+        for (int i = 1; i <= n; i++) {
+            if (dis[i] > ds) {
                 mindis = -1;
                 break;
             }
-            if(dis[i] < mindis) mindis = dis[i];
+            if (dis[i] < mindis) mindis = dis[i];
             aver += 1.0 * dis[i];
         }
-        if(mindis == -1) continue;
+        if (mindis == -1) continue;
         aver = aver / n;
-        if(mindis > ansdis) {
+        if (mindis > ansdis) {
             ansid = index;
             ansdis = mindis;
             ansaver = aver;
-        } else if(mindis == ansdis && aver < ansaver) {
+        } else if (mindis == ansdis && aver < ansaver) {
             ansid = index;
             ansaver = aver;
         }
     }
-    if(ansid == -1)
+    if (ansid == -1)
         printf("No Solution");
-    else {
-        printf("G%d\n", ansid - n);
-        printf("%.1f %.1f", ansdis, ansaver);
-    }
+    else
+        printf("G%d\n%.1f %.1f", ansid - n, ansdis, ansaver);
     return 0;
 }
