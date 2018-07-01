@@ -1,4 +1,4 @@
-package PTA.p1011to1020;
+package p1011to1020;
 
 
 import java.io.BufferedReader;
