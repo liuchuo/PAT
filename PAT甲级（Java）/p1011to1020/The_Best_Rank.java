@@ -1,4 +1,4 @@
-package PTA.p1011to1020;
+package p1011to1020;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class The_Best_Rank {
                 this.rank = rank;
             }
         }
-        static Name[] names=Name.values();
+        static Name[] names= Name.values();
         final int score;
         //course rank A>C>M>E
         final int course_rank;
@@ -48,6 +48,11 @@ public class The_Best_Rank {
         return reader.readLine();
     }
 
+    /**
+     * 1012 The Best Rank (25)（25 分）
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         String[] split = readLine().split(" ");
         int student_nums = Integer.valueOf(split[0]);
