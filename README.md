@@ -334,5 +334,5 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 # 致谢
 
 - 感谢[@JoyHwong](https://github.com/JoyHwong)提供的Java版本的题解
-- 感谢[@聪明可爱的小学弟-谢民皆](https://github.com/15715216140)整理的README.md
+- 感谢[@聪明可爱的小学弟-谢民皆](https://github.com/xminjie)整理的README.md
 
