@@ -335,5 +335,5 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 
 - 感谢[@JoyHwong](https://github.com/JoyHwong)提供的Java版本的题解
 - 感谢[@聪明可爱的小学弟-谢民皆](https://github.com/xminjie)整理的README.md
-- 感谢[@littlesevenmo](https://github.com/littlesevenmo)为PAT甲级多次提供的更效的解法
+- 感谢[@littlesevenmo](https://github.com/littlesevenmo)为PAT甲级多次提供的更高效的解法
 
