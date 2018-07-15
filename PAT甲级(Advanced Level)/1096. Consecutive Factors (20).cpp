@@ -18,7 +18,6 @@ Sample Output:
 #include <cstdio>
 #include <cmath>
 using namespace std;
-
 int main() {
     int n;
     scanf("%d", &n);
@@ -39,5 +38,41 @@ int main() {
         }
     }
     printf("1\n%d", n);
+    return 0;
+}
+
+[Update v2.0] 由github用户littlesevenmo提供的更高效的解法：
+不用算连续因子最多不会超过12个，也不需要三重循环，两重循环即可，直接去计算当前部分乘积能不能整除N
+分析：1，如果只有一个因子，那么这个数只能为1或者质数。因此我们主要去计算两个及以上因数的情况。
+2，在有两个及以上的数连乘中，因数的最大上限为sqrt(N)，即N的平方根。
+3，因此思路就是，不断构造连乘，看连乘的积是否是N的因数，如果是，则看这部分连乘的数的个数是否比已记录的多。
+4，用变量first记录连乘的第一个数字，这里我把它赋初值为0，如果在寻找N的因数过程中，first没有改变，那么就表明N是1或者是一个质数。
+代码如下：
+#include <iostream>
+#include <cmath>
+using namespace std;
+long int num, temp;
+int main(){
+    cin >> num;
+    int first = 0, len = 0, maxn = sqrt(num);
+    for (int i = 2; i <= maxn; i++){
+        int j; temp = 1;
+        for (j = i; j <= maxn; j++){
+            temp *= j;
+            if (num % temp != 0) break;
+        }
+        if (j - i > len){
+            len = j - i;
+            first = i;
+        }
+    }
+    if (first == 0) cout << 1 << endl << num;
+    else {
+        cout << len << endl;
+        for (int i = 0; i < len; i++){
+            cout << first + i;
+            if (i != len - 1) cout << '*';
+        }
+    }
     return 0;
 }
