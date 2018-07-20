@@ -42,12 +42,10 @@ void init() {
     }
 }
 void dfs(int index, int tempSum, int tempK, int facSum) {
-    if (tempK == k ) {
-        if (tempSum == n) {
-            if (facSum > maxFacSum) {
+    if (tempK == k) {
+        if (tempSum == n && facSum > maxFacSum) {
                 ans = tempAns;
                 maxFacSum = facSum;
-            }
         }
         return;
     }
@@ -55,14 +53,15 @@ void dfs(int index, int tempSum, int tempK, int facSum) {
         if (tempSum + v[index] <= n) {
             tempAns[tempK] = index;
             dfs(index, tempSum + v[index], tempK + 1, facSum + index);
-        }if (index == 1)
-            return;
+        }
+        if (index == 1) return;
         index--;
     }
 }
 int main() {
     scanf("%d%d%d", &n, &k, &p);
-    init(); tempAns.resize(k);
+    init(); 
+    tempAns.resize(k);
     dfs(v.size() - 1, 0, 0, 0);
     if (maxFacSum == -1) {
         printf("Impossible");
