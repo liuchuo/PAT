@@ -17,8 +17,15 @@ Sample Input 2:
 Sample Output 2:
 Impossible
 
+题目大意：给三个正整数N、K、P，将N表示成K个正整数（可以相同，递减排列）的P次方和，如果有多种方案，选择底数n1+...+nk最大的方案，如果还有多种方案，选择底数序列的字典序最大的方案～
 分析：dfs深度优先搜索。先把i从0开始所有的i的p次方的值存储在v[i]中，直到v[i] > n为止。然后深度优先搜索，记录当前正在相加的index（即v[i]的i的值），当前的总和tempSum，当前K的总个数tempK，以及因为题目中要求输出因子的和最大的那个，所以保存一个facSum为当前因子的和，让它和maxFacSum比较，如果比maxFacSum大就更新maxFacSum和要求的ans数组的值。
 在ans数组里面存储因子的序列，tempAns为当前深度优先遍历而来的序列，从v[i]的最后一个index开始一直到index == 1，因为这样才能保证ans和tempAns数组里面保存的是从大到小的因子的顺序。一开始maxFacSum == -1，如果dfs后maxFacSum并没有被更新，还是-1，那么就输出Impossible，否则输出答案。
+
+（PS：感谢github用户littlesevenmo提供的更优解）
+分析：这道题考的是DFS+剪枝，我认为主要剪枝的地方有三个：
+1. tempK==K但是tempSum!=n的时候需要剪枝
+2. 在枚举的时候，按顺序枚举，上界或者下界可进行剪枝
+3. 当且仅当tempSum + v[index] <= n时，进行下一层的DFS，而不要进入下一层DFS发现不满足条件再返回，这样开销会比较大～
 
 #include <iostream>
 #include <vector>
@@ -28,39 +35,42 @@ int n, k, p, maxFacSum = -1;
 vector<int> v, ans, tempAns;
 void init() {
     int temp = 0, index = 1;
-    while(temp <= n) {
+    while (temp <= n) {
         v.push_back(temp);
         temp = pow(index, p);
         index++;
     }
 }
 void dfs(int index, int tempSum, int tempK, int facSum) {
-    if(tempSum == n && tempK == k) {
-        if(facSum > maxFacSum) {
-            ans = tempAns;
-            maxFacSum = facSum;
+    if (tempK == k ) {
+        if (tempSum == n) {
+            if (facSum > maxFacSum) {
+                ans = tempAns;
+                maxFacSum = facSum;
+            }
         }
-        return ;
+        return;
     }
-    if(tempSum > n || tempK > k) return ;
-    if(index >= 1) {
-        tempAns.push_back(index);
-        dfs(index, tempSum + v[index], tempK + 1, facSum + index);
-        tempAns.pop_back();
-        dfs(index - 1, tempSum, tempK, facSum);
+    while(index >= 1) {
+        if (tempSum + v[index] <= n) {
+            tempAns[tempK] = index;
+            dfs(index, tempSum + v[index], tempK + 1, facSum + index);
+        }if (index == 1)
+            return;
+        index--;
     }
 }
 int main() {
     scanf("%d%d%d", &n, &k, &p);
-    init();
+    init(); tempAns.resize(k);
     dfs(v.size() - 1, 0, 0, 0);
-    if(maxFacSum == -1) {
+    if (maxFacSum == -1) {
         printf("Impossible");
         return 0;
     }
     printf("%d = ", n);
-    for(int i = 0; i < ans.size(); i++) {
-        if(i != 0) printf(" + ");
+    for (int i = 0; i < ans.size(); i++) {
+        if (i != 0) printf(" + ");
         printf("%d^%d", ans[i], p);
     }
     return 0;
