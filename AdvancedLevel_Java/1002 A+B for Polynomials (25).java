@@ -39,7 +39,7 @@ public class Main {
                     size++;
                 }
             }
-            stringBuilder.insert(0, size+" ");
+            stringBuilder.insert(0, size + " ");
             stringBuilder.deleteCharAt(stringBuilder.length()-1);
             return stringBuilder.toString();
         }
