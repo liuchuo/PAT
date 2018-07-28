@@ -7,10 +7,6 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String[] split = reader.readLine().split(" ");
         Integer x = Integer.valueOf(split[0]) + Integer.valueOf(split[1]);
-        //java 可以偷个懒 直接用decimal format
-        //DecimalFormat format = new DecimalFormat("###,###");
-        //System.out.println(format.format(x));
-        //手动实现要比DecimalFormat效率要高一些
         char[] chars = x.toString().toCharArray();
         int modOffset = chars.length % 3;
         for (int i = 0; i < chars.length; i++) {
