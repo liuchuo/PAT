@@ -10,14 +10,14 @@ public class Main {
         char[] chars = x.toString().toCharArray();
         int modOffset = chars.length % 3;
         for (int i = 0; i < chars.length; i++) {
-            if(chars[i] == '-'){
+            if (chars[i] == '-') {
                 System.out.print('-');
                 continue;
             }
-            System.out.print(chars[i]-48);
-            if(i == chars.length - 1){
+            System.out.print(chars[i] - 48);
+            if (i == chars.length - 1) {
                 System.out.println();
-            } else if((i+1) % 3 == modOffset){
+            } else if ((i + 1) % 3 == modOffset) {
                 System.out.print(',');
             }
         }
