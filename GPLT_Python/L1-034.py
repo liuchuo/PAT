@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jul 16 11:38:12 2018
-
-@author: zhuzihao
-"""
-
 N=int(input())
 dic={}
 for i in range(N):
