@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 15 19:09:43 2018
-
-@author: zhuzihao
-"""
-
 te=input().split()
 jiav=int(te[0])
 yiv=int(te[1])
