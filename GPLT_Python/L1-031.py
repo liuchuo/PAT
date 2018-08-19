@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 15 16:04:27 2018
-
-@author: zhuzihao
-"""
-
 N=int(input())
 a=[]
 for i in range(N):
