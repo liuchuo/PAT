@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 15 16:38:18 2018
-
-@author: zhuzihao
-"""
-
 a=[]
 while True:
     N=input()
