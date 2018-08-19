@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 15 16:32:25 2018
-
-@author: zhuzihao
-"""
-
 N=input()
 if N[0]=='-':
   k=0
