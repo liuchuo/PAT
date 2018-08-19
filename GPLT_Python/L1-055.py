@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jul 16 15:45:40 2018
-
-@author: zhuzihao
-"""
-
 N=input().split()
 M=input().split()
 if N[0]>N[1]:
