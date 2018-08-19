@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 15 13:56:26 2018
-
-@author: zhuzihao
-"""
-
 import math
 def funx(x):
     k=1
