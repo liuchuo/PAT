@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul 12 20:15:52 2018
-
-@author: zhuzihao
-"""
-
 N=int(input())
 a=[]
 b=[]
