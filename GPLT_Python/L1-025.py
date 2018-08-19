@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 15 14:43:28 2018
-
-@author: zhuzihao
-"""
-
 H=input()
 N=H.split()
 if len(N)>2:
