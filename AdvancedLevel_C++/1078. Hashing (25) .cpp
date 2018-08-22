@@ -17,47 +17,33 @@ Sample Output:
 - 如果hashTable里面key % size的下标对应的hashTable为false,说明这个下标没有被使用过，直接输出。否则step步长从1加到size-1，一次次尝试是否能使index = (key + step * step) % size;所对应的位置没有元素，如果都没有找到就输出“-”，否则就输出这个找到的元素的位置。~~~~~
 
 #include <iostream>
-bool isprime(int a) {
-    if(a == 1) return false;
-    for(int i = 2; i * i <= a; i++)
-        if(a % i == 0)
-            return false;
+using namespace std;
+int size, n, hashTable[10100];
+bool isprime(int num) {
+    if(num == 1) return false;
+    for(int i = 2; i * i <= num; i++)
+        if(num % i == 0) return false;
     return true;
 }
-int func(int a) {
-    while(isprime(a) == false)
-        a++;
-    return a;
-}
-bool hashTable[10010];
-int main() {
-    int MSize, n, key;
-    scanf("%d %d", &MSize, &n);
-    int size = func(MSize);
-    for(int i = 0; i < n; i++) {
-        scanf("%d", &key);
-        int index = key % size;
-        if(hashTable[index] == false) {
-            hashTable[index] = true;
-            if(i != 0) printf(" ");
-            printf("%d", index);
-        } else {
-            int flag = 0;
-            for(int step = 1; step < size; step++) {
-                index = (key + step * step) % size;
-                if(hashTable[index] == false) {
-                    hashTable[index] = true;
-                    flag = 1;
-                    if(i != 0) printf(" ");
-                    printf("%d", index);
-                    break;
-                }
-            }
-            if(flag == 0) {
-                if(i != 0) printf(" ");
-                printf("-");
-            }
+void insert(int key) {
+    for(int step = 0; step < size; step++) {
+        int index = (key + step * step) % size;
+        if(hashTable[index] == 0) {
+            hashTable[index] = 1;
+            cout << index % size;
+            return ;
         }
+    }
+    cout << '-';
+}
+int main() {
+    cin >> size >> n;
+    while(!isprime(size)) size++;
+    for(int i = 0; i < n; i++) {
+        int key;
+        cin >> key;
+        if(i != 0) cout << ' ';
+        insert(key);
     }
     return 0;
 }
