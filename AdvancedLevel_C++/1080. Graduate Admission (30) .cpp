@@ -1,16 +1,41 @@
-1080. Graduate Admission (30)
-It is said that in 2013, there were about 100 graduate schools ready to proceed over 40,000 applications in Zhejiang Province. It would help a lot if you could write a program to automate the admission procedure.
-Each applicant will have to provide two grades: the national entrance exam grade GE, and the interview grade GI. The final grade of an applicant is (GE + GI) / 2. The admission rules are:
+1080 Graduate Admission（30 分）
+It is said that in 2011, there are about 100 graduate schools ready to proceed over 40,000 applications in Zhejiang Province. It would help a lot if you could write a program to automate the admission procedure.
+
+Each applicant will have to provide two grades: the national entrance exam grade G
+​E
+​​ , and the interview grade G
+​I
+​​ . The final grade of an applicant is (G
+​E
+​​ +G
+​I
+​​ )/2. The admission rules are:
+
 The applicants are ranked according to their final grades, and will be admitted one by one from the top of the rank list.
-If there is a tied final grade, the applicants will be ranked according to their national entrance exam grade GE. If still tied, their ranks must be the same.
-Each applicant may have K choices and the admission will be done according to his/her choices: if according to the rank list, it is one's turn to be admitted; and if the quota of one's most preferred shcool is not exceeded, then one will be admitted to this school, or one's other choices will be considered one by one in order. If one gets rejected by all of preferred schools, then this unfortunate applicant will be rejected.
+
+If there is a tied final grade, the applicants will be ranked according to their national entrance exam grade G
+​E
+​​ . If still tied, their ranks must be the same.
+
+Each applicant may have K choices and the admission will be done according to his/her choices: if according to the rank list, it is one’s turn to be admitted; and if the quota of one's most preferred shcool is not exceeded, then one will be admitted to this school, or one's other choices will be considered one by one in order. If one gets rejected by all of preferred schools, then this unfortunate applicant will be rejected.
+
 If there is a tied rank, and if the corresponding applicants are applying to the same school, then that school must admit all the applicants with the same rank, even if its quota will be exceeded.
+
 Input Specification:
-Each input file contains one test case. Each case starts with a line containing three positive integers: N (<=40,000), the total number of applicants; M (<=100), the total number of graduate schools; and K (<=5), the number of choices an applicant may have.
+Each input file contains one test case.
+
+Each case starts with a line containing three positive integers: N (≤40,000), the total number of applicants; M (≤100), the total number of graduate schools; and K (≤5), the number of choices an applicant may have.
+
 In the next line, separated by a space, there are M positive integers. The i-th integer is the quota of the i-th graduate school respectively.
-Then N lines follow, each contains 2+K integers separated by a space. The first 2 integers are the applicant's GE and GI, respectively. The next K integers represent the preferred schools. For the sake of simplicity, we assume that the schools are numbered from 0 to M-1, and the applicants are numbered from 0 to N-1.
+
+Then N lines follow, each contains 2+K integers separated by a space. The first 2 integers are the applicant’s G
+​E
+​​  and G
+​I
+​​ , respectively. The next K integers represent the preferred schools. For the sake of simplicity, we assume that the schools are numbered from 0 to M−1, and the applicants are numbered from 0 to N−1.
+
 Output Specification:
-For each test case you should output the admission results for all the graduate schools. The results of each school must occupy a line, which contains the applicants' numbers that school admits. The numbers must be in increasing order and be separated by a space. There must be no extra space at the end of each line. If no applicant is admitted by a school, you must output an empty line correspondingly.
+For each test case you should output the admission results for all the graduate schools. The results of each school must occupy a line, which contains the applicants’ numbers that school admits. The numbers must be in increasing order and be separated by a space. There must be no extra space at the end of each line. If no applicant is admitted by a school, you must output an empty line correspondingly.
 
 Sample Input:
 11 6 3
@@ -35,88 +60,59 @@ Sample Output:
 1 4
 
 分析：
-1.设立stu结构体，存储学生的id（防止排序后id打乱了顺序），GE和GI的成绩，总评成绩，排名，志愿学校的列表数组。
-2.设立sch结构体，存储school[i]招生的名额限制maxNum，现在已经招收了的学生个数nowNum，招收的学生的id列表stuID，以及当前已经招收了的学生的排名的最后一名lastRank。
-3.把学生按照成绩进行排序，并赋值排名。如果GE一样且Grade一样，他们的名次就是一样的。
-4.从第一个学生开始，根据他的志愿，来尝试被学校录取。如果当前学校名额未满。那么就录取进去，并且让学校的nowNum加1.并且更新lastRank为这个学生的rank。如果当前学校的lastRank等于自己的rank，那么不管名额满不满都录取。而且记得把学生的id添加到学校的stuID列表中。
-5.输出的时候因为id顺序是乱的，要先从小到大排序，然后输出。每个学校占一行、
+1.stu容器里放学生{id, ge, gi, fin, choice(容器里放学生报考学校的id)}, quota数组放招生计划的数量，cnt数组放当前学校已经招了多少学生，sch数组里放的容器，容器里是学校已经招的学生的id。
+2.对学生按照分数排序，依次学生遍历，分数最高的学生先挑学校。
+3.对于每个学生录取到哪里：依次遍历学生的报考志愿，如果（没招满 || 他与已经招的学生的最后一名成绩并列）就把他招进去，此学生录取结果就确定了，更新该学校已经招生的人数，并把次学生加入该学校录取容器中。
+4.输出学校录取情况时学生id顺序是乱的，要先从小到大排序，然后输出。每个学校占一行～
+5.排序函数要用 & 引用传参，不然就超时了。
+6.因为分数 fin = ge + gi 不会超出int, fin / 2 和fin排名效果一样， 不除2不会影响结果，而且还可以巧妙躲避除2后double不能精确表示的问题 
 
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 using namespace std;
-int n, m, k;
-struct stu {
-    int id;
-    int GE, GI, Grade, rank;
-    vector<int> vSchool;
+struct peo{
+    int id, ge, gi, fin;
+    vector<int> choice;
 };
-
-struct sch {
-    int nowNum;
-    int maxNum;
-    vector<int> stuID;
-    int lastRank;
-};
-
-bool cmp1(stu a, stu b) {
-    if(a.Grade != b.Grade) {
-        return a.Grade > b.Grade;
-    } else {
-        return a.GE > b.GE;
-    }
-
+bool cmp(peo& a, peo& b) {
+    if (a.fin != b.fin) return a.fin > b.fin;
+    return a.ge > b.ge;
 }
-
-int main() {
+bool cmp2(peo& a, peo& b) {
+  return a.id < b.id;
+}
+int main(){
+    int n, m, k, quota[110], cnt[110] = {0};
     scanf("%d%d%d", &n, &m, &k);
-    vector<stu> student(n);
-    vector<sch> school(m);
-    for(int i = 0; i < m; i++) {
-        int temp;
-        scanf("%d", &temp);
-        school[i].maxNum = temp;
-        school[i].nowNum = 0;
-        school[i].lastRank = -1;
-    }
+    vector<peo> stu(n), sch[110];
+    for(int i = 0; i < m; i++)
+        scanf("%d",&quota[i]);
     for(int i = 0; i < n; i++) {
-        student[i].vSchool.resize(k);
-        student[i].id = i;
-        scanf("%d%d", &student[i].GE, &student[i].GI);
-        student[i].Grade = (student[i].GE + student[i].GI) / 2;
-        for(int j = 0; j < k; j++) {
-            int temp;
-            scanf("%d", &temp);
-            student[i].vSchool[j] = temp;
-        }
+        scanf("%d%d", &stu[i].ge, &stu[i].gi);
+        stu[i].id = i;
+        stu[i].fin = stu[i].ge + stu[i].gi;
+        stu[i].choice.resize(k);
+        for(int j = 0; j < k; j++)
+            scanf("%d", &stu[i].choice[j]);
     }
-    sort(student.begin(), student.end(), cmp1);
-    student[0].rank = 1;
-    for(int i = 1; i < n; i++) {
-        if(student[i].Grade == student[i - 1].Grade && student[i].GE == student[i - 1].GE) {
-            student[i].rank = student[i-1].rank;
-        } else {
-            student[i].rank = student[i-1].rank + 1;
-        }
-    }
+    sort(stu.begin(), stu.end(), cmp);
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < k; j++) {
-            int schoolID = student[i].vSchool[j];
-            int myRank = student[i].rank;
-            int myID = student[i].id;
-            if(school[schoolID].nowNum < school[schoolID].maxNum || school[schoolID].lastRank == myRank) {
-                school[schoolID].nowNum++;
-                school[schoolID].lastRank = myRank;
-                school[schoolID].stuID.push_back(myID);
+            int schid = stu[i].choice[j];
+            int lastindex = cnt[schid] - 1;
+            if(cnt[schid] < quota[schid] || (stu[i].fin == sch[schid][lastindex].fin) && stu[i].ge == sch[schid][lastindex].ge) {
+                sch[schid].push_back(stu[i]);
+                cnt[schid]++;
                 break;
             }
         }
     }
     for(int i = 0; i < m; i++) {
-        sort(school[i].stuID.begin(), school[i].stuID.end());
-        for(int j = 0; j < school[i].stuID.size(); j++) {
+        sort(sch[i].begin(), sch[i].end(), cmp2);
+        for(int j = 0; j < cnt[i]; j++) {
             if(j != 0) printf(" ");
-            printf("%d", school[i].stuID[j]);
+            printf("%d", sch[i][j].id);
         }
         printf("\n");
     }
