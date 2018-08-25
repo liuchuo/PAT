@@ -27,7 +27,7 @@ ERROR: 0 is not found.
 ERROR: 99 and 99 are not found.
 
 题目大意：给出一棵二叉搜索树的前序遍历，问结点u和v的共同最低祖先是谁～
-分析：map<int, bool> mp用来标记树中所有出现过的结点，遍历一遍pre数组，将当前结点标记为a，如果u和v分别在a的左、右，或者u、v其中一个就是当前a，说明找到了这个共同最低祖先a，退出当前循环～最后根据要求输出结果即可～
+分析：map<int, bool> mp用来标记树中所有出现过的结点，遍历一遍pre数组，将当前结点标记为a，如果u和v分别在a的左、右，或者u、v其中一个就是当前a，即(a >= u && a <= v) || (a >= v && a <= u)，说明找到了这个共同最低祖先a，退出当前循环～最后根据要求输出结果即可～
 
 #include <iostream>
 #include <vector>
@@ -46,7 +46,7 @@ int main() {
         scanf("%d %d", &u, &v);
         for(int j = 0; j < n; j++) {
             a = pre[j];
-            if ((a > u && a < v)|| (a > v && a < u) || (a == u) || (a == v)) break;
+            if ((a >= u && a <= v) || (a >= v && a <= u)) break;
         } 
         if (mp[u] == false && mp[v] == false)
             printf("ERROR: %d and %d are not found.\n", u, v);
