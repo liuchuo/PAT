@@ -17,52 +17,37 @@ Sample Input:
 Sample Output:
 13
 
-题目大意：求出两个有序序列的中位数
+题目大意：给出两个已排序序列，求这两个序列合并后的中间数
 
-题解：
-     1.合并排序，超时超内存（舍）
-     2.维护两个队列，比较对头大小,循环出队:原先的测试点可以通过的，后来新版PAT加了内存限制，超内存（舍）
-     3.在2的基础上优化，第一个队列存好后，把第二个队列边读，边和第一个队列比较，选择出队。这样可以不用一次存完第二个队列，解决超内存的问题。
-思路：第一、二个序列分别有n, m个元素，所以需要从队头剔除（n + m - 1） / 2个元素，最后答案就是两个队头的最小值。对于最终答案在第一第二个队列中的情况要分开处理。若答案在第二个队列中，在输入数据时就可以提前得出答案并退出，若答案在第一个队列中，要二次出队才能找到答案。
-注意：在所有元素入队列完毕后，把INT_MAX入队列，一是这样队列永不为空，方便处理。二是，题目的long int因为内存限制原因，并不会为最终答案，只是干扰数据，所以每次遇到这样的干扰数据把他设为INT_MAX即可～
+分析：开一个数组，在线处理第二个数组。 第一二个数组（下标从1开始）分别有n，m个元素，中间数在(n + m + 1) / 2的位置。所以只要从小到大数到(n + m + 1) / 2的位置就行了~ count计总个数 ，给第一个数组设置指针i，每次从第二个数组中读入temp，检查第一个数组中前几个数是不是比temp小，小就count+1并判断是否到数了中间数，到了就输出。 如果数完比temp小的数还没到中间数，count+1，检查temp是不是中间数，是就输出。循环上述过程。如果第二个数组读取完了，还没数到中间数，说明中间数在剩下的第一个数组中，就在剩下的数组中数到中间数位置即可
+
+PS：感谢LittleMeepo提供的更优解～
 
 #include <iostream>
-#include <climits>
-#include <queue>
 using namespace std;
-int main() {
-    queue<int> a, b;
-    long long tnum;
-    int n, m, num, cnt = 0;
-    scanf("%d", &n);
-    for(int i = 0; i < n; i++) {
-        scanf("%lld", &tnum);
-        num = min((long long)INT_MAX, tnum);
-        a.push(num);
-    }
-    a.push(INT_MAX);
-    scanf("%d", &m);
-    for(int i = 0; i < m; i++) {
-        scanf("%lld", &tnum);
-        int num = min((long long)INT_MAX, tnum);
-        b.push(num);
-        if(cnt == (n + m - 1) / 2) {
-            printf("%d", min(a.front(), b.front()));
-            return 0;
+int k[200005];
+int main(){
+    int n, m, temp, count = 0;
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+        scanf("%d", &k[i]);
+    k[n + 1] = 0x7fffffff;
+    cin >> m;
+    int midpos = (n + m + 1) / 2, i = 1;
+    for (int j = 1; j <= m; j++) {
+        scanf("%d", &temp);
+        while (k[i] < temp) {
+            count++;
+            if (count == midpos) cout << k[i];
+            i++;
         }
-        if(a.front() < b.front())   
-            a.pop();
-        else                        
-            b.pop();
-        cnt++;
+        count++;
+        if (count == midpos) cout << temp;
     }
-    b.push(INT_MAX);
-    for(; cnt < (n + m - 1) / 2; cnt++) {
-        if(a.front() < b.front())    
-            a.pop();
-        else                         
-            b.pop();
+    while (i <= n) {
+        count++;
+        if (count == midpos) cout << k[i];
+        i++;
     }
-    printf("%d", min(a.front(), b.front()));
     return 0;
 }
