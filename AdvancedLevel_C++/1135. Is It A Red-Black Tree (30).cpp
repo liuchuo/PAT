@@ -24,11 +24,25 @@ Yes
 No
 No
 
+题目大意：给一个二叉搜索树的前序遍历，判断它是否为红黑树，是输出Yes，否则输出No。
+
+分析：判断以下几点：
+1.根结点是否为黑色 
+2.如果一个结点是红色，它的孩子节点是否都为黑色 
+3.从任意结点到叶子结点的路径中，黑色结点的个数是否相同
+所以分为以下几步：
+0. 根据先序建立一棵树，用链表表示
+1. 判断根结点（题目所给先序的第一个点即根结点）是否是黑色【arr[0] < 0】
+2. 根据建立的树，从根结点开始遍历，如果当前结点是红色，判断它的孩子节点是否为黑色，递归返回结果【judge1函数】
+3. 从根节点开始，递归遍历，检查每个结点的左子树的高度和右子树的高度（这里的高度指黑色结点的个数），比较左右孩子高度是否相等，递归返回结果【judge2函数】
+
+注意：终于知道自己PAT考试的时候错在哪了。。。维基百科定义：红黑树（英语：Red–black tree）是一种自平衡二叉查找树。AVL树：在计算机科学中，AVL树是最先发明的自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1，所以它也被称为高度平衡树。所以说红黑树不是一种AVL树，红黑树相对于AVL树来说，牺牲了部分平衡性以换取插入/删除操作时少量的旋转操作，整体来说性能要优于AVL树。而我根据先序遍历直接建树后判断了是否AVL平衡，把判断是否平衡的那段代码注释掉就AC了～
+
 #include <iostream>
 #include <vector>
 #include <cmath>
 using namespace std;
-vector<int> pre, post, arr;
+vector<int> arr;
 struct node {
     int val;
     struct node *left, *right;
@@ -43,16 +57,6 @@ node* build(node *root, int v) {
     else
         root->right = build(root->right, v);
     return root;
-}
-void getPost(int root, int end) {
-    if (root > end) return;
-    int i = root + 1, j = end;
-    while (i <= end && pre[root] > pre[i]) i++;
-    while (j >= root + 1 && pre[root] <= pre[j]) j--;
-    if (i != j + 1) return;
-    getPost(root + 1, j);
-    getPost(i, end);
-    post.push_back(pre[root]);
 }
 bool judge1(node *root) {
     if (root == NULL) return true;
@@ -81,23 +85,11 @@ int main() {
     for (int i = 0; i < k; i++) {
         scanf("%d", &n);
         arr.resize(n);
-        pre.resize(n);
         node *root = NULL;
         for (int j = 0; j < n; j++) {
             scanf("%d", &arr[j]);
             root = build(root, arr[j]);
-            pre[j] = abs(arr[j]);
         }
-        //Is it binary search tree?
-        post.clear();
-        getPost(0, n-1);
-        if (post.size() != n) {
-            printf("No\n");
-            continue;
-        }
-        //arr[0] < 0: Is the root black?
-        //judge1: If a node is red, are both its children black?
-        //judge2: Do all simple paths from the node to descendant leaves contain the same number of black nodes?
         if (arr[0] < 0 || judge1(root) == false || judge2(root) == false)
             printf("No\n");
         else
