@@ -14,13 +14,12 @@ Sample Output:
 2.8
 
 题目大意：给定一个序列，用平方探测法解决哈希冲突，然后给出m个数字，如果这个数字不能够被插入就输出"X cannot be inserted."，然后输出这m个数字的平均查找时间
-分析：先找到大于tsize的最小的素数为真正的tsize，然后建立一个tsize长度的数组。首先用平方探测法插入数字a，每次pos = (a + j * j) % tsize，j是从0～tsize-1的数字，如果当前位置可以插入就将a赋值给v[pos]，如果一次都没有能够插入成功就输出"X cannot be inserted."。其次计算平均查找时间，一开始cnt=1表示查找一次，每次计算pos = (a + j * j) % tsize，如果v[pos]处正是a则查找到了，所以退出循环，如果v[pos]处不存在数字表示没查找到，那么也要退出循环，最后将cnt累加到ans里表示总的查找时间，最后除以m得到平均查找时间然后输出～
+分析：先找到大于tsize的最小的素数为真正的tsize，然后建立一个tsize长度的数组。首先用平方探测法插入数字a，每次pos = (a + j * j) % tsize，j是从0～tsize-1的数字，如果当前位置可以插入就将a赋值给v[pos]，如果一次都没有能够插入成功就输出"X cannot be inserted."。其次计算平均查找时间，每次计算pos = (a + j * j) % tsize，其中j <= tsize，如果v[pos]处正是a则查找到了，则退出循环，如果v[pos]处不存在数字表示没查找到，那么也要退出循环。每次查找的时候，退出循环之前的j就是这个数字的查找长度。最后ans除以m得到平均查找时间然后输出～
 
 #include <iostream>
 #include <vector>
 using namespace std;
 bool isprime(int n) {
-    if (n <= 1) return false;
     for (int i = 2; i * i <= n; i++)
         if (n % i == 0) return false;
     return true;
@@ -43,17 +42,15 @@ int main() {
         }
         if (!flag) printf("%d cannot be inserted.\n", a);
     }
-    double ans = 0.0;
+    int ans = 0;
     for (int i = 0; i < m; i++) {
         scanf("%d", &a);
-        int cnt = 1;
-        for (int j = 0; j < tsize; j++) {
+        for (int j = 0; j <= tsize; j++) {
+            ans++;
             int pos = (a + j * j) % tsize;
             if (v[pos] == a || v[pos] == 0) break;
-            cnt++;
         }
-        ans += cnt;
     }
-    printf("%.1lf\n", ans / m);
+    printf("%.1lf\n", ans * 1.0 / m);
     return 0;
 }
