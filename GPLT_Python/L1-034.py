@@ -1,15 +1,15 @@
-N=int(input())
-dic={}
+N = int(input())
+dic = {}
 for i in range(N):
-    temp=input().split()
+    temp = input().split()
     for j in temp[1:]:
         if j in dic:
-            dic[j]=dic[j]+1
+            dic[j] = dic[j] + 1
         else:
-            dic[j]=1
-k=max(dic.values())
-tem=[]
+            dic[j] = 1
+k = max(dic.values())
+tem = []
 for key, value in dic.items():
-    if value==k:
+    if value == k:
         tem.append(int(key))
-print(str(max(tem))+' '+str(max(dic.values())))
+print(str(max(tem)) + ' ' + str(max(dic.values())))

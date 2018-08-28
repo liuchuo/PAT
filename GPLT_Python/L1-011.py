@@ -1,5 +1,5 @@
-a=input()
-b=list(input())
+a = input()
+b = list(input())
 for i in b:
-    a=a.replace(i,'')
+    a = a.replace(i, '')
 print(a)
