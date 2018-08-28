@@ -15,9 +15,8 @@ Sample Output:
 10
 7
 
-分析：简单模拟。所有结点连起来会形成一个环形。dis[i]存储第1个结点到第i个结点的下一个结点的距离。sum保存整个路径一圈的总和值。
-求得结果就是dis[right - 1] - dis[left - 1]和 sum - dis[right - 1] - dis[left - 1]中较小的那一个。
-注意：可能left和right的顺序颠倒了，这时候要把left和right的值交换。
+分析：简单模拟。所有结点连起来会形成一个环形，dis[i]存储第1个结点到第i个结点的下一个结点的距离，sum保存整个路径一圈的总和值。求得结果就是dis[right - 1] - dis[left - 1]和 sum - dis[right - 1] - dis[left - 1]中较小的那一个～～
+注意：可能left和right的顺序颠倒了，这时候要把left和right的值交换～
 
 #include <iostream>
 #include <vector>

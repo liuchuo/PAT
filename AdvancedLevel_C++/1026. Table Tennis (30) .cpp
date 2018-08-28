@@ -50,8 +50,7 @@ struct person {
     bool vip;
 }tempperson;
 struct tablenode {
-    int end = 8 * 3600;
-    int num;
+    int end = 8 * 3600, num;
     bool vip;
 };
 bool cmp1(person a, person b) {
@@ -72,9 +71,7 @@ void alloctable(int personid, int tableid) {
 }
 int findnextvip(int vipid) {
     vipid++;
-    while(vipid < player.size() && player[vipid].vip == false) {
-        vipid++;
-    }
+    while(vipid < player.size() && player[vipid].vip == false) vipid++;
     return vipid;
 }
 int main() {
@@ -85,8 +82,7 @@ int main() {
         scanf("%d:%d:%d %d %d", &h, &m, &s, &temptime, &flag);
         tempperson.arrive = h * 3600 + m * 60 + s;
         tempperson.start = 21 * 3600;
-        if(tempperson.arrive >= 21 * 3600)
-            continue;
+        if(tempperson.arrive >= 21 * 3600) continue;
         tempperson.time = temptime <= 120 ? temptime * 60 : 7200;
         tempperson.vip = ((flag == 1) ? true : false);
         player.push_back(tempperson);
@@ -108,8 +104,7 @@ int main() {
                 index = j;
             }
         }
-        if(table[index].end >= 21 * 3600)
-            break;
+        if(table[index].end >= 21 * 3600) break;
         if(player[i].vip == true && i < vipid) {
             i++;
             continue;
@@ -117,8 +112,7 @@ int main() {
         if(table[index].vip == true) {
             if(player[i].vip == true) {
                 alloctable(i, index);
-                if(vipid == i)
-                    vipid = findnextvip(vipid);
+                if(vipid == i) vipid = findnextvip(vipid);
                 i++;
             } else {
                 if(vipid < player.size() && player[vipid].arrive <= table[index].end) {
@@ -143,13 +137,11 @@ int main() {
                 }
                 if(vipindex != -1 && player[i].arrive >= table[vipindex].end) {
                     alloctable(i, vipindex);
-                    if(vipid == i)
-                        vipid = findnextvip(vipid);
+                    if(vipid == i) vipid = findnextvip(vipid);
                     i++;
                 } else {
                     alloctable(i, index);
-                    if(vipid == i)
-                        vipid = findnextvip(vipid);
+                    if(vipid == i) vipid = findnextvip(vipid);
                     i++;
                 }
             }
@@ -162,8 +154,7 @@ int main() {
         printf("%.0f\n", round((player[i].start - player[i].arrive) / 60.0));
     }
     for(int i = 1; i <= k; i++) {
-        if(i != 1)
-            printf(" ");
+        if(i != 1) printf(" ");
         printf("%d", table[i].num);
     }
     return 0;

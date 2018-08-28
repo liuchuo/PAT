@@ -9,8 +9,11 @@ They are students.
 aeiou
 Sample Output:
 Thy r stdnts.
-题目大意：给出两个字符串，在第一个字符串中删除第二个字符串中出现过的所有字符并输出。
+
+题目大意：给出两个字符串，在第一个字符串中删除第二个字符串中出现过的所有字符并输出～
 分析：用flag[256]数组变量标记str2出现过的字符为true，输出str1的时候根据flag[str1[i]]是否为true,如果是true就不输出
+注意：使用int lens1 = strlen(s1);int lens2 = strlen(s2);的形式，否则直接放在for循环里面会超时~
+如果使用gets前面请使用char str[100000]而非char *str~~~
 
 #include <iostream>
 #include <string>

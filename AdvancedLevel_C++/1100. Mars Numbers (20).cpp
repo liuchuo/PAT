@@ -24,10 +24,8 @@ may
 #include <string>
 #include <cctype>
 using namespace std;
-string a[13] = { "tret", "jan", "feb", "mar", "apr", "may", "jun", "jly", "aug", "sep", "oct",
-"nov", "dec" };
-string b[13] = { "", "tam", "hel", "maa", "huh", "tou", "kes", "hei", "elo", "syy",
-"lok", "mer", "jou" };
+string a[13] = { "tret", "jan", "feb", "mar", "apr", "may", "jun", "jly", "aug", "sep", "oct", "nov", "dec" };
+string b[13] = { "", "tam", "hel", "maa", "huh", "tou", "kes", "hei", "elo", "syy", "lok", "mer", "jou" };
 void func1(string s) {
     int len = s.length(), num = 0;
     for (int i = 0; i < len; i++)
@@ -44,8 +42,7 @@ void func2(string s) {
     if (len == 4) {
         cout << 0;
         return;
-    }
-    else if (len == 3) {
+    } else if (len == 3) {
         for (int i = 1; i <= 12; i++) {
             if (s == a[i]) {
                 cout << i;
