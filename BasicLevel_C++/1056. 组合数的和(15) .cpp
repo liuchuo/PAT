@@ -10,19 +10,14 @@
 330
 
 
-#include <iostream>
-#include <vector>
-using namespace std;
+#include <cstdio>
 int main() {
-    int n, ans = 0;
-    scanf("%d", &n);
-    vector<int> v(n);
-    for(int i = 0; i < n; i++) scanf("%d", &v[i]);
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            if(i != j) ans += v[i] * 10 + v[j];
-        }
+    int N, sum = 0, temp;
+    scanf("%d", &N);
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &temp);
+        sum += temp * 10 * (N - 1) + temp * (N - 1);
     }
-    printf("%d", ans);
+    printf("%d", sum);
     return 0;
 }
