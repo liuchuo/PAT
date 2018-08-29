@@ -49,42 +49,38 @@ Sample Input 2:
 Sample Output 2:
 Distance = 3; Time = 4: 3 -> 2 -> 5
 
-分析：用两个Dijkstra + DFS。一个求最短路径（如果相同求时间最短的那条），一个求最快路径（如果相同求结点数最小的那条）~~~求最短路径可以直接在Dijkstra里面求前驱结点pre数组~~~求最快路径因为要求结点数最小的那条，所以要用pre的二维数组存储所有结点的最快路径，然后用DFS求出满足条件的结点数最小的那条~~~~
-注意：
-1.一开始最后一个测试用例“答案错误”，后来发现是自己在求最快路径的时候忘记了temppath每一次深搜结束后的pop_back();
-2.如果直接使用DFS的话，会导致最后一个测试用例“运行超时”~~~
+题目大意：给一张地图，两个结点中既有距离也有时间，有的单行有的双向，要求根据地图推荐两条路线：一条是最快到达路线，一条是最短距离的路线。
+第一行给出两个整数N和M，表示地图中地点的个数和路径的条数。接下来的M行每一行给出：道路结点编号V1 道路结点编号V2 是否单行线 道路长度 所需时间
+要求第一行输出最快到达时间Time和路径，第二行输出最短距离Distance和路径
 
-#include <cstdio>
+分析
+     1.用两个Dijkstra。一个求最短路径（如果相同求时间最短的那条），一个求最快路径（如果相同求结点数最小的那条）~~~
+     2.求最短路径,和最快路径都可以在Dijkstra里面求前驱结点dispre和，Timepre数组~~
+     3.dispre数组更新的条件是路径更短，或者路径相等的同时时间更短。
+     4.求最快路径时候要多维护一个NodeNum数组，记录在时间最短的情况下，到达此节点所需的节点数量。
+       Time数组更新的条件是，时间更短，时间相同的时候，如果此节点能让到达次节点是数目也变小，则更新Timepre，heNodeNum数组
+     5.最后根据dispre 和Timepre数组递归出两条路径，比较判断，输出最终答案～
+注意：
+    如果直接使用DFS的话，会导致最后一个测试用例“运行超时”~~~
+
+#include <iostream>
 #include <algorithm>
 #include <vector>
 using namespace std;
 const int inf = 999999999;
-int dis[510], Time[510], e[510][510], w[510][510], dispre[510], weight[510];
+int dis[510], Time[510], e[510][510], w[510][510], dispre[510],Timepre[510], weight[510],NodeNum[510];
 bool visit[510];
-vector<int> dispath, Timepath, temppath, Timepre[510];
+vector<int> dispath, Timepath, temppath;
 int st, fin, minnode = inf;
 void dfsdispath(int v) {
     dispath.push_back(v);
-    if(v == st) {
-        return ;
-    }
+    if(v == st) return ;
     dfsdispath(dispre[v]);
 }
-
 void dfsTimepath(int v) {
-    temppath.push_back(v);
-    if(v == st) {
-        if(temppath.size() < minnode) {
-            minnode = temppath.size();
-            Timepath = temppath;
-        }
-        temppath.pop_back();
-        return ;
-    }
-    for(int i = 0; i < Timepre[v].size(); i++) {
-        dfsTimepath(Timepre[v][i]);
-    }
-    temppath.pop_back();
+    Timepath.push_back(v);
+    if(v == st) return ;
+    dfsTimepath(Timepre[v]);
 }
 int main() {
     fill(dis, dis + 510, inf);
@@ -106,9 +102,8 @@ int main() {
     }
     scanf("%d %d", &st, &fin);
     dis[st] = 0;
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++)
         dispre[i] = i;
-    }
     for(int i = 0; i < n; i++) {
         int u = -1, minn = inf;
         for(int j = 0; j < n; j++) {
@@ -149,10 +144,11 @@ int main() {
             if(visit[v] == false && w[u][v] != inf) {
                 if(w[u][v] + Time[u] < Time[v]) {
                     Time[v] = w[u][v] + Time[u];
-                    Timepre[v].clear();
-                    Timepre[v].push_back(u);
-                } else if(w[u][v] + Time[u] == Time[v]) {
-                    Timepre[v].push_back(u);
+                    Timepre[v]=(u);
+                    NodeNum[v]=NodeNum[u]+1;
+                } else if(w[u][v] + Time[u] == Time[v]&&NodeNum[u]+1<NodeNum[v]) {
+                    Timepre[v]=(u);
+                    NodeNum[v]=NodeNum[u]+1;
                 }
             }
         }
@@ -167,8 +163,7 @@ int main() {
             printf("%d", dispath[i]);
             if(i != 0) printf(" -> ");
         }
-        printf("\n");
-        printf("Time = %d: ", Time[fin]);
+        printf("\nTime = %d: ", Time[fin]);
     }
     for(int i = Timepath.size() - 1; i >= 0; i--) {
         printf("%d", Timepath[i]);
