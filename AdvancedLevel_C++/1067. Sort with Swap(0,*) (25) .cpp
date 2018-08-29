@@ -25,8 +25,9 @@ using namespace std;
 int main() {
     int n, cnt = 0, a[100010], id[100010];
     cin >> n;
+    int t;//t存储临时变量
     for(int i = 0; i < n; i++)
-        cin >> a[i];
+    {   cin >> t; a[t] = i; }
     for(int i = 1; i < n; i++) {
         if(i != a[i]) {
             while(a[0] != 0) {
