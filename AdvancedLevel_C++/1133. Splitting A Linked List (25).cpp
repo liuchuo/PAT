@@ -29,42 +29,38 @@ Sample Output:
 00100 18 27777
 27777 11 -1
 
+题目大意：给一个链表和K，遍历链表后将<0的结点先输出，再将0～k区间的结点输出，最后输出>k的结点
+
+分析：1.所有节点用结构体｛id, data, next｝存储
+2.遍历链表，找出在此链表中的节点，放入容器v中
+3.把节点分三类｛（-无穷，0）, [0,k], (k,+无穷) ｝,把他们按段，按先后顺序依次放进
+容器ans中，最后输出即可～
+
 #include <iostream>
 #include <vector>
 using namespace std;
 struct node {
-    int data, next;
-}list[100000];
-vector<int> v[3];
+    int id, data, next;
+};
 int main() {
-    int start, n, k, a;
-    scanf("%d%d%d", &start, &n, &k);
+    int begin, n, k, s, d, e;
+    scanf("%d%d%d", &begin, &n, &k);
+    node a[100010];
+    vector<node> v, ans;
     for (int i = 0; i < n; i++) {
-        scanf("%d", &a);
-        scanf("%d%d", &list[a].data, &list[a].next);
+        scanf("%d%d%d", &s, &d, &e);
+        a[s] = {s, d, e};
     }
-    int p = start;
-    while(p != -1) {
-        int data = list[p].data;
-        if (data < 0)
-            v[0].push_back(p);
-        else if (data >= 0 && data <= k)
-            v[1].push_back(p);
-        else
-            v[2].push_back(p);
-        p = list[p].next;
-    }
-    int flag = 0;
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < v[i].size(); j++) {
-            if (flag == 0) {
-                printf("%05d %d ", v[i][j], list[v[i][j]].data);
-                flag = 1;
-            } else {
-                printf("%05d\n%05d %d ", v[i][j], v[i][j], list[v[i][j]].data);
-            }
-        }
-    }
-    printf("-1");
+    for (; begin != -1; begin = a[begin].next)
+        v.push_back(a[begin]);
+    for (int i = 0; i < v.size(); i++)
+        if (v[i].data < 0) ans.push_back(v[i]);
+    for (int i = 0; i < v.size(); i++)
+        if (v[i].data >= 0 && v[i].data <= k) ans.push_back(v[i]);
+    for (int i = 0; i < v.size(); i++)
+        if (v[i].data > k) ans.push_back(v[i]);
+    for (int i = 0; i < ans.size() - 1; i++)
+        printf("%05d %d %05d\n", ans[i].id, ans[i].data, ans[i + 1].id);
+    printf("%05d %d -1\n", ans[ans.size() - 1].id, ans[ans.size() - 1].data);
     return 0;
 }
