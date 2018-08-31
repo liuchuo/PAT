@@ -8,7 +8,7 @@ int main() {
         string t;
         for (int i = 0; i < s.length(); i = j) {
             for (j = i; j < s.length() && s[j] == s[i]; j++);
-            t += to_string((s[i] - '0') * 10 + j - i);
+            t += to_string((s[i] - '0')) + to_string(j - i);
         }
         s = t;
     }
