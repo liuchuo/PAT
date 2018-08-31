@@ -1,33 +1,3 @@
-1081. Rational Sum (20)
-Given N rational numbers in the form "numerator/denominator", you are supposed to calculate their sum.
-Input Specification:
-Each input file contains one test case. Each case starts with a positive integer N (<=100), followed in the next line N rational numbers "a1/b1 a2/b2 ..." where all the numerators and denominators are in the range of "long int". If there is a negative number, then the sign must appear in front of the numerator.
-Output Specification:
-For each test case, output the sum in the simplest form "integer numerator/denominator" where "integer" is the integer part of the sum, "numerator" < "denominator", and the numerator and the denominator have no common factor. You must output only the fractional part if the integer part is 0.
-Sample Input 1:
-5
-2/5 4/15 1/30 -2/60 8/3
-Sample Output 1:
-3 1/3
-Sample Input 2:
-2
-4/3 2/3
-Sample Output 2:
-2
-Sample Input 3:
-3
-1/3 -1/6 1/8
-Sample Output 3:
-7/24
-
-题目大意：给N个有理数（以分子/分母的形式给出），计算这N个数的总和，最后总和要以（整数 分子/分母）的形式给出～
-
-分析：先根据分数加法的公式累加，后分离出整数部分和分数部分
-分子和分母都在长整型内，所以不能用int存储，否则有一个测试点不通过
-一开始一直是浮点错误，按理来说应该是出现了/0或者%0的情况，找了半天也不知道错在哪里，后来注意到应该在累加的时候考虑是否会超出long long的范围，所以在累加每一步之前进行分子分母的约分处理，然后就AC了～
-应该还要考虑整数和小数部分都为0时候输出0的情况，但是测试用例中不涉及，所以如果没有最后两句也是可以AC的（PS：据说更新后的系统已经需要考虑全零的情况了～）
-
-
 #include <iostream>
 #include <cstdlib>
 using namespace std;

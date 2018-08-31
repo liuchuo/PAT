@@ -1,31 +1,3 @@
-1123. Is It a Complete AVL Tree (30)
-An AVL tree is a self-balancing binary search tree. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property. Figures 1-4 illustrate the rotation rules.
-Now given a sequence of insertions, you are supposed to output the level-order traversal sequence of the resulting AVL tree, and to tell if it is a complete binary tree.
-Input Specification:
-Each input file contains one test case. For each case, the first line contains a positive integer N (<= 20). Then N distinct integer keys are given in the next line. All the numbers in a line are separated by a space.
-Output Specification:
-For each test case, insert the keys one by one into an initially empty AVL tree. Then first print in a line the level-order traversal sequence of the resulting AVL tree. All the numbers in a line must be separated by a space, and there must be no extra space at the end of the line. Then in the next line, print “YES” if the tree is complete, or “NO” if not.
-Sample Input 1:
-5
-88 70 61 63 65
-Sample Output 1:
-70 63 88 61 65
-YES
-Sample Input 2:
-88 70 61 96 120 90 65 68
-Sample Output 2:
-88 65 96 61 70 90 120 68
-NO
-
-分析：这道题实际上考察AVL树和层序遍历两个知识点。
-判断是不是完全二叉树，就看在出现了一个孩子为空的结点之后是否还会出现孩子结点不为空的结点，如果出现了就不是完全二叉树。
-AVL树一共有四种情况，这里我把发现树不平衡的那个结点叫做A结点，A发现树不平衡的情况有四种：
-新来的结点插入到A的左子树的左子树
-新来的结点插入到A的左子树的右子树
-新来的结点插入到A的右子树的左子树
-新来的结点插入到A的右子树的右子树
-发现不平衡时就需要处理，第1种情况只要简单的右旋，第4种情况只需左旋一下，第2种情况需要先对A的左子树左旋一下，然后对A右旋，同理第3种情况需要对A的右子树右旋一下，然后对A左旋，代码如下：
-
 #include <iostream>
 #include <vector>
 #include <queue>
