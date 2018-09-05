@@ -1,44 +1,35 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
-#include <queue>
 using namespace std;
-struct TREE {
-    int left, right, value;
-};
-vector<TREE> tree;
-vector<int> v;
-int t = 0;
-void inorder(int root) {
-    if(tree[root].left == -1 && tree[root].right == -1) {
-        tree[root].value = v[t++];
-        return ;
-    }
-    if(tree[root].left != -1) inorder(tree[root].left);
-    tree[root].value = v[t++];
-    if(tree[root].right != -1) inorder(tree[root].right);
+int n, cnt, b[100];
+struct node {
+    int data, l, r, index, lebel;
+}a[110];
+bool cmp(node x, node y) {
+    if (x.lebel != y.lebel) return x.lebel < y.lebel;
+    return x.index < y.index;
 }
-
+void dfs(int root, int index, int lebel) {
+    if (a[root].l == -1 && a[root].r == -1) {
+        a[root] = {b[cnt++], a[root].l, a[root].r, index, lebel};
+    } else {
+        if (a[root].l != -1) dfs(a[root].l, index * 2 + 1, lebel + 1);
+        a[root] = {b[cnt++], a[root].l, a[root].r, index, lebel};
+        if (a[root].r != -1) dfs(a[root].r, index * 2 + 2, lebel + 1);
+    }
+}
 int main() {
-    int n;
-    scanf("%d", &n);
-    tree.resize(n);
-    v.resize(n);
-    for(int i = 0; i < n; i++)
-        scanf("%d %d",&tree[i].left, &tree[i].right);
-    for(int i = 0; i < n; i++)
-        scanf("%d", &v[i]);
-    sort(v.begin(), v.end());
-    inorder(0);
-    queue<int> q;
-    q.push(0);
-    printf("%d", tree[0].value);
-    while(!q.empty()) {
-        int node = q.front();
-        q.pop();
-        if(node != 0) printf(" %d", tree[node].value);
-        if(tree[node].left != -1) q.push(tree[node].left);
-        if(tree[node].right != -1) q.push(tree[node].right);
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> a[i].l >> a[i].r;
+    for (int i = 0; i < n; i++)
+        cin >> b[i];
+    sort(b, b + n);
+    dfs(0, 0, 0);
+    sort(a, a + n, cmp);
+    for (int i = 0; i < n; i++) {
+        if (i != 0) cout << " ";
+        cout << a[i].data;
     }
     return 0;
 }
