@@ -2,8 +2,7 @@
 #include <vector>
 using namespace std;
 bool isMirror;
-vector<int> pre;
-vector<int> post;
+vector<int> pre, post;
 void getpost(int root, int tail) {
     if(root > tail) return ;
     int i = root + 1, j = tail;

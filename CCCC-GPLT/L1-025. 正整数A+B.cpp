@@ -5,17 +5,12 @@ bool islegal(string s) {
     if(s.length() == 0)
         return false;
     for(int i = 0; i < s.length(); i++) {
-        if(!isdigit(s[i])) {
-            return false;
-        }
+        if(!isdigit(s[i])) return false;
     }
     int temp = stoi(s);
-    if(temp < 1 || temp > 1000) {
-        return false;
-    }
+    if(temp < 1 || temp > 1000) return false;
     return true;
 }
-
 int main() {
     string a, b;
     string t;
@@ -27,16 +22,11 @@ int main() {
             break;
         }
     }
-    if(!islegal(a)) {
-        a = "?";
-    }
-    if(!islegal(b)) {
-        b = "?";
-    }
+    if(!islegal(a)) a = "?";
+    if(!islegal(b)) b = "?";
     cout << a << " + " << b << " = ";
     if(a != "?" && b != "?") {
-        int atemp = stoi(a);
-        int btemp = stoi(b);
+        int atemp = stoi(a), btemp = stoi(b);
         cout << atemp + btemp;
     } else {
         cout << "?";

@@ -6,7 +6,8 @@ int main() {
         cnt++;
         if(num == 250) {
             cout << cnt;
-            return 0;
+            break;
        }
     }
+    return 0;
 }

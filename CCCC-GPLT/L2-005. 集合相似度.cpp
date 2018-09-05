@@ -20,11 +20,10 @@ int main() {
         scanf("%d %d", &a, &b);
         int nc = 0, nt = v[b-1].size();
         for(auto it = v[a-1].begin(); it != v[a-1].end(); it++) {
-            if(v[b-1].find(*it) == v[b-1].end()) {
+            if(v[b-1].find(*it) == v[b-1].end()) 
                 nt++;
-            } else {
+            else
                 nc++;
-            }
         }
         double ans = (double)nc / nt * 100;
         printf("%.2f%%\n", ans);

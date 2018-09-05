@@ -4,9 +4,7 @@ int main() {
     string a, b, str;
     int cnt = 0;
     while(cin >> str) {
-        if (str == ".") {
-            break;
-        }
+        if (str == ".") break;
         cnt++;
         if (cnt == 2) a = str;
         if (cnt == 14) b = str;

@@ -4,8 +4,7 @@ using namespace std;
 int main() {
     int a, b;
     cin >> a >> b;
-    int temp = a;
-    int sum = 0;
+    int temp = a, sum = 0;
     while(temp <= b) {
         for(int j = 0; j < 5 && temp <= b; j++) {
             printf("%5d", temp);
