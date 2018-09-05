@@ -1,61 +1,51 @@
-#include <cstdio>
-#include <queue>
 #include <vector>
+#include <algorithm>
 using namespace std;
-vector<int> in;
-struct TREE {
-    int left, right;
-};
-vector<TREE> tree;
-void inorder(int root) {
-    if(tree[root].left == -1 && tree[root].right == -1) {
-        in.push_back(root);
-        return ;
-    }
-    if(tree[root].left != -1)
-        inorder(tree[root].left);
-    in.push_back(root);
-    if(tree[root].right != -1)
-        inorder(tree[root].right);
+struct node {
+    int id, l, r, index, level;
+} a[100];
+vector<node> v1;
+void dfs(int root, int index, int level) {
+    if (a[root].r != -1) dfs(a[root].r, index * 2 + 2, level + 1);
+    v1.push_back({root, 0, 0, index, level});
+    if (a[root].l != -1) dfs(a[root].l, index * 2 + 1, level + 1);
+}
+bool cmp(node a, node b) {
+    if (a.level != b.level) return a.level < b.level;
+    return a.index > b.index;
 }
 int main() {
-    int n, root;
-    scanf("%d", &n);getchar();
-    tree.resize(n);
-    vector<int> book(n);
-    for(int i = 0; i < n; i++) {
-        char c1, c2;
-        scanf("%c %c", &c1, &c2);getchar();
-        tree[i].right = (c1 == '-' ? -1 : (c1 - '0'));
-        tree[i].left = (c2 == '-' ? -1 : (c2 - '0'));
-        if(tree[i].left != -1)
-            book[tree[i].left] = 1;
-        if(tree[i].right != -1)
-            book[tree[i].right] = 1;
-    }
-    for(int i = 0; i < n; i++) {
-        if(book[i] == 0) {
-            root = i;
-            break;
+    int n, have[100] = {0}, root = 0;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        a[i].id = i;
+        string l, r;
+        cin >> l >> r;
+        if (l != "-") {
+            a[i].l = stoi(l);
+            have[stoi(l)] = 1;
+        } else {
+            a[i].l = -1;
+        }
+        if (r != "-") {
+            a[i].r = stoi(r);
+            have[stoi(r)] = 1;
+        } else {
+            a[i].r = -1;
         }
     }
-    queue<int> q;
-    q.push(root);
-    vector<int> level;
-    while(!q.empty()) {
-        int node = q.front();
-        q.pop();
-        if(tree[node].left != -1)
-            q.push(tree[node].left);
-        if(tree[node].right != -1)
-            q.push(tree[node].right);
-        level.push_back(node);
+    while (have[root] == 1) root++;
+    dfs(root, 0, 0);
+    vector<node> v2(v1);
+    sort(v2.begin(), v2.end(), cmp);
+    for (int i = 0; i < v2.size(); i++) {
+        if (i != 0) cout << " ";
+        cout << v2[i].id;
     }
-    for(int i = 0; i < n; i++)
-        printf("%d%c", level[i], i == n - 1 ? '\n' : ' ');
-    inorder(root);
-    printf("%d", in[0]);
-    for(int i = 1; i < n; i++)
-        printf(" %d", in[i]);
+    cout << endl;
+    for (int i = 0; i < v1.size(); i++) {
+        if (i != 0) cout << " ";
+        cout << v1[i].id;
+    }
     return 0;
 }
