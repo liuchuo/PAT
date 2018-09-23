@@ -1,39 +1,37 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-string add(string a) {
-    string b = a, ans;
-    reverse(b.begin(), b.end());
-    int len = a.length(), carry = 0;
-    for (int i = 0; i < len; i++) {
-        int num = (a[i] - '0' + b[i] - '0') + carry;
-        carry = 0;
-        if (num >= 10) {
-            carry = 1;
-            num = num - 10;
-        }
-        ans += char(num + '0');
+string rev(string s) {
+    reverse(s.begin(), s.end());
+    return s;
+}
+string add(string s1, string s2) {
+    string s = s1;
+    int carry = 0;
+    for (int i = s1.size() - 1; i >= 0; i--) {
+        s[i] = (s1[i] - '0' + s2[i] - '0' + carry) % 10 + '0';
+        carry = (s1[i] - '0' + s2[i] - '0' + carry) / 10;
     }
-    if(carry == 1) ans += '1';
-    reverse(ans.begin(), ans.end());
-    return ans;
+    if (carry > 0) s = "1" + s;
+    return s;
 }
 int main() {
-    string s;
+    string s, sum;
+    int n = 10;
     cin >> s;
-    int cnt = 0;
-    while (cnt < 10) {
-        string t = s;
-        reverse(t.begin(), t.end());
-        if (t == s) {
-            cout << s << " is a palindromic number.";
-            break;
-        } else {
-            cout << s << " + " << t << " = " << add(s) << endl;
-            s = add(s);
-            cnt++;
-        }
+    if (s == rev(s)) {
+        cout << s << " is a palindromic number.\n";
+        return 0;
     }
-    if (cnt == 10) cout << "Not found in 10 iterations.";
+    while (n--) {
+        sum = add(s, rev(s));
+        cout << s << " + " << rev(s) << " = " << sum << endl;
+        if (sum == rev(sum)) {
+            cout << sum << " is a palindromic number.\n";
+            return 0;
+        }
+        s = sum;
+    }
+    cout << "Not found in 10 iterations.\n";
     return 0;
 }
