@@ -6,7 +6,7 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 
 欢迎各位大佬提供Java、Python等其他语言的题解，直接给我发pull request就可以啦～～
 
-[❤❤点击这里 -> 订阅PAT、GPLT天梯赛、LeetCode题解离线版❤❤ ](https://www.liuchuo.net/888-8)
+[❤❤点击这里 -> 订阅PAT、蓝桥杯、GPLT天梯赛、LeetCode题解离线版❤❤ ](https://www.liuchuo.net/888-8)
 
 ## 目录
 - [PAT甲级题解](#pat甲级题解)
