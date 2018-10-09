@@ -1,87 +1,85 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
 using namespace std;
-const int inf = 99999999;
-int cmax, n, sp, m;
-int minNeed = inf, minBack = inf;
-int e[510][510], dis[510], weight[510];
-bool visit[510];
-vector<int> pre[510], path, temppath;
-void dfs(int v) {
-    if(v == 0) {
-        temppath.push_back(v);
-        int need = 0, back = 0;
-        for(int i = temppath.size() - 1; i >= 0; i--) {
-            int id = temppath[i];
-            if(weight[id] > 0) {
-                back += weight[id];
-            } else {
-                if(back > (0 - weight[id])) {
-                    back += weight[id];
-                } else {
-                    need += ((0 - weight[id]) - back);
-                    back = 0;
-                }
+const int INF = 0x3f3f3f3f;
+struct Bike {
+    int need, collect;
+    Bike adjust(int adjust, int perfect)
+    {
+        int c = collect + adjust - perfect;
+        if (c < 0) {
+            return { need - c, 0 };
+        }
+        return { need, c };
+    };
+};
+int main()
+{
+    int maxCap, station, target, edge, src = 0;
+    cin >> maxCap >> station >> target >> edge;
+    int node = station + 1, perfectCap = maxCap / 2;
+    /* 建立Ci~n */
+    vector<int> caps(node, 0);
+    for (int i = 1; i < node; i++) {
+        cin >> caps[i];
+    }
+    /* 构造图 */
+    vector<vector<int>> figure(node, vector<int>(node, INF));
+    for (int a, b, w, i = 0; i < edge; i++) {
+        cin >> a >> b >> w;
+        figure[a][b] = figure[b][a] = w;
+    }
+    /* dijkstr */
+    vector<bool> visited(node, false);
+    vector<int> distance(node, INF);
+    distance[src] = 0;
+    vector<int> path(node, -1);
+    vector<Bike> bike(node);
+    bike[src] = { 0, 0 };
+    while (1) {
+        int toVis = -1, closest = INF;
+        for (int i = 0; i < node; i++) {
+            if (!visited[i] && closest > distance[i]) {
+                closest = distance[i];
+                toVis = i;
             }
         }
-        if(need < minNeed) {
-            minNeed = need;
-            minBack = back;
-            path = temppath;
-        } else if(need == minNeed && back < minBack) {
-            minBack = back;
-            path = temppath;
+        if (toVis == -1 || toVis == target) { /* 结束以及提前剪枝 */
+            break;
         }
-        temppath.pop_back();
-        return ;
-    }
-    temppath.push_back(v);
-    for(int i = 0; i < pre[v].size(); i++)
-        dfs(pre[v][i]);
-    temppath.pop_back();
-}
-int main() {
-    fill(e[0], e[0] + 510 * 510, inf);
-    fill(dis, dis + 510, inf);
-    scanf("%d%d%d%d", &cmax, &n, &sp, &m);
-    for(int i = 1; i <= n; i++) {
-        scanf("%d", &weight[i]);
-        weight[i] = weight[i] - cmax / 2;
-    }
-    for(int i = 0; i < m; i++) {
-        int a, b;
-        scanf("%d%d", &a, &b);
-        scanf("%d", &e[a][b]);
-        e[b][a] = e[a][b];
-    }
-    dis[0] = 0;
-    for(int i = 0; i <= n; i++) {
-        int u = -1, minn = inf;
-        for(int j = 0; j <= n; j++) {
-            if(visit[j] == false && dis[j] < minn) {
-                u = j;
-                minn = dis[j];
-            }
-        }
-        if(u == -1) break;
-        visit[u] = true;
-        for(int v = 0; v <= n; v++) {
-            if(visit[v] == false && e[u][v] != inf) {
-                if(dis[v] > dis[u] + e[u][v]) {
-                    dis[v] = dis[u] + e[u][v];
-                    pre[v].clear();
-                    pre[v].push_back(u);
-                }else if(dis[v] == dis[u] + e[u][v]) {
-                    pre[v].push_back(u);
+        visited[toVis] = true;
+        for (int i = 0; i < node; i++) {
+            if (!visited[i] && distance[i] > figure[toVis][i] + closest) {
+                distance[i] = figure[toVis][i] + closest;
+                path[i] = toVis;
+                bike[i] = bike[toVis].adjust(caps[i], perfectCap);
+            } else if (!visited[i] && distance[i] == figure[toVis][i] + closest) { /* 两条相同长度的路径会合在 i */
+                Bike b = bike[toVis].adjust(caps[i], perfectCap);
+                if (i == target) { /* i 是终点时 比较两条路来此点调整后的数字 */
+                    if (b.need < bike[i].need || (b.need == bike[i].need && b.collect < bike[i].collect)) {
+                        bike[i] = b;
+                        path[i] = toVis;
+                    }
+                } else if (i != target) { /* i 不是终点时，比较两条路来此点 再到终点调整后的数字 */
+                    Bike l = b.adjust(caps[target], perfectCap);
+                    Bike r = bike[i].adjust(caps[target], perfectCap);
+                    if (l.need < r.need || (l.need == r.need && l.collect < r.collect)) {
+                        bike[i] = b;
+                        path[i] = toVis;
+                    }
                 }
             }
         }
     }
-    dfs(sp);
-    printf("%d 0", minNeed);
-    for(int i = path.size() - 2; i >= 0; i--)
-        printf("->%d", path[i]);
-    printf(" %d", minBack);
+    vector<int> r; /* 整理路径 */
+    for (int i = path[target]; i != -1; i = path[i]) {
+        r.push_back(i);
+    }
+    /* 输出 */
+    cout << bike[target].need << " ";
+    for (auto it = r.rbegin(); it != r.rend(); it++) {
+        cout << *it << "->";
+    }
+    cout << target << " " << bike[target].collect;
     return 0;
 }
