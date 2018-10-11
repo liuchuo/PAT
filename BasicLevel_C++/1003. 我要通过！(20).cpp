@@ -13,7 +13,7 @@ int main() {
             if (s[j] == 'P') p = j;
             if (s[j] == 'T') t = j;
         }
-        if(m['P'] == 1 && m['A'] != 0 && m['T'] == 1 && m.size() == 3 && p * (t-p-1) == s.length()-t-1)
+        if (m['P'] == 1 && m['A'] != 0 && m['T'] == 1 && m.size() == 3 && t-p != 1 && p * (t-p-1) == s.length()-t-1)
             printf("YES\n");
         else
             printf("NO\n");
