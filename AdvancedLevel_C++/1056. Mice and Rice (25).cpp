@@ -1,55 +1,62 @@
 #include <iostream>
-#include <stack>
-#define lowbit(i) ((i) & (-i))
-const int maxn = 100010;
+#include <queue>
+#include <vector>
+#include <algorithm>
 using namespace std;
-int c[maxn];
-stack<int> s;
-void update(int x, int v) {
-    for(int i = x; i < maxn; i += lowbit(i))
-        c[i] += v;
-}
-int getsum(int x) {
-    int sum = 0;
-    for(int i = x; i >= 1; i -= lowbit(i))
-        sum += c[i];
-    return sum;
-}
-void PeekMedian() {
-    int left = 1, right = maxn, mid, k = (s.size() + 1) / 2;
-    while(left < right) {
-        mid = (left + right) / 2;
-        if(getsum(mid) >= k)
-            right = mid;
-        else
-            left = mid + 1;
-    }
-    printf("%d\n", left);
+struct node {
+    int weight, index, rank, index0;
+};
+bool cmp1(node a, node b) {
+    return a.index0 < b.index0;
 }
 int main() {
-    int n, temp;
-    scanf("%d", &n);
-    char str[15];
+    int n, g, num;
+    scanf("%d%d", &n, &g);
+    vector<int> v(n);
+    vector<node> w(n);
+    for(int i = 0; i < n; i++)
+        scanf("%d", &v[i]);
     for(int i = 0; i < n; i++) {
-        scanf("%s", str);
-        if(str[1] == 'u') {
-            scanf("%d", &temp);
-            s.push(temp);
-            update(temp, 1);
-        } else if(str[1] == 'o') {
-            if(!s.empty()) {
-                update(s.top(), -1);
-                printf("%d\n", s.top());
-                s.pop();
-            } else {
-                printf("Invalid\n");
-            }
-        } else {
-            if(!s.empty())
-                PeekMedian();
-            else
-                printf("Invalid\n");
+        scanf("%d", &num);
+        w[i].weight = v[num];
+        w[i].index = i;
+        w[i].index0 = num;
+    }
+    queue<node> q;
+    for(int i = 0; i < n; i++)
+        q.push(w[i]);
+    while(!q.empty()) {
+        int size = q.size();
+        if(size == 1) {
+            node temp = q.front();
+            w[temp.index].rank = 1;
+            break;
         }
+        int group = size / g;
+        if(size % g != 0)
+            group += 1;
+        node maxnode;
+        int maxn = -1, cnt = 0;
+        for(int i = 0; i < size; i++) {
+            node temp = q.front();
+            w[temp.index].rank = group + 1;
+            q.pop();
+            cnt++;
+            if(temp.weight > maxn) {
+                maxn = temp.weight;
+                maxnode = temp;
+            }
+            if(cnt == g || i == size - 1) {
+                cnt = 0;
+                maxn = -1;
+                q.push(maxnode);
+            }
+        }
+    }
+    sort(w.begin(), w.end(), cmp1);
+    for(int i = 0; i < n; i++) {
+        if(i != 0) printf(" ");
+        printf("%d", w[i].rank);
     }
     return 0;
 }
