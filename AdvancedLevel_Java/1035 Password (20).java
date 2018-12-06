@@ -1,14 +1,9 @@
-package adv1035;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-/**
- * @author zmj
- * @create 2018/11/26
- */
+
 public class Main {
     static class Node {
         String username;
