@@ -6,7 +6,7 @@ int main() {
     int n, flag = 0;
     scanf("%c%d",&c, &n);
     getchar();
-    vector<string> a(n), b(n);
+    vector<string> a(n);
     for(int i = 0; i < n; i++)
         getline(cin,a[i]);
     for(int i = 0; i < n; i++)

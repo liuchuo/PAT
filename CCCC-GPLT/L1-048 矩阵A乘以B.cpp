@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int a[110][110], b[110][110], ans[110][110];
+int a[110][110], b[110][110];
 int ra, ca, rb, cb;
 int f(int r, int c) {
     int sum = 0;
