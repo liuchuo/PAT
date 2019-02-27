@@ -3,7 +3,7 @@
 using namespace std;
 bool forbid[10000];
 int main() {
-    int n = 0, m = 0, temp = 0, k = 0, snum = 0, fnum = 0;
+    int n, m, temp, k, snum = 0, fnum = 0;
     scanf("%d %d", &n, &m);
     for (int i = 0; i < m; i++) {
         scanf("%d", &temp);
