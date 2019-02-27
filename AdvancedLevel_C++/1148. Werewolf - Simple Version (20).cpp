@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
+#include <cmath>
 using namespace std;
 int main() {
     int n;

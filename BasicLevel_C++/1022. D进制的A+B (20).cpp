@@ -14,8 +14,7 @@ int main() {
         s[i++] = t % d;
         t = t / d;
     }
-    for (int j = i - 1; j >= 0; j--) {
+    for (int j = i - 1; j >= 0; j--)
         cout << s[j];
-    }
     return 0;
 }
