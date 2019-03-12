@@ -1,13 +1,14 @@
 #include <iostream>
 using namespace std;
 int main() {
-    int n, jia = 0, yi = 0,jiahan, jiahua, yihan, yihua;
+    int n, jia = 0, yi = 0, jiahan, jiahua, yihan, yihua, sum;
     cin >> n;
     for (int i = 0; i < n; i++) {
         cin >> jiahan >> jiahua >> yihan >> yihua;
-        if (jiahan + yihan == jiahua && yihan + jiahan != yihua)
+        sum = jiahan + yihan;
+        if (sum == jiahua && sum != yihua)
             yi++;
-        if (jiahan + yihan != jiahua && yihan + jiahan == yihua)
+        if (sum != jiahua && sum == yihua)
             jia++;
     }
     cout << jia << " " << yi;

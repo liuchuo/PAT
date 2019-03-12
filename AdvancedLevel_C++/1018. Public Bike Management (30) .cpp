@@ -9,8 +9,8 @@ int e[510][510], dis[510], weight[510];
 bool visit[510];
 vector<int> pre[510], path, temppath;
 void dfs(int v) {
+    temppath.push_back(v);
     if(v == 0) {
-        temppath.push_back(v);
         int need = 0, back = 0;
         for(int i = temppath.size() - 1; i >= 0; i--) {
             int id = temppath[i];
@@ -36,7 +36,6 @@ void dfs(int v) {
         temppath.pop_back();
         return ;
     }
-    temppath.push_back(v);
     for(int i = 0; i < pre[v].size(); i++)
         dfs(pre[v][i]);
     temppath.pop_back();
