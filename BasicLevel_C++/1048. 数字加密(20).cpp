@@ -1,18 +1,17 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 int main() {
     string a, b, c;
     cin >> a >> b;
     int lena = a.length(), lenb = b.length();
-    for (int i = 0; i <= lena / 2 - 1; i++)
-        swap(a[i], a[lena-1-i]);
-    for (int i = 0; i <= lenb / 2 - 1; i++)
-        swap(b[i], b[lenb-1-i]);
-    if (lena > lenb)
+    reverse(a.begin(), a.end());
+    reverse(b.begin(), b.end());
+    if (lena > lenb) 
         b.append(lena - lenb, '0');
     else
         a.append(lenb - lena, '0');
-    char str[13] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K'};
+    char str[14] = {"0123456789JQK"};
     for (int i = 0; i < a.length(); i++) {
         if (i % 2 == 0) {
             c += str[(a[i] - '0' + b[i] - '0') % 13];
