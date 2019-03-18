@@ -8,8 +8,6 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 
 欢迎各位大佬提供Java、Python等其他语言的题解，直接给我发pull request就可以啦～本仓库可以接受大括号放在下一行的异教徒，但不接受格式混乱、空格使用不规范的代码～您可以点击[这里](https://zh-google-styleguide.readthedocs.io/en/latest/)查看《Google 开源项目风格指南》文档～
 
-[❤❤点击这里 -> 订阅PAT、蓝桥杯、GPLT天梯赛、LeetCode题解离线版❤❤ ](https://www.liuchuo.net/888-8)
-
 
 
 ### 致谢
