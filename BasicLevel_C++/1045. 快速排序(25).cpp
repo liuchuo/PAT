@@ -1,16 +1,17 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-int a[100000], b[100000], v[100000];
+int v[100000];
 using namespace std;
 int main() {
     int n, max = 0, cnt = 0;
     scanf("%d", &n);
+    vector<int> a(n), b(n);
     for (int i = 0; i < n; i++) {
         scanf("%d", &a[i]);
         b[i] = a[i];
     }
-    sort(a, a + n);
+    sort(a.begin(), a.end());
     for (int i = 0; i < n; i++) {
         if(a[i] == b[i] && b[i] > max)
             v[cnt++] = b[i];
@@ -22,6 +23,6 @@ int main() {
         if (i != 0) printf(" ");
         printf("%d", v[i]);
     }
-    printf("\n");//不加这句会有一个测试点没法通过。.
+    printf("\n");
     return 0;
 }
