@@ -358,22 +358,12 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | L3-003 |            社交集群            | [查看题解](http://www.liuchuo.net/archives/2185)  |                                                   |                并查集                 |
 | L3-004 |            肿瘤诊断            | [查看题解](http://www.liuchuo.net/archives/2309)  |                                                   |            广度优先搜索BFS            |
 | L3-005 |           垃圾箱分布           | [查看题解](http://www.liuchuo.net/archives/2378)  |                                                   |        Dijkstra算法，最短路径         |
-| L3-006 |           迎风一刀斩           |                                                   |                                                   |                                       |
 | L3-007 |            天梯地图            | [查看题解](http://www.liuchuo.net/archives/2409)  |                                                   |     Dijkstra算法 + DFS，最短路径      |
 | L3-008 |              喊山              | [查看题解](http://www.liuchuo.net/archives/2318)  |                                                   |            广度优先搜索BFS            |
-| L3-009 |              长城              |                                                   |                                                   |                                       |
 | L3-010 |       是否完全二叉搜索树       | [查看题解](http://www.liuchuo.net/archives/2164)  |                                                   |              完全二叉树               |
-| L3-011 |            直捣黄龙            |                                                   |                                                   |                                       |
-| L3-012 |            水果忍者            |                                                   |                                                   |                                       |
 | L3-013 |           非常弹的球           | [查看题解](http://www.liuchuo.net/archives/3837)  |                                                   |                物理题                 |
 | L3-014 |            周游世界            | [查看题解](http://www.liuchuo.net/archives/3853)  |                                                   |            深度优先搜索DFS            |
 | L3-015 |          球队“食物链”          | [查看题解](http://www.liuchuo.net/archives/3839)  |                                                   |            深度优先搜索DFS            |
-| L3-016 |        二叉搜索树的结构        |                                                   |                                                   |                                       |
-| L3-017 |            森森快递            |                                                   |                                                   |                                       |
-| L3-018 |            森森美图            |                                                   |                                                   |                                       |
-| L3-019 |            代码排版            |                                                   |                                                   |                                       |
-| L3-020 |         至多删三个字符         |                                                   |                                                   |                                       |
-| L3-021 |              神坛              |                                                   |                                                   |                                       |
 
 ### 致谢
 
