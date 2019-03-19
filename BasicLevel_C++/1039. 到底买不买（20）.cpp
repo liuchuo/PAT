@@ -1,24 +1,21 @@
 #include <iostream>
 using namespace std;
+int book[256];
 int main() {
     string a, b;
     cin >> a >> b;
-    for (int i = 0; i < b.length(); i++) {
-        for (int j = 0; j < a.length(); j++) {
-            if (a[j] == b[i]) {
-                b[i] = '#';
-                a[j] = '#';
-            }
-        }
-    }
-    int cnt1 = 0, cnt2 = 0;
-    for (int i = 0; i < b.length(); i++)
-        if (b[i] != '#') cnt1++;
     for (int i = 0; i < a.length(); i++)
-        if (a[i] != '#') cnt2++;
-    if (cnt1 != 0)
-        cout << "No " << cnt1;
+        book[a[i]]++;
+    int result = 0;
+    for (int i = 0; i < b.length(); i++) {
+        if (book[b[i]] > 0)
+            book[b[i]]--;
+        else
+            result++;
+    }
+    if(result != 0)
+        printf("No %d", result);
     else
-        cout << "Yes " << cnt2;
+        printf("Yes %d", a.length() - b.length());
     return 0;
 }
