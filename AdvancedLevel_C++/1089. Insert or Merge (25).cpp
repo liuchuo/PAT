@@ -2,15 +2,12 @@
 #include <algorithm>
 using namespace std;
 int main() {
-    int n;
+    int n, a[100], b[100], i, j;
     cin >> n;
-    int *a = new int [n];
-    int *b = new int [n];
     for (int i = 0; i < n; i++)
         cin >> a[i];
     for (int i = 0; i < n; i++)
         cin >> b[i];
-    int i, j;
     for (i = 0; i < n - 1 && b[i] <= b[i + 1]; i++);
     for (j = i + 1; a[j] == b[j] && j < n; j++);
     if (j == n) {
@@ -35,7 +32,5 @@ int main() {
         if (j != 0) printf(" ");
         printf("%d", a[j]);
     }
-    delete [] a;
-    delete [] b;
     return 0;
 }
