@@ -20,8 +20,8 @@ int main() {
     }
     printf("%d\n", cnt);
     for(int i = 0; i < cnt; i++) {
-        printf("%d", v[i]);
         if (i != 0) printf(" ");
+        printf("%d", v[i]);
     }
     printf("\n");
     return 0;
