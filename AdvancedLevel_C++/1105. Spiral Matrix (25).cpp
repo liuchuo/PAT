@@ -1,23 +1,18 @@
 #include <iostream>
+#include <algorithm>
 #include <cmath>
 #include <vector>
-#include <algorithm>
 using namespace std;
-int func(int N) {
-    int i = sqrt((double)N);
-    while(i >= 1) {
-        if(N % i == 0)
-            return i;
-        i--;
-    }
-    return 1;
-}
 int cmp(int a, int b) {return a > b;}
 int main() {
     int N, m, n, t = 0;
     scanf("%d", &N);
-    n = func(N);
-    m = N / n;
+    for (n = sqrt((double)N); n >= 1; n--) {
+        if (N % n == 0) {
+            m = N / n;
+            break;
+        }
+    }
     vector<int> a(N);
     for (int i = 0; i < N; i++)
         scanf("%d", &a[i]);
