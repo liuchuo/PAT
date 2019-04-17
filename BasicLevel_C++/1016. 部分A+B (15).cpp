@@ -2,18 +2,12 @@
 using namespace std;
 int main() {
     string a, b;
-    int m, n, counta = 0, countb = 0, ta = 0, tb = 0;
-    cin >> a >> m >> b >> n;
+    int da, db, pa = 0, pb = 0;
+    cin >> a >> da >> b >> db;
     for (int i = 0; i < a.length(); i++)
-        if (m == (a[i] - '0')) counta++;
+        if (da == (a[i] - '0')) pa = pa * 10 + da;
     for (int i = 0; i < b.length(); i++)
-        if (n == (b[i] - '0')) countb++;
-    if (counta != 0) ta = m;
-    if (countb != 0) tb = n;
-    for (int i = 1; i < counta; i++)
-        ta = 10 * ta + m;
-    for (int i = 1; i < countb; i++)
-        tb = 10 * tb + n;
-    cout << ta + tb;
+        if (db == (b[i] - '0')) pb = pb * 10 + db;
+    cout << pa + pb;
     return 0;
 }
