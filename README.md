@@ -174,6 +174,10 @@ PAT的这个仓库我一直在维护，包括每次考试后新出的题目都�
 | 1153 | Decode Registration Card of PAT (25) | [查看题解](https://www.liuchuo.net/archives/8023) |          模拟，排序，map           |
 | 1154 |         Vertex Coloring (25)         | [查看题解](https://www.liuchuo.net/archives/8025) |        STL的应用，set，hash        |
 | 1155 |           Heap Paths (30)            | [查看题解](https://www.liuchuo.net/archives/8027) |            深搜回溯，堆            |
+| 1156 |           Sexy Primes (20)           | [查看题解]() |               水题               |
+| 1157 |           Anniversary (25)           | [查看题解]() |            模拟，set             |
+| 1158 |       Telefraud Detection (25)       | [查看题解]() |         模拟，并查集，排序         |
+| 1159 |   Structure of a Binary Tree (30)    | [查看题解]() |        中序后序建树，树的遍历       |
 
 # PAT乙级题解
 
