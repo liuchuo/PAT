@@ -15,6 +15,7 @@ int main() {
             continue;
         } else {
             int lenans = ans.length();
+            if(lens < lenans) swap(ans, s);
             int minlen = min(lens, lenans);
             for(int j = 0; j < minlen; j++) {
                 if(ans[j] != s[j]) {
