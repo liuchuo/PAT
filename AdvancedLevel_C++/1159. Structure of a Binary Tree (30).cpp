@@ -76,5 +76,7 @@ int main() {
         }
         cout << (flag ? "Yes" : "No") << endl;
     }
+    free(postorder);
+    free(inorder);
     return 0;
 }
