@@ -15,7 +15,7 @@ int main() {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) scanf("%d", &v[j]);
         int flag = v[0] > v[1] ? 1 : -1;
-        for (int j = 0; j <= (n-1) / 2; j++) {
+        for (int j = 0; j < n / 2; j++) {
             int left = j * 2 + 1, right = j * 2 + 2;
             if (flag == 1 && (v[j] < v[left] || (right < n && v[j] < v[right]))) flag = 0;
             if (flag == -1 && (v[j] > v[left] || (right < n && v[j] > v[right]))) flag = 0;
