@@ -1,28 +1,25 @@
 #include <iostream>
-#include <vector>
 using namespace std;
-int m, n;
-vector<int> v;
+int a[1005], m, n;
 void postOrder(int index) {
-    if (index >= n) return;
+    if (index > n) return;
+    postOrder(index * 2);
     postOrder(index * 2 + 1);
-    postOrder(index * 2 + 2);
-    printf("%d%s", v[index], index == 0 ? "\n" : " ");
+    printf("%d%s", a[index], index == 1 ? "\n" : " ");
 }
 int main() {
-    scanf("%d%d", &m, &n);
-    v.resize(n);
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) scanf("%d", &v[j]);
-        int flag = v[0] > v[1] ? 1 : -1;
-        for (int j = 0; j < n / 2; j++) {
-            int left = j * 2 + 1, right = j * 2 + 2;
-            if (flag == 1 && (v[j] < v[left] || (right < n && v[j] < v[right]))) flag = 0;
-            if (flag == -1 && (v[j] > v[left] || (right < n && v[j] > v[right]))) flag = 0;
+    scanf("%d %d", &m, &n);
+    while (m--) {
+        int minn = 1, maxn = 1;
+        for (int i = 1; i <= n; i++) scanf("%d", &a[i]);
+        for (int i = 2; i <= n; i++) {
+            if (a[i] > a[i / 2]) maxn = 0;
+            if (a[i] < a[i / 2]) minn = 0;
         }
-        if (flag == 0) printf("Not Heap\n");
-        else printf("%s Heap\n", flag == 1 ? "Max" : "Min");
-        postOrder(0);
+        if (maxn == 1) printf("Max Heap\n");
+        else if (minn == 1) printf("Min Heap\n");
+        else printf("Not Heap\n");
+        postOrder(1);
     }
     return 0;
 }
