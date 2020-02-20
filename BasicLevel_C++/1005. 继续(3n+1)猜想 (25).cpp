@@ -1,30 +1,26 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <set>
 using namespace std;
-int arr[10000];
-bool cmp(int a, int b) {return a > b;}
-int main() {
-    int k, n, flag = 0;
+int main(){
+    int k;
     cin >> k;
-    vector<int> v(k);
-    for (int i = 0; i < k; i++) {
-        cin >> n;
-        v[i] = n;
-        while (n != 1) {
-            if (n % 2 != 0) n = 3 * n + 1;
-            n = n / 2;
-            if (arr[n] == 1) break;
-            arr[n] = 1;
+    set <int,greater<int>> st;
+    for(int i = 0;i < k;i++){
+        cin >> k;
+        st.insert(k);
+    }
+    set <int,greater<int>>::iterator t;
+    for(t = st.begin();t != st.end();t++){
+        int tmp_num = *t;
+        while(tmp_num != 1){
+            if(tmp_num & 1) tmp_num = tmp_num * 3 + 1;
+            tmp_num /= 2;
+            if(tmp_num != *t && st.find(tmp_num) != st.end()) st.erase(tmp_num);
         }
     }
-    sort(v.begin(), v.end(), cmp);
-    for (int i = 0; i < v.size(); i++) {
-        if (arr[v[i]] == 0) {
-            if (flag == 1) cout << " ";
-            cout << v[i];
-            flag = 1;
-        }
+    for(t = st.begin();t != st.end();t++){
+        if(t != st.begin()) cout << ' ';
+        cout << *t;
     }
     return 0;
 }
