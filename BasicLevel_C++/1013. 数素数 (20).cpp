@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 bool isprime(int a) {
     for (int i = 2; i * i <= a; i++)
@@ -7,22 +6,22 @@ bool isprime(int a) {
     return true;
 }
 int main() {
-    int M, N, num = 2, cnt = 0;
+    int M, N, num = 2, cnt = 0, tab=0;
     cin >> M >> N;
-    vector<int> v;
     while (cnt < N) {
         if (isprime(num)) {
             cnt++;
-            if (cnt >= M) v.push_back(num);
+            if (cnt >= M) {
+                tab++;
+                if(tab != 1) cout << ' ';
+                cout << num;
+                if(tab == 10) {
+                    cout << '\n';
+                    tab = 0;
+                }
+            }
         }
         num++;
-    }
-    cnt = 0;
-    for (int i = 0; i < v.size(); i++) {
-        cnt++;
-        if (cnt % 10 != 1) printf(" ");
-        printf("%d", v[i]);
-        if (cnt % 10 == 0) printf("\n");
     }
     return 0;
 }
