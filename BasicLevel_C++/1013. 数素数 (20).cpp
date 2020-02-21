@@ -6,7 +6,7 @@ bool isprime(int a) {
     return true;
 }
 int main() {
-    int M, N, num = 2, cnt = 0, tab=0;
+    int M, N, num = 2, cnt = 0, tab = 0;
     cin >> M >> N;
     while (cnt < N) {
         if (isprime(num)) {
