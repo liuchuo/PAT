@@ -1,28 +1,21 @@
 #include <iostream>
-using namespace std;
-int k[200005];
-int main(){
-    int n, m, temp, count = 0;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-        scanf("%d", &k[i]);
-    k[n + 1] = 0x7fffffff;
-    cin >> m;
-    int midpos = (n + m + 1) / 2, i = 1;
-    for (int j = 1; j <= m; j++) {
-        scanf("%d", &temp);
-        while (k[i] < temp) {
-            count++;
-            if (count == midpos) cout << k[i];
-            i++;
-        }
-        count++;
-        if (count == midpos) cout << temp;
+const int maxn = 200005;
+int n, m, a1[maxn], a2[maxn], cnt = 0, i, j, ans;
+int main() {
+    scanf("%d", &n);
+    for(i = 1; i <= n; i++) scanf("%d", &a1[i]);
+    scanf("%d", &m);
+    for(i = 1; i <= m; i++) scanf("%d", &a2[i]);
+    int target = (n + m + 1) / 2;
+    i = 1, j = 1;
+    while(i <= n && j <= m) {
+        ans = a1[i] <= a2[j] ? a1[i++] : a2[j++];
+        if(++cnt == target) break;
     }
-    while (i <= n) {
-        count++;
-        if (count == midpos) cout << k[i];
-        i++;
-    }
+    if(i <= n && cnt < target)  
+        ans = a1[i + target - cnt - 1];
+    else if(j <= m && cnt < target) 
+        ans = a2[j + target - cnt - 1];
+    printf("%d", ans);
     return 0;
 }
