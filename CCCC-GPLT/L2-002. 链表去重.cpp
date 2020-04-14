@@ -4,10 +4,7 @@
 using namespace std;
 const int maxn = 100000;
 struct NODE {
-    int address;
-    int key;
-    int next;
-    int num;
+    int address, key, next, num;
 }node[maxn];
 bool exist[maxn];
 int cmp1(NODE a, NODE b){
