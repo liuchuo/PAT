@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     int n, cnt = 0;
     char a[50], b[50];
-    double temp, sum = 0.0;
+    double temp = 0.0, sum = 0.0;
     cin >> n;
     for(int i = 0; i < n; i++) {
         scanf("%s", a);
