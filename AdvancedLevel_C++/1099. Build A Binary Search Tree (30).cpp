@@ -1,35 +1,32 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
 using namespace std;
-int n, cnt, b[100];
+int n, cnt, b[100], maxLevel;
 struct node {
-    int data, l, r, index, level;
+    int data, l, r, level;
 }a[110];
-bool cmp(node x, node y) {
-    if (x.level != y.level) return x.level < y.level;
-    return x.index < y.index;
-}
-void dfs(int root, int index, int level) {
-    if (a[root].l == -1 && a[root].r == -1) {
-        a[root] = {b[cnt++], a[root].l, a[root].r, index, level};
-    } else {
-        if (a[root].l != -1) dfs(a[root].l, index * 2 + 1, level + 1);
-        a[root] = {b[cnt++], a[root].l, a[root].r, index, level};
-        if (a[root].r != -1) dfs(a[root].r, index * 2 + 2, level + 1);
-    }
+vector<int> v[100];
+void dfs(int root, int level) {
+    maxLevel = max(level, maxLevel);
+    if (a[root].l != -1) dfs(a[root].l, level + 1);
+    a[root] = {b[cnt++], a[root].l, a[root].r, level};
+    if (a[root].r != -1) dfs(a[root].r, level + 1);
 }
 int main() {
     cin >> n;
-    for (int i = 0; i < n; i++)
-        cin >> a[i].l >> a[i].r;
-    for (int i = 0; i < n; i++)
-        cin >> b[i];
+    for (int i = 0; i < n; i++) cin >> a[i].l >> a[i].r;
+    for (int i = 0; i < n; i++) cin >> b[i];
     sort(b, b + n);
-    dfs(0, 0, 0);
-    sort(a, a + n, cmp);
-    for (int i = 0; i < n; i++) {
-        if (i != 0) cout << " ";
-        cout << a[i].data;
+    dfs(0, 0);
+    v[0].push_back(0);
+    for (int i = 0; i <= maxLevel; i++) {
+        for (int j = 0; j < v[i].size(); j++) {
+            if (i != 0) cout << " ";
+            cout << a[v[i][j]].data;
+            if(a[v[i][j]].l != -1) v[i+1].push_back(a[v[i][j]].l);
+            if(a[v[i][j]].r != -1) v[i+1].push_back(a[v[i][j]].r);
+        }
     }
     return 0;
 }
