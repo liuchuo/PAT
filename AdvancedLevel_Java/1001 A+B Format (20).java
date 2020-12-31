@@ -14,10 +14,8 @@ public class Main {
                 System.out.print('-');
                 continue;
             }
-            System.out.print(chars[i] - 48);
-            if (i == chars.length - 1) {
-                System.out.println();
-            } else if ((i + 1) % 3 == modOffset) {
+            System.out.print(chars[i]);
+            if ((i != chars.length - 1) && ((i + 1) % 3 == modOffset)) {
                 System.out.print(',');
             }
         }
