@@ -38,12 +38,11 @@ public class Main {
             for (int i = coefficients.length - 1; i >= 0; i--) {
                 double v = coefficients[i];
                 if (v != 0.0) {
-                    stringBuilder.append(i).append(" ").append(v).append(" ");
+                    stringBuilder.append(" ").append(i).append(" ").append(v);
                     size++;
                 }
             }
-            stringBuilder.insert(0, size + " ");
-            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.insert(0, size);
             return stringBuilder.toString();
         }
     }
