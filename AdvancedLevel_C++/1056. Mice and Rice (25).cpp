@@ -1,62 +1,57 @@
 #include <iostream>
-#include <queue>
+#include <stdio.h>
 #include <vector>
-#include <algorithm>
+#include <queue>
 using namespace std;
-struct node {
-    int weight, index, rank, index0;
+
+struct Player{
+	int weight, rank;
 };
-bool cmp1(node a, node b) {
-    return a.index0 < b.index0;
-}
+
 int main() {
-    int n, g, num;
-    scanf("%d%d", &n, &g);
-    vector<int> v(n);
-    vector<node> w(n);
-    for(int i = 0; i < n; i++)
-        scanf("%d", &v[i]);
-    for(int i = 0; i < n; i++) {
-        scanf("%d", &num);
-        w[i].weight = v[num];
-        w[i].index = i;
-        w[i].index0 = num;
-    }
-    queue<node> q;
-    for(int i = 0; i < n; i++)
-        q.push(w[i]);
-    while(!q.empty()) {
-        int size = q.size();
-        if(size == 1) {
-            node temp = q.front();
-            w[temp.index].rank = 1;
-            break;
-        }
-        int group = size / g;
-        if(size % g != 0)
-            group += 1;
-        node maxnode;
-        int maxn = -1, cnt = 0;
-        for(int i = 0; i < size; i++) {
-            node temp = q.front();
-            w[temp.index].rank = group + 1;
-            q.pop();
-            cnt++;
-            if(temp.weight > maxn) {
-                maxn = temp.weight;
-                maxnode = temp;
-            }
-            if(cnt == g || i == size - 1) {
-                cnt = 0;
-                maxn = -1;
-                q.push(maxnode);
-            }
-        }
-    }
-    sort(w.begin(), w.end(), cmp1);
-    for(int i = 0; i < n; i++) {
-        if(i != 0) printf(" ");
-        printf("%d", w[i].rank);
-    }
-    return 0;
+#if ONLINE_JUDGE
+#else
+	freopen("input.txt", "r", stdin);
+#endif
+	int Np, Ng;
+	scanf("%d %d", &Np, &Ng);
+	vector<Player> players(Np);
+	for(int i = 0; i < Np; i++) {
+		scanf("%d", &players[i].weight);
+	}
+	queue<int> q;
+	for(int i = 0; i < Np; i++) {
+		int index;
+		scanf("%d", &index);
+		q.push(index);
+	}
+	while(q.size() > 1) { 
+		int group, len = q.size();
+		if(len % Ng > 0) {
+			group = len / Ng + 1;
+		} else {
+			group = len / Ng;
+		}
+		int i = 0;
+		for(int g = 0; g < group; g++) {
+			int cnt = 0, max_index = q.front();
+			while(cnt < Ng && i < len) {
+				int index = q.front();
+				players[index].rank = group + 1;
+				if(players[index].weight > players[max_index].weight) {
+					max_index = index;
+				}
+				q.pop();
+				cnt++;
+				i++;
+			}
+			q.push(max_index);
+		}
+	}
+	players[q.front()].rank = 1;
+	printf("%d", players[0].rank);
+	for(int i = 1; i < Np; i++) {
+		printf(" %d", players[i].rank);
+	}
+	return 0;
 }
