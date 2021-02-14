@@ -1,36 +1,35 @@
 #include <iostream>
 #include <vector>
-using namespace std;
-vector<int> v;
-int a[1009], n, isMin = 1, isMax = 1;
-void dfs(int index) {
-    if (index * 2 > n && index * 2 + 1 > n) {
-        if (index <= n) {
-            for (int i = 0; i < v.size(); i++)
-                printf("%d%s", v[i], i != v.size() - 1 ? " " : "\n");
-        }
-    } else {
-        v.push_back(a[index * 2 + 1]);
-        dfs(index * 2 + 1);
-        v.pop_back();
-        v.push_back(a[index * 2]);
-        dfs(index * 2);
-        v.pop_back();
+
+void path(const std::vector<int> &store, int start, std::string pre){
+    if (start >= store.size())
+        return;
+    else if (start * 2 >= store.size()){
+        pre = pre + " " + std::to_string(store.at(start));
+        std::printf("%s\n", pre.substr(1).c_str());
+        return;
     }
+    path(store, start * 2 + 1, pre + " " + std::to_string(store.at(start)));
+    path(store, start * 2, pre + " " + std::to_string(store.at(start)));
 }
-int main() {
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-        scanf("%d", &a[i]);
-    v.push_back(a[1]);
-    dfs(1);
-    for (int i = 2; i <= n; i++) {
-        if (a[i/2] > a[i]) isMin = 0;
-        if (a[i/2] < a[i]) isMax = 0;
+
+int main(){
+    int nums;
+    bool isMin = true, isMax = true;
+    std::scanf("%d\n", &nums);
+    std::vector<int> store = std::vector<int>(nums+1, 0);
+    for (int i = 1; i <= nums; i++){
+        std::scanf("%d", &store[i]);
     }
-    if (isMin == 1)
+    for (auto i = 2; i < store.size(); i++){
+        if (store[i / 2] < store[i])
+            isMax = false;
+        if (store[i / 2] > store[i])
+            isMin = false;
+    }
+    path(store, 1, "");
+    if (isMin)
         printf("Min Heap");
     else 
-        printf("%s", isMax == 1 ? "Max Heap" : "Not Heap"); 
-    return 0;
+        printf("%s", isMax? "Max Heap" : "Not Heap");
 }
