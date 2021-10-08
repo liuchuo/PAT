@@ -1,15 +1,15 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int a[1005][105], sum[1005];
+int sum[1005];
 int main() {
-    int m, n, maxn = 0, total = 0;
+    int m, n, temp, maxn = 0;
     vector<int> ans;
     cin >> m >> n;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
-            cin >> a[i][j];
-            sum[j] += a[i][j];
+            cin >> temp;
+            sum[j] += temp;
             maxn = max(maxn, sum[j]);
         }
     }
