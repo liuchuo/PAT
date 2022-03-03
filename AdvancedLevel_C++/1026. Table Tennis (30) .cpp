@@ -27,9 +27,11 @@ void alloctable(int personid, int tableid) {
     table[tableid].end = player[personid].start + player[personid].time;
     table[tableid].num++;
 }
+
+// 找到第一个vip用户
 int findnextvip(int vipid) {
     vipid++;
-    while(vipid < player.size() && player[vipid].vip == false) vipid++;
+    while(vipid < player.size() && !player[vipid].vip) vipid++;
     return vipid;
 }
 int main() {
@@ -42,7 +44,7 @@ int main() {
         tempperson.start = 21 * 3600;
         if(tempperson.arrive >= 21 * 3600) continue;
         tempperson.time = temptime <= 120 ? temptime * 60 : 7200;
-        tempperson.vip = ((flag == 1) ? true : false);
+        tempperson.vip = (flag == 1);
         player.push_back(tempperson);
     }
     scanf("%d%d", &k, &m);
@@ -56,6 +58,7 @@ int main() {
     vipid = findnextvip(vipid);
     while(i < player.size()) {
         int index = -1, minendtime = 999999999;
+        // 找到最早结束的桌子
         for(int j = 1; j <= k; j++) {
             if(table[j].end < minendtime) {
                 minendtime = table[j].end;
@@ -63,36 +66,57 @@ int main() {
             }
         }
         if(table[index].end >= 21 * 3600) break;
-        if(player[i].vip == true && i < vipid) {
+        // 这个vip已经被分配过了
+        if(player[i].vip && i < vipid) {
             i++;
             continue;
         }
-        if(table[index].vip == true) {
-            if(player[i].vip == true) {
+        // 第一个结束的桌子是vip桌
+        if(table[index].vip) {
+            // 下一个玩家刚好是vip
+            if(player[i].vip) {
                 alloctable(i, index);
                 if(vipid == i) vipid = findnextvip(vipid);
                 i++;
-            } else {
-                if(vipid < player.size() && player[vipid].arrive <= table[index].end) {
-                    alloctable(vipid, index);
-                    vipid = findnextvip(vipid);
-                } else {
-                    alloctable(i, index);
-                    i++;
+            } else {  //vip桌子空闲了但是下一个不是vip
+                // 看看是否有空闲的非vip桌子
+                bool flag = true;
+                for (int j=1;j<=index;j++){
+                    if(!table[j].vip && player[i].arrive >table[j].end){
+                        // 分配给普通用户
+                        alloctable(i, j);
+                        i++;
+                        flag = false;
+                        break;
+                    }
                 }
+                if(flag){
+                    // 最近的vip在桌子结束前到达
+                    if(vipid < player.size() && player[vipid].arrive <= table[index].end) {
+                        alloctable(vipid, index);
+                        vipid = findnextvip(vipid);
+                    } else {
+                        // 分配给普通用户
+                        alloctable(i, index);
+                        i++;
+                    }
+                }
+
             }
-        } else {
-            if(player[i].vip == false) {
+        } else { // 第一个结束的桌子不是vip桌
+            if(!player[i].vip) { // 最近到达的用户不是vip，就分配给他
                 alloctable(i, index);
                 i++;
-            } else {
+            } else {//最近的用户是vip
                 int vipindex = -1, minvipendtime = 999999999;
+                // 看是最快的vip桌哪时候空闲下来
                 for(int j = 1; j <= k; j++) {
-                    if(table[j].vip == true && table[j].end < minvipendtime) {
+                    if(table[j].vip && table[j].end < minvipendtime) {
                         minvipendtime = table[j].end;
                         vipindex = j;
                     }
                 }
+                // vip桌在vip玩家来之前就空闲下来就分配vip桌给vip用户
                 if(vipindex != -1 && player[i].arrive >= table[vipindex].end) {
                     alloctable(i, vipindex);
                     if(vipid == i) vipid = findnextvip(vipid);
