@@ -14,7 +14,6 @@ void dfsTimepath(int v) {
     }
     dfsTimepath(Timepre[v]);
 }
-
 void dfsdispath(int v) {
     temppath.push_back(v);
     if(v == st) {
@@ -49,7 +48,6 @@ int main() {
         }
     }
     scanf("%d %d", &st, &fin);
-
     Time[st] = 0;
     for(int i = 0; i < n; i++) {
         Timepre[i] = i;
@@ -78,7 +76,6 @@ int main() {
         }
     }
     dfsTimepath(fin);
-
     fill(visit, visit + 510, false);
     dis[st] = 0;
     for(int i = 0; i < n; i++) {

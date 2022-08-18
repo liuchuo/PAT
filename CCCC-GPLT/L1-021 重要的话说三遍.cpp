@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 int main() {
-    string s;
-    cin >> s;
-    cout << "Hello " << s;
+    cout << "I'm gonna WIN!\nI'm gonna WIN!\nI'm gonna WIN!";
     return 0;
 }

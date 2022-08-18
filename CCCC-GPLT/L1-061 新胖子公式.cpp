@@ -6,5 +6,5 @@ int main() {
     printf("%.1f\n", res);
     if(res > 25.0) printf("PANG");
     else printf("Hai Xing");
-	return 0;
+    return 0;
 }
