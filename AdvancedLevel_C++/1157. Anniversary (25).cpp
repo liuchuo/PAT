@@ -1,28 +1,32 @@
 #include <iostream>
-#include <unordered_set>
+#include <set>
 using namespace std;
-
+int n, m, cnt;
+string temp, smallx = "99999999", smalla = "99999999", ansx, ansa;
+set<string> record;
 int main() {
-    string id, oldest = "999999999999999999";
-    unordered_set<string> alumnus;
-    int n, m, count = 0;
     cin >> n;
-    while (n--) {
-        cin >> id;
-        alumnus.insert(id);
+    for (int i = 0; i < n; i++) {
+        cin >> temp;
+        record.insert(temp);
     }
     cin >> m;
-    while (m--) {
-        cin >> id;
-        if (alumnus.count(id)) {
-            count++;
-            if (count == 0 || stoi(id.substr(6, 8)) < stoi(oldest.substr(6, 8)))
-                oldest = id;
-        } else {
-            if (count == 0 && stoi(id.substr(6, 8)) < stoi(oldest.substr(6, 8)))
-                oldest = id;
+    for (int i = 0; i < m; i++) {
+        cin >> temp;
+        if (record.count(temp)) {
+            cnt++;
+            if (smallx > temp.substr(6, 8)) {
+                smallx = temp.substr(6, 8);
+                ansx = temp;
+            }
+        }
+        if (smalla > temp.substr(6, 8)) {
+                smalla = temp.substr(6, 8);
+                ansa = temp;
         }
     }
-    cout << count << endl << oldest << endl;
+    cout << cnt << endl;
+    if (cnt) cout << ansx;
+    else cout << ansa;
     return 0;
 }

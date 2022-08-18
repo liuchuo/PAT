@@ -1,73 +1,52 @@
-#include <iostream>
-#include <algorithm>
+﻿#include <iostream>
 #include <vector>
 using namespace std;
-
-struct UnionFind {
-    vector<int> id;
-    vector<int> sz;
-
-    UnionFind(int n) : id(n), sz(n, 1) {
-        for (int i = 0; i < n; i++)
-            id[i] = i;
-    }
-
-    int Find(int x) {
-        if (id[x] == x) return x;
-        return id[x] = Find(id[x]);
-    }
-
-    void Union(int x, int y) {
-        int i = Find(x);
-        int j = Find(y);
-        if (i == j) return;
-        if (sz[i] < sz[j]) { id[i] = j; sz[j] += sz[i]; }
-        else               { id[j] = i; sz[i] += sz[j]; }
-    }
-};
-
+int k, n, m, c, r, d, p[1001], sc[1001], rec[1001], mark[1001], record[1001][1001];
+vector<int> su;
+int Find(int a) {
+    if (p[a] != a) return p[a] = Find(p[a]);
+    return a;
+}
+void add(int a, int b) {
+    int f1 = Find(a), f2 = Find(b);
+    if (f1 < f2) p[f2] = f1;
+    else p[f1] = f2;
+}
 int main() {
-    int k, n, m;
+    for (int i = 1; i <= 1000; i++) p[i] = i;
     cin >> k >> n >> m;
-    vector<vector<int>> durations(n + 1, vector<int>(n + 1));
-    while (m--) {
-        int c, r, d;
+    for (int i = 0; i < m; i++) {
         cin >> c >> r >> d;
-        durations[c][r] += d;
+        record[c][r] += d;
     }
-    vector<int> suspects;
     for (int i = 1; i <= n; i++) {
-        int count = 0, call_back = 0;
         for (int j = 1; j <= n; j++) {
-            if (durations[i][j] > 0 && durations[i][j] <= 5) {
-                count++;
-                call_back += (durations[j][i] != 0);
+            if (record[i][j] && record[i][j] <= 5) {
+                sc[i]++;
+                if (record[j][i]) rec[i]++;
             }
         }
-        if (count > k && call_back <= 0.2 * count)
-            suspects.push_back(i);
+        if (sc[i] > k && rec[i] * 5 <= sc[i]) su.push_back(i);
     }
-    if (suspects.empty()) {
-        cout << "None" << endl;
+    if (su.empty()) {
+        cout << "None";
         return 0;
     }
-    UnionFind uf(n + 1);
-    for (int i = 0; i < suspects.size(); i++)
-        for (int j = i + 1; j < suspects.size(); j++)
-            if (durations[suspects[i]][suspects[j]] != 0 && durations[suspects[j]][suspects[i]] != 0)
-                uf.Union(suspects[i], suspects[j]);
-    vector<int> temp[n + 1];
-    for (auto x : suspects)
-        temp[uf.Find(x)].push_back(x);
-    vector<vector<int>> ans;
-    for (auto gang : temp)
-        if (!gang.empty())
-            ans.push_back(gang);
-    sort(ans.begin(), ans.end(), [](vector<int> v1, vector<int> v2) {
-        return v1.front() < v2.front();
-    });
-    for (auto gang : ans)
-        for (int i = 0; i < gang.size(); i++)
-            cout << gang[i] << (i < gang.size() - 1 ? ' ' : '\n');
+    for (int i = 0; i < su.size(); i++) {
+        for (int j = i + 1; j < su.size(); j++) {
+            if (record[su[i]][su[j]] && record[su[j]][su[i]]) add(su[i], su[j]);
+        }
+    }
+    for (int i = 0; i < su.size(); i++) {
+        if (mark[su[i]]) continue;
+        cout << su[i];
+        for (int j = i + 1; j < su.size(); j++) {
+            if (Find(su[i]) == Find(su[j])) {
+                cout << ' ' << su[j];
+                mark[su[j]] = 1;
+            }
+        }
+        cout << '\n';
+    }
     return 0;
 }
