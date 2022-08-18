@@ -29,7 +29,6 @@ int bfs(node tnode) {
     }
     return cnt;
 }
-
 int main() {
     scanf("%d %d", &n, &l);
     v.resize(n + 1);

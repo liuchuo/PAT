@@ -11,7 +11,7 @@ bool cmp(peo& a, peo& b) {
     return a.ge > b.ge;
 }
 bool cmp2(peo& a, peo& b) {
-  return a.id < b.id;
+    return a.id < b.id;
 }
 int main(){
     int n, m, k, quota[110], cnt[110] = {0};

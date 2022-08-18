@@ -15,7 +15,6 @@ int cmp1(node a, node b) {
     else
         return (strcmp(a.name, b.name) < 0);
 }
-
 int main() {
     int n, k, num, amin, amax;
     scanf("%d %d", &n, &k);
